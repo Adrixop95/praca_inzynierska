@@ -30,6 +30,7 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 		+ `sudo diskutil unmountDisk /dev/diskX` <== odmontowuje wybrany przez nas dysk "X"
 		+ `sudo dd bs=1m if=obraz.img of=/dev/disk1` <== odtwarza obraz "obraz.img" na dysk "/dev/disk1". 		<br><br>Hint: za pomocą skrótu ctrl+t można sprawdzić ile bajtów zostało przetransferowane na kartę pamięci.  
 		(nie mylić tutaj z klawiszem command/cmd!).
+	- Odmontuj kartę pamięci aby bezpiecznie ją wyciągnąć z komputera.
 		
 <br><br>Procedura otwarzania może potrwać nawet parę godzin w zależności od zastosowanej karty pamięci, komputera, systemu operacyjnego oraz innych czynników zewnętrznych, poczekaj cierpliwie i nie odłączaj karty. <br> <br>
 
