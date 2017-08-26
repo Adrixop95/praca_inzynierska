@@ -16,6 +16,10 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 + Stałe połączenie z internetem
 +  Konto Google Drive
 
+### Platforma testowa
++ Raspberry Pi 3
++ Raspberry Pi Zero W
+
 ### Instalacja
 
 Todo.
@@ -30,6 +34,6 @@ Todo.
 
 
 <br><br>
-**Stworzone dla Uniwersytet Śląski z ♥**
+**Stworzone dla UŚ oraz ŚMCEBI z ♥**
 
 ``By Adrian Rupala``
