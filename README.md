@@ -1,7 +1,7 @@
 # Praca inżynierska
 
 Temat pracy inżynierskiej:
->System wyświetlania informacji w oparciu o mikrokomputer Raspberry Pi
+>System wyświetlania informacji w oparciu o Raspberry Pi
 
 Promotor:
 >dr hab. inż. Michał Mierzwa
