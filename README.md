@@ -14,7 +14,7 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 + Raspberry Pi B+/2/3/Zero/Zero W
 + Karta pamięci min. 16GB
 + Stałe połączenie z internetem
-+  Konto Google Drive
++  Konto Google
 
 ### Platforma testowa
 + Raspberry Pi 3
