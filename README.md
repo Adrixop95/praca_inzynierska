@@ -17,7 +17,7 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 +  Konto Google
 
 ### Platforma testowa
-+ Raspberry Pi 3
++ Raspberry Pi 3 model b + karta pamięci SanDisk Ultra microSDHC 16GB
 + Raspberry Pi Zero W
 
 ### Instalacja
