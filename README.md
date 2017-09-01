@@ -54,7 +54,7 @@ Pełna lista zostanie zaktualizana w przyszłości.
 + openbox (menadżer okien dla interface graficznego X Window Server)
 + xorg (implementacja podsystemu grafiki X Window System)
 + lightdm (menadżer logowania)
-+ 
++ openjdk-8-jre, openjdk-8-jdk (wolnodostępna i otwarta implementacja języka Java)
 
 ### Komendy wykonane na obrazie od pierwszego uruchomienia
 + sudo raspi-config (w celu uruchomienia połączenia ssh)
@@ -66,6 +66,12 @@ Pełna lista zostanie zaktualizana w przyszłości.
 + sudo apt-get update && sudo apt-get upgrade
 + sudo apt-get install openbox xorg lightdm htop nano vim openjdk-8-jre openjdk-8-jdk
 + echo "exec openbox-session" > ~/.xinitrc 
++ sudo raspi-config (w celu ustawienia automatycznego logowania i bootowania do DE)
++ sudo nano /etc/lightdm/lightdm.conf
+	- Dodanie polecenia `xserver-command=X -s 0 dpms` w celu wyłąćzenia sleepu
++ sudo nano /boot/cmdline.txt
+	- consoleblank=0
++
 
 ### Źródła
 
