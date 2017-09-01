@@ -50,6 +50,23 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 
 Pełna lista zostanie zaktualizana w przyszłości.
 
+### Zainstalowane na obrazie (aplikacje)
++ openbox (menadżer okien dla interface graficznego X Window Server)
++ xorg (implementacja podsystemu grafiki X Window System)
++ lightdm (menadżer logowania)
++ 
+
+### Komendy wykonane na obrazie od pierwszego uruchomienia
++ sudo raspi-config (w celu uruchomienia połączenia ssh)
++ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+	- network={
+	- 	ssid="nazwa_sieci"
+	-  	psk="haslo"
+	-   }
++ sudo apt-get update && sudo apt-get upgrade
++ sudo apt-get install openbox xorg lightdm htop nano vim openjdk-8-jre openjdk-8-jdk
++ echo "exec openbox-session" > ~/.xinitrc 
+
 ### Źródła
 
 Todo.  
