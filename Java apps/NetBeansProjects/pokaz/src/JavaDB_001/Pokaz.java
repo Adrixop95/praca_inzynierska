@@ -63,7 +63,7 @@ public class Pokaz extends JFrame{
 
     public static void main(String[] args) throws FileNotFoundException{ 
         
-    File path = new File("/Users/adrix/Desktop/pics/");
+    File path = new File("/Users/adrix/Pictures/pics_test");
 
     File [] files = path.listFiles();
     
