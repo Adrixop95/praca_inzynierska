@@ -32,9 +32,7 @@ public class Pokaz extends JFrame{
     
     public Pokaz(){
         super("PokazSMCEBI");
-        
-        System.out.println("Wykryta rozdzielczosc to: "+width+"x"+height);
-        
+                
         pic = new JLabel();
         pic.setBounds(0, 0, width, height);
 
@@ -71,8 +69,6 @@ public class Pokaz extends JFrame{
 
     public static void main(String[] args) throws FileNotFoundException{ 
     
-    System.out.println(System.getProperty("os.name"));
-
     if(System.getProperty("os.name").startsWith("Windows")){
         System.out.println("Wykryty system to Windows");
         path_to_files = "";
