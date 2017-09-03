@@ -42,6 +42,11 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 
 <br><br> Nikt nie ponosi odpowiedzialności za wszelkie uszkodzenia wynikające z winy użytkownika. <br><br>
 
+### Zalecany sposób uruchomienia aplikacji
+Przejdź do pobranego folderu ze skryptem oraz wpisz komendy
+> chmod +x ./papie.sh <br>
+> screen ./papie.sh
+
 ### Użyte technologie oraz oprogramowanie
 + [Raspbian GNU/Linux](https://www.raspbian.org)
 + [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -57,6 +62,7 @@ Pełna lista zostanie zaktualizana w przyszłości.
 + openjdk-8-jre, openjdk-8-jdk (wolnodostępna i otwarta implementacja języka Java)
 + screen (uruchamianie aplikacji w tle)
 + xscreensaver (standardowy zestaw wygaszaczy ekranu)
++ unclutter (aplikacja służąca do ukrycia kursora)
 + 
 
 ### Komendy wykonane na obrazie od pierwszego uruchomienia
@@ -67,7 +73,7 @@ Pełna lista zostanie zaktualizana w przyszłości.
 	-  	psk="haslo"
 	-   }
 + sudo apt-get update && sudo apt-get upgrade
-+ sudo apt-get install openbox xorg lightdm htop nano vim openjdk-8-jre openjdk-8-jdk screen xscreensaver
++ sudo apt-get install openbox xorg lightdm htop nano vim openjdk-8-jre openjdk-8-jdk screen xscreensaver unclutter
 + echo "exec openbox-session" > ~/.xinitrc 
 + sudo raspi-config (w celu ustawienia automatycznego logowania i bootowania do DE)
 + sudo nano /etc/lightdm/lightdm.conf
@@ -75,6 +81,8 @@ Pełna lista zostanie zaktualizana w przyszłości.
 + sudo nano /boot/cmdline.txt
 	- consoleblank=0
 +  xscreensaver-demo w celu wyłączenia wygaszania ekranu
++  sudo nano ./xinitrc i dodanie polecenia `@unclutter -display :0 -noevents -grab` oraz poleceń `xset s noblank 
+`,`xset s off `,`xset -dpms`
 +  
 
 ### Źródła
