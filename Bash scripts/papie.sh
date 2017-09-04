@@ -5,6 +5,9 @@ printf "Przygotowania do uruchomienia aplikacji...\n\n"
 #sudo apt-get install openjdk-8-jre openjdk-8-jdk wget unzip -y
 pkill -f 'java -jar'
 export DISPLAY=:0
+xset s noblank
+xset s off
+xset -dpms
 
 cd ~/Pictures/
 printf "Wykryte pliki w folderze Obrazy: \n"
