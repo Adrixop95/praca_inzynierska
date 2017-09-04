@@ -1,3 +1,9 @@
+/*
+
+Created by Adrian Rupala 2017
+
+*/
+
 package JavaDB_001;
 
 import java.awt.Color;
@@ -70,16 +76,16 @@ public class Pokaz extends JFrame{
     public static void main(String[] args) throws FileNotFoundException{ 
     
     if(System.getProperty("os.name").startsWith("Windows")){
-        System.out.println("Wykryty system to Windows");
+        System.out.println("Wykryty system operacyjny to Windows");
         path_to_files = "";
     } else if(System.getProperty("os.name").startsWith("Mac")) {
-        System.out.println("Wykryty system to macOS");
+        System.out.println("Wykryty system operacyjny to macOS");
         path_to_files = "/Users/adrix/Pictures/pics_test";
     } else if(System.getProperty("os.name").startsWith("Linux")){
-        System.out.println("Wykryty system to GNU/Linux.");
+        System.out.println("Wykryty system operacyjny to GNU/Linux.");
         path_to_files = "/home/pi/Pictures";
     } else {
-        System.out.println("Nie wykryto systemu, podaj sciezke recznie: ");
+        System.out.println("Nie wykryto systemu operacyjnego, podaj sciezke recznie: ");
         Scanner diff_path = new Scanner(System.in);
         path_to_files = diff_path.next();
     }   
