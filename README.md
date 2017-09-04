@@ -43,7 +43,7 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 <br><br> Nikt nie ponosi odpowiedzialności za wszelkie uszkodzenia wynikające z winy użytkownika. <br><br>
 
 ### Zalecany sposób uruchomienia aplikacji
-Przejdź do pobranego folderu ze skryptem oraz wpisz komendy
+Przejdź do pobranego folderu z systemem oraz wpisz komendy
 > chmod +x ./papie.sh <br>
 > screen ./papie.sh
 
@@ -63,7 +63,6 @@ Pełna lista zostanie zaktualizana w przyszłości.
 + screen (uruchamianie aplikacji w tle)
 + xscreensaver (standardowy zestaw wygaszaczy ekranu)
 + unclutter (aplikacja służąca do ukrycia kursora)
-+ 
 
 ### Komendy wykonane na obrazie od pierwszego uruchomienia
 + sudo raspi-config (w celu uruchomienia połączenia ssh)
@@ -83,7 +82,6 @@ Pełna lista zostanie zaktualizana w przyszłości.
 +  xscreensaver-demo w celu wyłączenia wygaszania ekranu
 +  sudo nano ./xinitrc i dodanie polecenia `@unclutter -display :0 -noevents -grab` oraz poleceń `xset s noblank 
 `,`xset s off `,`xset -dpms`
-+  
 
 ### Źródła
 
