@@ -64,6 +64,11 @@ Pełna lista zostanie zaktualizana w przyszłości.
 + xscreensaver (standardowy zestaw wygaszaczy ekranu)
 + unclutter (aplikacja służąca do ukrycia kursora)
 
+### Instalowanie infrastruktury sieciowej (interface webowy)
++ https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-16-04
++ https://www.cyberciti.biz/tips/recover-mysql-root-password.html
++ sudo apt-get install  php5-mysqlnd-ms php-mysql libapache2-mod-php5
+
 ### Komendy wykonane na obrazie od pierwszego uruchomienia
 + sudo raspi-config (w celu uruchomienia połączenia ssh)
 + sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
