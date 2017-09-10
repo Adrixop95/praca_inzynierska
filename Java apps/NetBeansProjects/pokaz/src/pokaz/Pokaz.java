@@ -4,7 +4,7 @@ Created by Adrian Rupala 2017
 
 */
 
-package JavaDB_001;
+package pokaz;
 
 import java.awt.Color;
 import java.awt.GraphicsDevice;
