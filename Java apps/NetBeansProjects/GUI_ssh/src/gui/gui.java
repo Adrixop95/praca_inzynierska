@@ -1,13 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
 
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelExec;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
 import javax.swing.*;
 import java.awt.BorderLayout;
-import javax.swing.ImageIcon;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class gui extends javax.swing.JPanel {
     
@@ -15,6 +18,72 @@ public class gui extends javax.swing.JPanel {
     
     public static void main(String[] args) throws InterruptedException {
         gui myscreen = new gui();
+        
+        String USER = "pi";
+        String PASS = "Adrixop098";
+        String host = "192.168.1.18";
+
+        try
+        {
+            JSch jsch = new JSch();
+
+            Session session = jsch.getSession(USER, host, 22);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword(PASS);
+            session.connect();
+
+            String command = "ls ~/";
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand(command);
+
+            channel.setInputStream(null);
+
+            ((ChannelExec) channel).setErrStream(System.err);
+
+            InputStream in = channel.getInputStream();
+
+            channel.connect();
+            StringBuilder sb = new StringBuilder();
+            byte[] tmp = new byte[1024];
+            while (true)
+            {
+                while (in.available() > 0)
+                {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0)
+                        break;
+                    sb.append(new String(tmp, 0, i));
+                }
+                if (channel.isClosed())
+                {
+                    if (in.available() > 0)
+                        continue;
+                    System.out.println("exit-status: "
+                            + channel.getExitStatus());
+                    break;
+                }
+                try
+                {
+                    Thread.sleep(500);
+                }
+                catch (Exception ee)
+                {
+                }
+            }
+            //disconnecting and closing
+            channel.disconnect();
+
+            session.disconnect();
+            System.out.println("Output: ");
+            System.out.println(sb.toString());
+        }
+        catch (Exception e)
+        {
+             //something should be done here
+            e.printStackTrace();
+
+        }
+ 
     }  
     
     public gui() throws InterruptedException {
@@ -27,6 +96,8 @@ public class gui extends javax.swing.JPanel {
         
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,4 +159,3 @@ public class gui extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     
 }
-
