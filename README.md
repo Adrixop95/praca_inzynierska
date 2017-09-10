@@ -18,7 +18,6 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 
 ### Platforma testowa
 + Raspberry Pi 3 model B + karta pamięci SanDisk Ultra microSDHC 16GB
-+ Raspberry Pi Zero W (planowane testy)
 
 ### Instalacja
 
@@ -37,7 +36,7 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 + Dla Microsoft Windows
 	- Todo
 
-+ Dla Ubuntu GNU/Linux
++ Dla GNU/Linux
 	- Todo
 
 <br><br> Nikt nie ponosi odpowiedzialności za wszelkie uszkodzenia wynikające z winy użytkownika. <br><br>
@@ -52,6 +51,7 @@ Przejdź do pobranego folderu z systemem oraz wpisz komendy
 + [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 + [NetBeans](https://netbeans.org)
 + [Apple macOS](https://www.apple.com)
++ [Microsoft Windows](https://www.microsoft.com/pl-pl/windows/)
 
 Pełna lista zostanie zaktualizana w przyszłości.
 
@@ -63,11 +63,6 @@ Pełna lista zostanie zaktualizana w przyszłości.
 + screen (uruchamianie aplikacji w tle)
 + xscreensaver (standardowy zestaw wygaszaczy ekranu)
 + unclutter (aplikacja służąca do ukrycia kursora)
-
-### Instalowanie infrastruktury sieciowej (interface webowy)
-+ https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-16-04
-+ https://www.cyberciti.biz/tips/recover-mysql-root-password.html
-+ sudo apt-get install  php5-mysqlnd-ms php-mysql libapache2-mod-php5
 
 ### Komendy wykonane na obrazie od pierwszego uruchomienia
 + sudo raspi-config (w celu uruchomienia połączenia ssh)
