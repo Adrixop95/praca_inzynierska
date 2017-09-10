@@ -1,3 +1,9 @@
+/*
+
+Created by Adrian Rupala 2017
+
+*/
+
 package gui;
 
 import com.jcraft.jsch.Channel;
