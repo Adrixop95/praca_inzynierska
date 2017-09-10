@@ -6,11 +6,7 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import javax.swing.*;
 import java.awt.BorderLayout;
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class gui extends javax.swing.JPanel {
     
@@ -35,8 +31,6 @@ public class gui extends javax.swing.JPanel {
         
     }
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,8 +138,8 @@ public class gui extends javax.swing.JPanel {
                 {
                     if (in.available() > 0)
                         continue;
-                    System.out.println("exit-status: "
-                            + channel.getExitStatus());
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
                     break;
                 }
                 try
@@ -212,8 +206,8 @@ public class gui extends javax.swing.JPanel {
                 {
                     if (in.available() > 0)
                         continue;
-                    System.out.println("exit-status: "
-                            + channel.getExitStatus());
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
                     break;
                 }
                 try
@@ -279,8 +273,8 @@ public class gui extends javax.swing.JPanel {
                 {
                     if (in.available() > 0)
                         continue;
-                    System.out.println("exit-status: "
-                            + channel.getExitStatus());
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
                     break;
                 }
                 try

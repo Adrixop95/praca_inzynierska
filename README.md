@@ -42,6 +42,9 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 <br><br> Nikt nie ponosi odpowiedzialności za wszelkie uszkodzenia wynikające z winy użytkownika. <br><br>
 
 ### Zalecany sposób uruchomienia aplikacji
+Uruchom aplikację GUI_ssh.jar aby uruchomić, zrestartować albo wyłączyć system.
+
+### Ręczny sposób uruchomienia systemu
 Przejdź do pobranego folderu z systemem oraz wpisz komendy
 > chmod +x ./papie.sh <br>
 > screen ./papie.sh
