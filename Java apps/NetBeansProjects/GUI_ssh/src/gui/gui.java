@@ -6,11 +6,17 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import javax.swing.*;
 import java.awt.BorderLayout;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
 
 public class gui extends javax.swing.JPanel {
     
     JFrame newFrame = new JFrame();
+
     public static String komenda = "";
     public static String USER = "pi";
     public static String PASS = "Adrixop098";
@@ -19,8 +25,45 @@ public class gui extends javax.swing.JPanel {
     
     public static void main(String[] args) throws InterruptedException {
         gui myscreen = new gui();   
-    }  
-    
+    }
+
+    private void updateTextPane(final String text) {
+      SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+          Document doc = textPane.getDocument();
+          try {
+            doc.insertString(doc.getLength(), text, null);
+          } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+          }
+          textPane.setCaretPosition(doc.getLength() - 1);
+        }
+      });
+    }
+
+    private void redirectSystemStreams() {
+      OutputStream out = new OutputStream() {
+        @Override
+        public void write(final int b) throws IOException {
+          updateTextPane(String.valueOf((char) b));
+        }
+
+        @Override
+        public void write(byte[] b, int off, int len) throws IOException {
+          updateTextPane(new String(b, off, len));
+        }
+
+        @Override
+        public void write(byte[] b) throws IOException {
+          write(b, 0, b.length);
+        }
+      };
+
+      System.setOut(new PrintStream(out, true));
+      System.setErr(new PrintStream(out, true));
+      
+    }
+
     public gui() throws InterruptedException {
         initComponents();
         newFrame.getContentPane().add(this, BorderLayout.CENTER);
@@ -28,6 +71,7 @@ public class gui extends javax.swing.JPanel {
                 newFrame.pack();
                     newFrame.setVisible(true);
                         newFrame.setTitle("Wyświetlanie");
+                        redirectSystemStreams();
         
     }
 
@@ -44,6 +88,8 @@ public class gui extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textPane = new javax.swing.JTextPane();
 
         jButton1.setText("Testbutton 1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,17 +116,20 @@ public class gui extends javax.swing.JPanel {
             }
         });
 
+        jScrollPane1.setViewportView(textPane);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -94,7 +143,9 @@ public class gui extends javax.swing.JPanel {
                 .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(173, 173, 173))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
    
@@ -163,13 +214,15 @@ public class gui extends javax.swing.JPanel {
             e.printStackTrace();
 
         }
-   
+        
+    redirectSystemStreams();    
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-        komenda = "neofetch";
+        komenda = "lsb_release -a";
         
         try
         {
@@ -231,6 +284,9 @@ public class gui extends javax.swing.JPanel {
             e.printStackTrace();
 
         }
+        
+    redirectSystemStreams();   
+    
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -297,15 +353,21 @@ public class gui extends javax.swing.JPanel {
              //something should be done here
             e.printStackTrace();
 
-        }        
+        }       
+        
+    redirectSystemStreams();         
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane textPane;
     // End of variables declaration//GEN-END:variables
     
 }
