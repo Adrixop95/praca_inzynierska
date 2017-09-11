@@ -18,9 +18,7 @@ import java.io.PrintStream;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import java.awt.BorderLayout;
-import java.awt.Image;
 import javax.swing.JFrame;
-import java.awt.Toolkit;
 
 
 public class gui extends javax.swing.JPanel {
@@ -51,7 +49,7 @@ public class gui extends javax.swing.JPanel {
         }
       });
     }
-    
+
 
     private void redirectSystemStreams() {
       OutputStream out = new OutputStream() {
@@ -73,8 +71,9 @@ public class gui extends javax.swing.JPanel {
 
       System.setOut(new PrintStream(out, true));
       System.setErr(new PrintStream(out, true));
-      
+
     }
+
     
     public gui() throws InterruptedException {
         initComponents();
@@ -107,6 +106,9 @@ public class gui extends javax.swing.JPanel {
         jTextField4 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
+        jToolBar1 = new javax.swing.JToolBar();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jToolBar3 = new javax.swing.JToolBar();
         jButton4 = new javax.swing.JButton();
@@ -183,6 +185,28 @@ public class gui extends javax.swing.JPanel {
             }
         });
 
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        jButton3.setText("Test połączenia z serwerem");
+        jButton3.setFocusable(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton3);
+
+        jButton2.setText("Restart serwera");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton2);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -190,26 +214,31 @@ public class gui extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
-                    .addComponent(jTextField5))
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+                            .addComponent(jTextField5))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField4)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField5)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(267, 267, 267))
+                .addGap(245, 245, 245))
         );
 
         jTabbedPane2.addTab("Ustawienia", jPanel3);
@@ -263,7 +292,7 @@ public class gui extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
@@ -340,7 +369,7 @@ public class gui extends javax.swing.JPanel {
             channel.disconnect();
 
             session.disconnect();
-            System.out.println("Output: ");
+            System.out.println("System został uruchomiony bez błędu.");
             System.out.println(sb.toString());
         }
         catch (Exception e)
@@ -355,7 +384,7 @@ public class gui extends javax.swing.JPanel {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        komenda = "pkill -f 'SCREEN -dm bash -c' && screen -dm './papie.sh'";
+        komenda = "pkill -f 'SCREEN -dm bash -c' && pkill -f 'java -jar'";
         
         try
         {
@@ -408,7 +437,7 @@ public class gui extends javax.swing.JPanel {
             channel.disconnect();
 
             session.disconnect();
-            System.out.println("Output: ");
+            System.out.println("System został wyłączony poprawnie.");
             System.out.println(sb.toString());
         }
         catch (Exception e)
@@ -448,10 +477,151 @@ public class gui extends javax.swing.JPanel {
         port = Integer.parseInt(jTextField5.getText());
     }//GEN-LAST:event_jTextField5ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        komenda = "ping -c 3 google.pl";
+        
+        try
+        {
+            JSch jsch = new JSch();
+
+            Session session = jsch.getSession(USER, host, 22);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword(PASS);
+            session.connect();
+
+            String command = komenda;
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand(command);
+
+            channel.setInputStream(null);
+
+            ((ChannelExec) channel).setErrStream(System.err);
+
+            InputStream in = channel.getInputStream();
+
+            channel.connect();
+            StringBuilder sb = new StringBuilder();
+            byte[] tmp = new byte[1024];
+            while (true)
+            {
+                while (in.available() > 0)
+                {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0)
+                        break;
+                    sb.append(new String(tmp, 0, i));
+                }
+                if (channel.isClosed())
+                {
+                    if (in.available() > 0)
+                        continue;
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
+                    break;
+                }
+                try
+                {
+                    Thread.sleep(500);
+                }
+                catch (Exception ee)
+                {
+                }
+            }
+            //disconnecting and closing
+            channel.disconnect();
+
+            session.disconnect();
+            System.out.println("Test połączenia...");
+            System.out.println(sb.toString());
+            System.out.println("Test powiódł się!");
+        }
+        catch (Exception e)
+        {
+             //something should be done here
+            e.printStackTrace();
+        
+
+        }       
+        
+    redirectSystemStreams();        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        komenda = "sudo reboot now";
+        
+        try
+        {
+            JSch jsch = new JSch();
+
+            Session session = jsch.getSession(USER, host, 22);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword(PASS);
+            session.connect();
+
+            String command = komenda;
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand(command);
+
+            channel.setInputStream(null);
+
+            ((ChannelExec) channel).setErrStream(System.err);
+
+            InputStream in = channel.getInputStream();
+
+            channel.connect();
+            StringBuilder sb = new StringBuilder();
+            byte[] tmp = new byte[1024];
+            while (true)
+            {
+                while (in.available() > 0)
+                {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0)
+                        break;
+                    sb.append(new String(tmp, 0, i));
+                }
+                if (channel.isClosed())
+                {
+                    if (in.available() > 0)
+                        continue;
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
+                    break;
+                }
+                try
+                {
+                    Thread.sleep(500);
+                }
+                catch (Exception ee)
+                {
+                }
+            }
+            //disconnecting and closing
+            channel.disconnect();
+
+            session.disconnect();
+            System.out.println("Restart serwera powiódł się.");
+            System.out.println(sb.toString());
+        }
+        catch (Exception e)
+        {
+             //something should be done here
+            e.printStackTrace();
+        
+
+        }       
+                
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
@@ -467,6 +637,7 @@ public class gui extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JToolBar jToolBar1;
     private static javax.swing.JToolBar jToolBar3;
     private javax.swing.JTextPane textPane;
     // End of variables declaration//GEN-END:variables
