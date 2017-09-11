@@ -18,7 +18,9 @@ import java.io.PrintStream;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import java.awt.BorderLayout;
+import java.awt.Image;
 import javax.swing.JFrame;
+import java.awt.Toolkit;
 
 
 public class gui extends javax.swing.JPanel {
@@ -73,14 +75,14 @@ public class gui extends javax.swing.JPanel {
       System.setErr(new PrintStream(out, true));
       
     }
-
+    
     public gui() throws InterruptedException {
         initComponents();
         newFrame.getContentPane().add(this, BorderLayout.CENTER);
             newFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 newFrame.pack();
                     newFrame.setVisible(true);
-                        newFrame.setTitle("System wyświetlania informacji");
+                        newFrame.setTitle("System wyświetlania informacji");                
                         redirectSystemStreams();
         
     }
@@ -108,7 +110,6 @@ public class gui extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jToolBar3 = new javax.swing.JToolBar();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -224,14 +225,6 @@ public class gui extends javax.swing.JPanel {
         });
         jToolBar3.add(jButton4);
 
-        jButton5.setText("Zrestartuj system wyświetlania");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jToolBar3.add(jButton5);
-
         jButton6.setText("Wyłącz system wyświetlania");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,7 +287,7 @@ public class gui extends javax.swing.JPanel {
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        komenda = "uname -a";        
+        komenda = "cd ~/ && screen -dm bash -c './papie.sh'";        
         
         try
         {
@@ -360,78 +353,9 @@ public class gui extends javax.swing.JPanel {
     redirectSystemStreams();            
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        komenda = "lsb_release -a";
-        
-        try
-        {
-            JSch jsch = new JSch();
-
-            Session session = jsch.getSession(USER, host, 22);
-            session.setConfig("StrictHostKeyChecking", "no");
-            session.setPassword(PASS);
-            session.connect();
-
-            String command = komenda;
-            Channel channel = session.openChannel("exec");
-            ((ChannelExec) channel).setCommand(command);
-
-            channel.setInputStream(null);
-
-            ((ChannelExec) channel).setErrStream(System.err);
-
-            InputStream in = channel.getInputStream();
-
-            channel.connect();
-            StringBuilder sb = new StringBuilder();
-            byte[] tmp = new byte[1024];
-            while (true)
-            {
-                while (in.available() > 0)
-                {
-                    int i = in.read(tmp, 0, 1024);
-                    if (i < 0)
-                        break;
-                    sb.append(new String(tmp, 0, i));
-                }
-                if (channel.isClosed())
-                {
-                    if (in.available() > 0)
-                        continue;
-                    //System.out.println("exit-status: "
-                    //        + channel.getExitStatus());
-                    break;
-                }
-                try
-                {
-                    Thread.sleep(500);
-                }
-                catch (Exception ee)
-                {
-                }
-            }
-            //disconnecting and closing
-            channel.disconnect();
-
-            session.disconnect();
-            System.out.println("Output: ");
-            System.out.println(sb.toString());
-        }
-        catch (Exception e)
-        {
-             //something should be done here
-            e.printStackTrace();
-
-        }
-        
-    redirectSystemStreams();   
-        
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        komenda = "ls ~/";
+        komenda = "pkill -f 'SCREEN -dm bash -c' && screen -dm './papie.sh'";
         
         try
         {
@@ -529,7 +453,6 @@ public class gui extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

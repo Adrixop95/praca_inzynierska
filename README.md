@@ -55,6 +55,7 @@ Przejdź do pobranego folderu z systemem oraz wpisz komendy
 + [NetBeans](https://netbeans.org)
 + [Apple macOS](https://www.apple.com)
 + [Microsoft Windows](https://www.microsoft.com/pl-pl/windows/)
++ [OPENICONIC](https://useiconic.com/open)
 
 Pełna lista zostanie zaktualizana w przyszłości.
 
