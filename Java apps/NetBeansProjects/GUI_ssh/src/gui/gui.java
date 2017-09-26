@@ -658,13 +658,20 @@ public class gui extends javax.swing.JPanel {
 
         Runtime rt = Runtime.getRuntime();
         //String[] cmd = { "/bin/sh", "-c", "arp -a | grep 'b8:27:eb'" };
-        String[] cmd = { "/bin/sh", "-c", "ping -c 1 192.168.1.255" };
+        //String[] cmd = { "/bin/sh", "-c", "ping -c 1 192.168.1.255" };
         //String[] cmd = { "/bin/sh", "-c", "nmap -sP 192.168.1.1/24" };
-        String[] cmd1 = { "/bin/sh", "-c", "arp -a | grep 'b8:27:eb'" };
+        String[] cmd1 = {"/bin/sh", "/Users/adrix/Documents/git/praca_inzynierska/Bash scripts/networkcheck.sh"};
+
+        //String[] cmd1 = { "/bin/sh", "-c", "arp -a | grep 'b8:27:eb'" };
         
+        //String[] cmd = new String[]{"/bin/sh", "path/to/script.sh"};
+        //Process r = Runtime.getRuntime().exec(cmd1);
+       
+        
+   
         Process proc = null;
             try {
-                proc = rt.exec(cmd);
+                proc = rt.exec(cmd1);
             } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -676,7 +683,7 @@ public class gui extends javax.swing.JPanel {
                 }   } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+        /*
         Process proc1 = null;
             try {
                 proc1 = rt.exec(cmd1);
@@ -692,8 +699,8 @@ public class gui extends javax.swing.JPanel {
                 }   } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
+*/
 
-            
     }//GEN-LAST:event_jButton5ActionPerformed
 
     
