@@ -46,8 +46,8 @@ Uruchom aplikację GUI_ssh.jar aby uruchomić, zrestartować albo wyłączyć sy
 
 ### Ręczny sposób uruchomienia systemu
 Przejdź do pobranego folderu z systemem oraz wpisz komendy
-> chmod +x ./papie.sh <br>
-> screen ./papie.sh
+> chmod +x ./DisplayMode.sh <br>
+> screen ./DisplayMode.sh
 
 ### Użyte technologie oraz oprogramowanie
 + [Raspbian GNU/Linux](https://www.raspbian.org)
@@ -95,11 +95,6 @@ Pełna lista plików testowych zawartych w projecie.
 +  xscreensaver-demo w celu wyłączenia wygaszania ekranu
 +  sudo nano ./xinitrc i dodanie polecenia `@unclutter -display :0 -noevents -grab` oraz poleceń `xset s noblank 
 `,`xset s off `,`xset -dpms`
-
-### Źródła
-
-Todo.  
-
 
 <br><br>
 **Stworzone dla UŚ oraz ŚMCEBI z ♥**

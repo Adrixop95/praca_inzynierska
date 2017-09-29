@@ -331,7 +331,7 @@ public class gui extends javax.swing.JPanel {
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        komenda = "cd ~/ && screen -dm bash -c './papie.sh'";        
+        komenda = "cd ~/ && screen -dm bash -c 'extensions/DisplayMode.sh";        
         
         try
         {
