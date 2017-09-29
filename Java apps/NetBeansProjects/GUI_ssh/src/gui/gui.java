@@ -533,8 +533,6 @@ public class gui extends javax.swing.JPanel {
                 {
                     if (in.available() > 0)
                         continue;
-                    //System.out.println("exit-status: "
-                    //        + channel.getExitStatus());
                     break;
                 }
                 try
@@ -555,10 +553,7 @@ public class gui extends javax.swing.JPanel {
         }
         catch (Exception e)
         {
-             //something should be done here
             e.printStackTrace();
-        
-
         }       
         
     redirectSystemStreams();        
@@ -627,48 +622,22 @@ public class gui extends javax.swing.JPanel {
         {
              //something should be done here
             e.printStackTrace();
-        
-
         }       
                 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-/*        try {
-            Process proc = Runtime.getRuntime().exec("arp -a ");
-
-            BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-            BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
-
-            // read the output from the command
-            String s = null;
-
-            while ((s = stdInput.readLine()) != null) {
-                System.out.println(s);
-
-            // read any errors from the attempted command
-            while ((s = stdError.readLine()) != null) {
-                System.err.println(s);
-            }
-            }}catch (IOException ex) {
-            System.err.println(ex);
-        }       
-*/
+        
+    if(System.getProperty("os.name").startsWith("Windows")){
+        System.out.println("Wykryty system operacyjny to Windows");
+        
+    } else if(System.getProperty("os.name").startsWith("Mac")) {
+        System.out.println("Wykryty system operacyjny to macOS");
 
         Runtime rt = Runtime.getRuntime();
-        //String[] cmd = { "/bin/sh", "-c", "arp -a | grep 'b8:27:eb'" };
-        //String[] cmd = { "/bin/sh", "-c", "ping -c 1 192.168.1.255" };
-        //String[] cmd = { "/bin/sh", "-c", "nmap -sP 192.168.1.1/24" };
-        String[] cmd1 = {"/bin/sh", "/Users/adrix/Documents/git/praca_inzynierska/Bash scripts/networkcheck.sh"};
-
-        //String[] cmd1 = { "/bin/sh", "-c", "arp -a | grep 'b8:27:eb'" };
+        String[] cmd1 = {"/bin/sh", "extensions/NetworkCheckmacOS.sh"};
         
-        //String[] cmd = new String[]{"/bin/sh", "path/to/script.sh"};
-        //Process r = Runtime.getRuntime().exec(cmd1);
-       
-        
-   
         Process proc = null;
             try {
                 proc = rt.exec(cmd1);
@@ -683,24 +652,30 @@ public class gui extends javax.swing.JPanel {
                 }   } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
-        /*
-        Process proc1 = null;
+
+    } else if(System.getProperty("os.name").startsWith("Linux")){
+        System.out.println("Wykryty system operacyjny to GNU/Linux.");
+             
+        Runtime rt = Runtime.getRuntime();
+        String[] cmd1 = {"/bin/sh", "/Users/adrix/Documents/git/praca_inzynierska/Bash scripts/networkcheck.sh"};
+        
+        Process proc = null;
             try {
-                proc1 = rt.exec(cmd1);
+                proc = rt.exec(cmd1);
             } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
-        BufferedReader is1 = new BufferedReader(new InputStreamReader(proc1.getInputStream()));
-        
-        String line1;
+        BufferedReader is = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+        String line;
             try {
-                while ((line1 = is1.readLine()) != null) {
-                    System.out.println(line1);
+                while ((line = is.readLine()) != null) {
+                    System.out.println(line);
                 }   } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
-*/
+    }
 
+              
     }//GEN-LAST:event_jButton5ActionPerformed
 
     

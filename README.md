@@ -59,6 +59,15 @@ Przejdź do pobranego folderu z systemem oraz wpisz komendy
 
 Pełna lista zostanie zaktualizana w przyszłości.
 
+### Uznanie twórczości
+Pełna lista plików testowych zawartych w projecie.
+
++ [Photo by Jon Tyson on Unsplash](https://unsplash.com/photos/eIhH7RTlTZA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
++ [Photo by Benjamin Lambert on Unsplash](https://unsplash.com/photos/Dj7Oje6Cgf0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
++ [Photo by Igor Ovsyannykov on Unsplash](https://unsplash.com/photos/7b5R_0S5a-s?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
++ [Photo by Stéphan Valentin on Unsplash](https://unsplash.com/photos/LbUzPqxPUAs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
++ [Photo by Adam Grabek on Unsplash](https://unsplash.com/photos/PPr7LA1I_3U?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
 ### Zainstalowane na obrazie (aplikacje)
 + openbox (menadżer okien dla interface graficznego X Window Server)
 + xorg (implementacja podsystemu grafiki X Window System)

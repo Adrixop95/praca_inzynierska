@@ -5,15 +5,6 @@
 case "$(uname -s)" in
 
   Darwin)
-    printf 'Twoj system to Apple macOS\n'
-    #printf 'Instalowanie brew...\n\n'
-
-    #brew --version
-    #if [ $? -eq 0 ]; then
-    #  printf '\nHomebrew jest już zainstalowany\n'
-    #else
-    #  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    #fi
 
     {
       brew --version

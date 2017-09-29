@@ -77,13 +77,13 @@ public class Pokaz extends JFrame{
     
     if(System.getProperty("os.name").startsWith("Windows")){
         System.out.println("Wykryty system operacyjny to Windows");
-        path_to_files = "";
+        path_to_files = "example_pictures/";
     } else if(System.getProperty("os.name").startsWith("Mac")) {
         System.out.println("Wykryty system operacyjny to macOS");
-        path_to_files = "/Users/adrix/Pictures/pics_test";
+        path_to_files = "example_pictures/";
     } else if(System.getProperty("os.name").startsWith("Linux")){
         System.out.println("Wykryty system operacyjny to GNU/Linux.");
-        path_to_files = "/home/pi/Pictures";
+        path_to_files = "example_pictures/";
     } else {
         System.out.println("Nie wykryto systemu operacyjnego, podaj sciezke recznie: ");
         Scanner diff_path = new Scanner(System.in);
