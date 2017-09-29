@@ -76,6 +76,7 @@ Pełna lista plików testowych zawartych w projecie.
 + screen (uruchamianie aplikacji w tle)
 + xscreensaver (standardowy zestaw wygaszaczy ekranu)
 + unclutter (aplikacja służąca do ukrycia kursora)
++ find (znajdowanie plików na dysku)
 
 ### Komendy wykonane na obrazie od pierwszego uruchomienia
 + sudo raspi-config (w celu uruchomienia połączenia ssh)

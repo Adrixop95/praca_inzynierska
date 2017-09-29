@@ -12,14 +12,24 @@ xset s noblank
 xset s off
 xset -dpms
 FILELIST=/tmp/filelist
-MONITOR_DIR=~/Pictures
+MONITOR_DIR=example_pictures/
 
-cd ~/Pictures/
-printf "Wykryte pliki w folderze Obrazy: \n"
+#cd ~/Server_wyswietlania
+var1="$(find ~/ -name DisplayMode.sh)"
+pathdef=${var1::len-14}
+#printf "$pathdef"
+cd "$pathdef"
+
+path="$PWD"
+
+cd example_pictures/
+printf "Wykryte pliki w folderze: \n"
 ls
 
 printf "\nTrwa uruchamianie systemu...\n"
-cd ~/
+cd "$path"
+pwd
+ls
 
 [[ -f ${FILELIST} ]] || ls ${MONITOR_DIR} > ${FILELIST}
 
@@ -36,7 +46,7 @@ while : ; do
     then
       printf "\nTrwa ladowanie danych aplikacji w celu w celu wyswietlania zdjec...\n"
       printf "Aby zamknac system nacisnij ctrl+c\n\n"
-      cd ~/
+      cd "$path"
       java -jar pokaz.jar &
     fi
     sleep 10
