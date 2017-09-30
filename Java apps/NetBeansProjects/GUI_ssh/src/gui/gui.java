@@ -20,6 +20,10 @@ import javax.swing.text.Document;
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -634,10 +638,49 @@ public class gui extends javax.swing.JPanel {
         
     } else if(System.getProperty("os.name").startsWith("Mac")) {
         System.out.println("Wykryty system operacyjny to macOS");
-
-        Runtime rt = Runtime.getRuntime();
-        String[] cmd1 = {"/bin/sh", "extensions/NetworkCheckmacOS.sh"};
         
+        PrintStream originalStream = System.out;
+
+        PrintStream dummyStream    = new PrintStream(new OutputStream(){
+            public void write(int b) {
+                //NO-OP
+            }
+        });        
+        
+        final byte[] ip;
+        try {
+            ip = InetAddress.getLocalHost().getAddress();
+        } catch (Exception e) {
+            return;     // exit method, otherwise "ip might not have been initialized"
+        }
+
+        for(int i=1;i<=254;i++) {
+            final int j = i;
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        ip[3] = (byte)j;
+                        InetAddress address = InetAddress.getByAddress(ip);
+                        String output = address.toString().substring(1);
+                        if (address.isReachable(5000)) {
+                            //System.setOut(dummyStream);
+                            System.out.println("Adres: " + output + " jest w sieci.");
+                        } else {
+                            //System.setOut(dummyStream);
+                            //System.out.println("Not Reachable: "+output);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+        
+        //System.setOut(originalStream);
+        /*
+        Runtime rt = Runtime.getRuntime();
+        String[] cmd1 = {"extensions/NetworkCheckmacOS.sh"};
+
         Process proc = null;
             try {
                 proc = rt.exec(cmd1);
@@ -652,16 +695,17 @@ public class gui extends javax.swing.JPanel {
                 }   } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
+        
 
     } else if(System.getProperty("os.name").startsWith("Linux")){
         System.out.println("Wykryty system operacyjny to GNU/Linux.");
-             
+  
         Runtime rt = Runtime.getRuntime();
-        String[] cmd1 = {"/bin/sh", "/Users/adrix/Documents/git/praca_inzynierska/Bash scripts/networkcheck.sh"};
-        
+        String[] cmd2;
+        cmd2 = "pkill -f 'SCREEN -dm bash -c' && pkill -f 'java -jar'";
         Process proc = null;
             try {
-                proc = rt.exec(cmd1);
+                proc = rt.exec(cmd2);
             } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -673,6 +717,7 @@ public class gui extends javax.swing.JPanel {
                 }   } catch (IOException ex) {
                 Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
+*/
     }
 
               
