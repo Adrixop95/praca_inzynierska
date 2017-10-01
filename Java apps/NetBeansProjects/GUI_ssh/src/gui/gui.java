@@ -21,12 +21,14 @@ import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+
+
 
 
 public class gui extends javax.swing.JPanel {
@@ -638,88 +640,64 @@ public class gui extends javax.swing.JPanel {
         
     } else if(System.getProperty("os.name").startsWith("Mac")) {
         System.out.println("Wykryty system operacyjny to macOS");
-        
+
         PrintStream originalStream = System.out;
 
         PrintStream dummyStream    = new PrintStream(new OutputStream(){
             public void write(int b) {
                 //NO-OP
             }
-        });        
+        });           
         
-        final byte[] ip;
+        Runtime rt = Runtime.getRuntime();
+        String[] cmd = { "/bin/bash", "-c", "extensions/nmap -sP 192.168.1.1/24" };
+        
+        Process proc = null;
         try {
-            ip = InetAddress.getLocalHost().getAddress();
-        } catch (Exception e) {
-            return;     // exit method, otherwise "ip might not have been initialized"
+            proc = rt.exec(cmd);
+        } catch (IOException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        for(int i=1;i<=254;i++) {
-            final int j = i;
-            new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        ip[3] = (byte)j;
-                        InetAddress address = InetAddress.getByAddress(ip);
-                        String output = address.toString().substring(1);
-                        if (address.isReachable(5000)) {
-                            //System.setOut(dummyStream);
-                            System.out.println("Adres: " + output + " jest w sieci.");
-                        } else {
-                            //System.setOut(dummyStream);
-                            //System.out.println("Not Reachable: "+output);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }).start();
-        }
-        
-        //System.setOut(originalStream);
-        /*
-        Runtime rt = Runtime.getRuntime();
-        String[] cmd1 = {"extensions/NetworkCheckmacOS.sh"};
-
-        Process proc = null;
-            try {
-                proc = rt.exec(cmd1);
-            } catch (IOException ex) {
-                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-            }
         BufferedReader is = new BufferedReader(new InputStreamReader(proc.getInputStream()));
         String line;
-            try {
-                while ((line = is.readLine()) != null) {
-                    System.out.println(line);
-                }   } catch (IOException ex) {
-                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            while ((line = is.readLine()) != null) {
+                System.out.println(line);
+                System.setOut(dummyStream);
+
             }
         
-
-    } else if(System.getProperty("os.name").startsWith("Linux")){
-        System.out.println("Wykryty system operacyjny to GNU/Linux.");
-  
-        Runtime rt = Runtime.getRuntime();
-        String[] cmd2;
-        cmd2 = "pkill -f 'SCREEN -dm bash -c' && pkill -f 'java -jar'";
-        Process proc = null;
-            try {
-                proc = rt.exec(cmd2);
-            } catch (IOException ex) {
-                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        System.setOut(originalStream);
+            
+        Runtime rt1 = Runtime.getRuntime();
+        System.out.println("Twoje Raspberry PI w sieci: ");
+        String[] cmd1 = { "/bin/bash", "-c", "arp -a | grep 'b8:27:eb'" };
+        
+        Process proc1 = null;
+        try {
+            proc1 = rt1.exec(cmd1);
+        } catch (IOException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        BufferedReader is1 = new BufferedReader(new InputStreamReader(proc1.getInputStream()));
+        String line1;
+        try {
+            while ((line1 = is1.readLine()) != null) {
+                System.out.println(line1);
             }
-        BufferedReader is = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-        String line;
-            try {
-                while ((line = is.readLine()) != null) {
-                    System.out.println(line);
-                }   } catch (IOException ex) {
-                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-            }
-*/
+            
+              } catch (IOException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }   catch (IOException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } else if(System.getProperty("os.name").startsWith("Linux")) {
+        System.out.println("Wykryty system operacyjny to GNU/Linux");
+        
     }
-
+    
               
     }//GEN-LAST:event_jButton5ActionPerformed
 
