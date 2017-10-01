@@ -20,15 +20,9 @@ import javax.swing.text.Document;
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-
-
 
 
 public class gui extends javax.swing.JPanel {
@@ -636,8 +630,49 @@ public class gui extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     if(System.getProperty("os.name").startsWith("Windows")){
-        System.out.println("Wykryty system operacyjny to Windows");
         
+        System.out.println("Wykryty system operacyjny to Windows");
+
+        PrintStream originalStream = System.out;
+
+        PrintStream dummyStream    = new PrintStream(new OutputStream(){
+            public void write(int b) {
+                //NO-OP
+            }
+        });           
+   
+        
+         String command="extensions\\nmap_win\\nmap.exe -sP 192.168.1.1/24";
+        try {
+            Process process = Runtime.getRuntime().exec(command);
+            //System.out.println("the output stream is "+process.getOutputStream());
+            BufferedReader reader=new BufferedReader( new InputStreamReader(process.getInputStream()));
+            String s; 
+            while ((s = reader.readLine()) != null){
+                System.out.println(s);
+                System.setOut(dummyStream);
+            }                   
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.setOut(originalStream);
+
+        String command1="extensions\\win_arp.bat";
+        try {
+            Process process1 = Runtime.getRuntime().exec(command1);
+            //System.out.println("the output stream is "+process1.getOutputStream());
+            BufferedReader reader1=new BufferedReader( new InputStreamReader(process1.getInputStream()));
+            String s; 
+            while ((s = reader1.readLine()) != null){
+                System.out.println(s);
+               
+
+            }                   
+        } catch (IOException e) {
+            e.printStackTrace();
+        }   
+
+         
     } else if(System.getProperty("os.name").startsWith("Mac")) {
         System.out.println("Wykryty system operacyjny to macOS");
 
@@ -685,18 +720,15 @@ public class gui extends javax.swing.JPanel {
             while ((line1 = is1.readLine()) != null) {
                 System.out.println(line1);
             }
-            
               } catch (IOException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-    }   catch (IOException ex) {
+        }   catch (IOException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } else if(System.getProperty("os.name").startsWith("Linux")) {
+        } else if(System.getProperty("os.name").startsWith("Linux")) {
         System.out.println("Wykryty system operacyjny to GNU/Linux");
-        
-    }
+        }
     
               
     }//GEN-LAST:event_jButton5ActionPerformed
