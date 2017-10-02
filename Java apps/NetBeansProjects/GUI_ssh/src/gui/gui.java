@@ -637,7 +637,6 @@ public class gui extends javax.swing.JPanel {
 
         PrintStream dummyStream    = new PrintStream(new OutputStream(){
             public void write(int b) {
-                //NO-OP
             }
         });           
    
@@ -645,7 +644,6 @@ public class gui extends javax.swing.JPanel {
          String command="extensions\\nmap_win\\nmap.exe -sP 192.168.1.1/24";
         try {
             Process process = Runtime.getRuntime().exec(command);
-            //System.out.println("the output stream is "+process.getOutputStream());
             BufferedReader reader=new BufferedReader( new InputStreamReader(process.getInputStream()));
             String s; 
             while ((s = reader.readLine()) != null){
@@ -660,13 +658,10 @@ public class gui extends javax.swing.JPanel {
         String command1="extensions\\win_arp.bat";
         try {
             Process process1 = Runtime.getRuntime().exec(command1);
-            //System.out.println("the output stream is "+process1.getOutputStream());
             BufferedReader reader1=new BufferedReader( new InputStreamReader(process1.getInputStream()));
             String s; 
             while ((s = reader1.readLine()) != null){
                 System.out.println(s);
-               
-
             }                   
         } catch (IOException e) {
             e.printStackTrace();
@@ -680,7 +675,6 @@ public class gui extends javax.swing.JPanel {
 
         PrintStream dummyStream    = new PrintStream(new OutputStream(){
             public void write(int b) {
-                //NO-OP
             }
         });           
         
@@ -701,7 +695,10 @@ public class gui extends javax.swing.JPanel {
                 System.setOut(dummyStream);
 
             }
-        
+        }   catch (IOException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+            
         System.setOut(originalStream);
             
         Runtime rt1 = Runtime.getRuntime();
@@ -723,9 +720,7 @@ public class gui extends javax.swing.JPanel {
               } catch (IOException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }   catch (IOException ex) {
-            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
         } else if(System.getProperty("os.name").startsWith("Linux")) {
         System.out.println("Wykryty system operacyjny to GNU/Linux");
         }
