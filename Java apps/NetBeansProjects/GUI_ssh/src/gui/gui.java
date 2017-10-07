@@ -33,6 +33,7 @@ public class gui extends javax.swing.JPanel {
     public static String USER = "";
     public static String PASS = "";
     public static String host = "";
+    public static String ip_route = "";
     public static int port = 0;
      
     public static void main(String[] args) throws InterruptedException {
@@ -676,22 +677,44 @@ public class gui extends javax.swing.JPanel {
         PrintStream dummyStream    = new PrintStream(new OutputStream(){
             public void write(int b) {
             }
-        });           
+        });
         
-        Runtime rt = Runtime.getRuntime();
-        String[] cmd = { "/bin/bash", "-c", "extensions/nmap -sP 192.168.1.1/24" };
-        
-        Process proc = null;
+        Runtime rt_route = Runtime.getRuntime();
+        String[] cmd_route = { "/bin/bash", "-c", "route -n get default | grep gateway | awk {'print $2'}" };
+
+        Process proc_route = null;
         try {
-            proc = rt.exec(cmd);
+            proc_route = rt_route.exec(cmd_route);
         } catch (IOException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        BufferedReader is = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-        String line;
+        BufferedReader is_route = new BufferedReader(new InputStreamReader(proc_route.getInputStream()));
+        String line_route;
         try {
-            while ((line = is.readLine()) != null) {
-                System.out.println(line);
+            while ((line_route = is_route.readLine()) != null) {
+                ip_route = line_route;
+            }
+              } catch (IOException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //System.out.println(ip_route);
+
+        
+        Runtime rt_nmap = Runtime.getRuntime();
+        String[] cmd_nmap = { "/bin/bash", "-c", "extensions/nmap -sP "+ip_route+"/24" };
+        
+        
+        Process proc_nmap = null;
+        try {
+            proc_nmap = rt_nmap.exec(cmd_nmap);
+        } catch (IOException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        BufferedReader is_nmap = new BufferedReader(new InputStreamReader(proc_nmap.getInputStream()));
+        String line_nmap;
+        try {
+            while ((line_nmap = is_nmap.readLine()) != null) {
+                System.out.println(line_nmap);
                 System.setOut(dummyStream);
 
             }
@@ -701,21 +724,21 @@ public class gui extends javax.swing.JPanel {
             
         System.setOut(originalStream);
             
-        Runtime rt1 = Runtime.getRuntime();
+        Runtime rt_arp = Runtime.getRuntime();
         System.out.println("Twoje Raspberry PI w sieci: ");
-        String[] cmd1 = { "/bin/bash", "-c", "arp -a | grep 'b8:27:eb'" };
+        String[] cmd_arp = { "/bin/bash", "-c", "arp -a | grep 'b8:27:eb'" };
         
-        Process proc1 = null;
+        Process proc_arp = null;
         try {
-            proc1 = rt1.exec(cmd1);
+            proc_arp = rt_arp.exec(cmd_arp);
         } catch (IOException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        BufferedReader is1 = new BufferedReader(new InputStreamReader(proc1.getInputStream()));
-        String line1;
+        BufferedReader is_arp = new BufferedReader(new InputStreamReader(proc_arp.getInputStream()));
+        String line_arp;
         try {
-            while ((line1 = is1.readLine()) != null) {
-                System.out.println(line1);
+            while ((line_arp = is_arp.readLine()) != null) {
+                System.out.println(line_arp);
             }
               } catch (IOException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
