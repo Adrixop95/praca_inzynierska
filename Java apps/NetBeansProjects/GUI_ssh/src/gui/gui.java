@@ -637,7 +637,7 @@ public class gui extends javax.swing.JPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        
+               
         int timeout = 500;
         int port = 1234;
         String ip_addr = "";
@@ -647,7 +647,7 @@ public class gui extends javax.swing.JPanel {
                 for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                     if (!ni.isLoopback() && ni.isUp() && ni.getHardwareAddress() != null) {
                         for (InterfaceAddress ia : ni.getInterfaceAddresses()) {
-                            if (ia.getBroadcast() != null) {  //If limited to IPV4
+                            if (ia.getBroadcast() != null) {
                                 HostAddresses.add(ia.getAddress().getHostAddress());
                                 ip_addr = HostAddresses.toString();
                             }
@@ -659,28 +659,20 @@ public class gui extends javax.swing.JPanel {
         try {
             ip_addr = ip_addr.substring(1);
             String subnet = getSubnet(ip_addr);
-            //System.out.println("subnet: " + subnet);
 
             for (int i=1;i<254;i++){
 
                 String host = subnet + i;
-                //System.out.println("Checking :" + host);
 
                 if (InetAddress.getByName(host).isReachable(timeout)){
-                    //System.out.println(host + " is reachable");
                     try {
                         Socket connected = new Socket(subnet, port);
                     }
-                    catch (Exception s) {
-                        System.out.println(s);
-                    }
+                    catch (Exception s) { }
                 }
             }
         }
-        catch(Exception e){
-            //System.out.println(e);
-        }        
-        
+        catch(Exception e){ }        
         
         if(System.getProperty("os.name").startsWith("Windows")){
 
@@ -701,56 +693,6 @@ public class gui extends javax.swing.JPanel {
 
         } else if(System.getProperty("os.name").startsWith("Mac")) {
             System.out.println("Wykryty system operacyjny to macOS");
-
-            /*PrintStream originalStream = System.out;
-
-            PrintStream dummyStream    = new PrintStream(new OutputStream(){
-                public void write(int b) {
-                }
-            });
-
-            Runtime rt_route = Runtime.getRuntime();
-            String[] cmd_route = { "/bin/bash", "-c", "route -n get default | grep gateway | awk {'print $2'}" };
-
-            Process proc_route = null;
-            try {
-                proc_route = rt_route.exec(cmd_route);
-            } catch (IOException ex) {
-                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            BufferedReader is_route = new BufferedReader(new InputStreamReader(proc_route.getInputStream()));
-            String line_route;
-            try {
-                while ((line_route = is_route.readLine()) != null) {
-                    ip_route = line_route;
-                }
-                  } catch (IOException ex) {
-                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            Runtime rt_nmap = Runtime.getRuntime();
-            String[] cmd_nmap = { "/bin/bash", "-c", "extensions/nmap -sP "+ip_route+"/24" };
-
-
-            Process proc_nmap = null;
-            try {
-                proc_nmap = rt_nmap.exec(cmd_nmap);
-            } catch (IOException ex) {
-                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            BufferedReader is_nmap = new BufferedReader(new InputStreamReader(proc_nmap.getInputStream()));
-            String line_nmap;
-            try {
-                while ((line_nmap = is_nmap.readLine()) != null) {
-                    System.out.println(line_nmap);
-                    System.setOut(dummyStream);
-
-                }
-            }   catch (IOException ex) {
-                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-            }*/    
-
-            //System.setOut(originalStream);
 
             Runtime rt_arp = Runtime.getRuntime();
             System.out.println("Twoje Raspberry PI w sieci: ");
@@ -775,8 +717,6 @@ public class gui extends javax.swing.JPanel {
             } else if(System.getProperty("os.name").startsWith("Linux")) {
             System.out.println("Wykryty system operacyjny to GNU/Linux");
             }
-
-
     }//GEN-LAST:event_jButton5ActionPerformed
 
     public static String getSubnet(String ip_addr) {
