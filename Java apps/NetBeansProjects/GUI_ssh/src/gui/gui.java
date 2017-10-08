@@ -639,7 +639,7 @@ public class gui extends javax.swing.JPanel {
         // TODO add your handling code here:
                
         int timeout = 500;
-        int port = 1234;
+        int port_adr = 1234;
         String ip_addr = "";
         
         Set<String> HostAddresses = new HashSet<>();
@@ -662,11 +662,11 @@ public class gui extends javax.swing.JPanel {
 
             for (int i=1;i<254;i++){
 
-                String host = subnet + i;
+                String host_adr = subnet + i;
 
-                if (InetAddress.getByName(host).isReachable(timeout)){
+                if (InetAddress.getByName(host_adr).isReachable(timeout)){
                     try {
-                        Socket connected = new Socket(subnet, port);
+                        Socket connected = new Socket(subnet, port_adr);
                     }
                     catch (Exception s) { }
                 }
