@@ -20,6 +20,14 @@ import javax.swing.text.Document;
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
+import java.net.Socket;
+import java.net.SocketException;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -86,8 +94,8 @@ public class gui extends javax.swing.JPanel {
                 newFrame.pack();
                     newFrame.setVisible(true);
                         newFrame.setTitle("System wyświetlania informacji");                
+                        newFrame.setResizable(false);
                         redirectSystemStreams();
-        
     }
 
     /**
@@ -630,127 +638,152 @@ public class gui extends javax.swing.JPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         
-    if(System.getProperty("os.name").startsWith("Windows")){
+        int timeout = 500;
+        int port = 1234;
+        String ip_addr = "";
         
-        System.out.println("Wykryty system operacyjny to Windows");
+        Set<String> HostAddresses = new HashSet<>();
+            try {
+                for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                    if (!ni.isLoopback() && ni.isUp() && ni.getHardwareAddress() != null) {
+                        for (InterfaceAddress ia : ni.getInterfaceAddresses()) {
+                            if (ia.getBroadcast() != null) {  //If limited to IPV4
+                                HostAddresses.add(ia.getAddress().getHostAddress());
+                                ip_addr = HostAddresses.toString();
+                            }
+                        }
+                    }
+                }
+            } catch (SocketException e) { }
+        
+        try {
+            ip_addr = ip_addr.substring(1);
+            String subnet = getSubnet(ip_addr);
+            //System.out.println("subnet: " + subnet);
 
-        PrintStream originalStream = System.out;
+            for (int i=1;i<254;i++){
 
-        PrintStream dummyStream    = new PrintStream(new OutputStream(){
-            public void write(int b) {
+                String host = subnet + i;
+                //System.out.println("Checking :" + host);
+
+                if (InetAddress.getByName(host).isReachable(timeout)){
+                    //System.out.println(host + " is reachable");
+                    try {
+                        Socket connected = new Socket(subnet, port);
+                    }
+                    catch (Exception s) {
+                        System.out.println(s);
+                    }
+                }
             }
-        });           
-   
-        
-         String command="extensions\\nmap_win\\nmap.exe -sP 192.168.1.1/24";
-        try {
-            Process process = Runtime.getRuntime().exec(command);
-            BufferedReader reader=new BufferedReader( new InputStreamReader(process.getInputStream()));
-            String s; 
-            while ((s = reader.readLine()) != null){
-                System.out.println(s);
-                System.setOut(dummyStream);
-            }                   
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        System.setOut(originalStream);
+        catch(Exception e){
+            //System.out.println(e);
+        }        
+        
+        
+        if(System.getProperty("os.name").startsWith("Windows")){
 
-        String command1="extensions\\win_arp.bat";
-        try {
-            Process process1 = Runtime.getRuntime().exec(command1);
-            BufferedReader reader1=new BufferedReader( new InputStreamReader(process1.getInputStream()));
-            String s; 
-            while ((s = reader1.readLine()) != null){
-                System.out.println(s);
-            }                   
-        } catch (IOException e) {
-            e.printStackTrace();
-        }   
+            System.out.println("Wykryty system operacyjny to Windows");
 
-         
-    } else if(System.getProperty("os.name").startsWith("Mac")) {
-        System.out.println("Wykryty system operacyjny to macOS");
+            String command1="extensions\\win_arp.bat";
+            try {
+                Process process1 = Runtime.getRuntime().exec(command1);
+                BufferedReader reader1=new BufferedReader( new InputStreamReader(process1.getInputStream()));
+                String s; 
+                while ((s = reader1.readLine()) != null){
+                    System.out.println(s);
+                }                   
+            } catch (IOException e) {
+                e.printStackTrace();
+            }   
 
-        PrintStream originalStream = System.out;
 
-        PrintStream dummyStream    = new PrintStream(new OutputStream(){
-            public void write(int b) {
+        } else if(System.getProperty("os.name").startsWith("Mac")) {
+            System.out.println("Wykryty system operacyjny to macOS");
+
+            /*PrintStream originalStream = System.out;
+
+            PrintStream dummyStream    = new PrintStream(new OutputStream(){
+                public void write(int b) {
+                }
+            });
+
+            Runtime rt_route = Runtime.getRuntime();
+            String[] cmd_route = { "/bin/bash", "-c", "route -n get default | grep gateway | awk {'print $2'}" };
+
+            Process proc_route = null;
+            try {
+                proc_route = rt_route.exec(cmd_route);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
-        });
-        
-        Runtime rt_route = Runtime.getRuntime();
-        String[] cmd_route = { "/bin/bash", "-c", "route -n get default | grep gateway | awk {'print $2'}" };
-
-        Process proc_route = null;
-        try {
-            proc_route = rt_route.exec(cmd_route);
-        } catch (IOException ex) {
-            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        BufferedReader is_route = new BufferedReader(new InputStreamReader(proc_route.getInputStream()));
-        String line_route;
-        try {
-            while ((line_route = is_route.readLine()) != null) {
-                ip_route = line_route;
+            BufferedReader is_route = new BufferedReader(new InputStreamReader(proc_route.getInputStream()));
+            String line_route;
+            try {
+                while ((line_route = is_route.readLine()) != null) {
+                    ip_route = line_route;
+                }
+                  } catch (IOException ex) {
+                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
-              } catch (IOException ex) {
-            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //System.out.println(ip_route);
 
-        
-        Runtime rt_nmap = Runtime.getRuntime();
-        String[] cmd_nmap = { "/bin/bash", "-c", "extensions/nmap -sP "+ip_route+"/24" };
-        
-        
-        Process proc_nmap = null;
-        try {
-            proc_nmap = rt_nmap.exec(cmd_nmap);
-        } catch (IOException ex) {
-            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        BufferedReader is_nmap = new BufferedReader(new InputStreamReader(proc_nmap.getInputStream()));
-        String line_nmap;
-        try {
-            while ((line_nmap = is_nmap.readLine()) != null) {
-                System.out.println(line_nmap);
-                System.setOut(dummyStream);
+            Runtime rt_nmap = Runtime.getRuntime();
+            String[] cmd_nmap = { "/bin/bash", "-c", "extensions/nmap -sP "+ip_route+"/24" };
 
+
+            Process proc_nmap = null;
+            try {
+                proc_nmap = rt_nmap.exec(cmd_nmap);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }   catch (IOException ex) {
-            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-        }    
-            
-        System.setOut(originalStream);
-            
-        Runtime rt_arp = Runtime.getRuntime();
-        System.out.println("Twoje Raspberry PI w sieci: ");
-        String[] cmd_arp = { "/bin/bash", "-c", "arp -a | grep 'b8:27:eb'" };
-        
-        Process proc_arp = null;
-        try {
-            proc_arp = rt_arp.exec(cmd_arp);
-        } catch (IOException ex) {
-            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        BufferedReader is_arp = new BufferedReader(new InputStreamReader(proc_arp.getInputStream()));
-        String line_arp;
-        try {
-            while ((line_arp = is_arp.readLine()) != null) {
-                System.out.println(line_arp);
+            BufferedReader is_nmap = new BufferedReader(new InputStreamReader(proc_nmap.getInputStream()));
+            String line_nmap;
+            try {
+                while ((line_nmap = is_nmap.readLine()) != null) {
+                    System.out.println(line_nmap);
+                    System.setOut(dummyStream);
+
+                }
+            }   catch (IOException ex) {
+                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+            }*/    
+
+            //System.setOut(originalStream);
+
+            Runtime rt_arp = Runtime.getRuntime();
+            System.out.println("Twoje Raspberry PI w sieci: ");
+            String[] cmd_arp = { "/bin/bash", "-c", "arp -a | grep 'b8:27:eb'" };
+
+            Process proc_arp = null;
+            try {
+                proc_arp = rt_arp.exec(cmd_arp);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
-              } catch (IOException ex) {
-            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-        } else if(System.getProperty("os.name").startsWith("Linux")) {
-        System.out.println("Wykryty system operacyjny to GNU/Linux");
-        }
-    
-              
+            BufferedReader is_arp = new BufferedReader(new InputStreamReader(proc_arp.getInputStream()));
+            String line_arp;
+            try {
+                while ((line_arp = is_arp.readLine()) != null) {
+                    System.out.println(line_arp);
+                }
+                  } catch (IOException ex) {
+                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            } else if(System.getProperty("os.name").startsWith("Linux")) {
+            System.out.println("Wykryty system operacyjny to GNU/Linux");
+            }
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    public static String getSubnet(String ip_addr) {
+        int firstSeparator = ip_addr.lastIndexOf("/");
+        int lastSeparator = ip_addr.lastIndexOf(".");
+        return ip_addr.substring(firstSeparator+1, lastSeparator+1);
+    }    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
