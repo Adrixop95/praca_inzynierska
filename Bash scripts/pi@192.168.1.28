@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#Created by Adrian Rupala
+#Simple script to add network to wpa_supplicant
+
+wpa_passphrase $name $password >> /etc/wpa_supplicant/wpa_supplicant.conf

@@ -6,13 +6,19 @@ Created by Adrian Rupala 2017
 
 import java.awt.CardLayout;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class testframe extends javax.swing.JFrame {
 
     public static String user_name_global = "";
     public static String user_password_global = "";
+    
+    public static String network_name_global = "";
+    public static String network_password_global = "";
 
     public testframe() {
         setTitle("");
@@ -43,6 +49,7 @@ public class testframe extends javax.swing.JFrame {
         jPB2 = new javax.swing.JButton();
         iPB2_back = new javax.swing.JButton();
         jPB2_add_user = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jP3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -50,9 +57,11 @@ public class testframe extends javax.swing.JFrame {
         network_name = new javax.swing.JComboBox<>();
         network_password_title = new javax.swing.JLabel();
         network_password = new javax.swing.JPasswordField();
+        next_button_explain = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPB4 = new javax.swing.JButton();
         iPB4_back = new javax.swing.JButton();
+        jPB4_connect = new javax.swing.JButton();
         jP4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -130,7 +139,7 @@ public class testframe extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -215,6 +224,10 @@ public class testframe extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel3.setFont(new java.awt.Font("SF Pro Text", 0, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(149, 152, 154));
+        jLabel3.setText("Jeśli nie chcesz tworzyć nowego użytkownika wybierz przycisk dalej.");
+
         javax.swing.GroupLayout jP2Layout = new javax.swing.GroupLayout(jP2);
         jP2.setLayout(jP2Layout);
         jP2Layout.setHorizontalGroup(
@@ -230,7 +243,8 @@ public class testframe extends javax.swing.JFrame {
                     .addGroup(jP2Layout.createSequentialGroup()
                         .addGroup(jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(user_password_title)
-                            .addComponent(user_name_title))
+                            .addComponent(user_name_title)
+                            .addComponent(jLabel3))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -249,7 +263,9 @@ public class testframe extends javax.swing.JFrame {
                 .addComponent(user_password_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(user_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -300,6 +316,10 @@ public class testframe extends javax.swing.JFrame {
         network_password_title.setForeground(new java.awt.Color(149, 152, 154));
         network_password_title.setText("Podaj swoje hasło:");
 
+        next_button_explain.setFont(new java.awt.Font("SF Pro Text", 0, 10)); // NOI18N
+        next_button_explain.setForeground(new java.awt.Color(149, 152, 154));
+        next_button_explain.setText("Jeśli nie chcesz łączyć się z siecią bezprzewodową kliknij przycisk dalej.");
+
         jPanel4.setBackground(new java.awt.Color(28, 28, 28));
         jPanel4.setForeground(new java.awt.Color(28, 28, 28));
         jPanel4.setAlignmentX(0.0F);
@@ -319,6 +339,13 @@ public class testframe extends javax.swing.JFrame {
             }
         });
 
+        jPB4_connect.setText("Połącz z siecią");
+        jPB4_connect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPB4_connectActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -327,6 +354,8 @@ public class testframe extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(iPB4_back)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPB4_connect)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPB4)
                 .addContainerGap())
         );
@@ -336,7 +365,8 @@ public class testframe extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPB4)
-                    .addComponent(iPB4_back))
+                    .addComponent(iPB4_back)
+                    .addComponent(jPB4_connect))
                 .addContainerGap())
         );
 
@@ -350,10 +380,12 @@ public class testframe extends javax.swing.JFrame {
                 .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                    .addComponent(network_name, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jP3Layout.createSequentialGroup()
-                        .addComponent(network_name_title, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(network_name, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(network_name_title, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(next_button_explain))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP3Layout.createSequentialGroup()
@@ -376,7 +408,9 @@ public class testframe extends javax.swing.JFrame {
                 .addComponent(network_name_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(network_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(next_button_explain)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP3Layout.createSequentialGroup()
@@ -384,7 +418,7 @@ public class testframe extends javax.swing.JFrame {
                     .addComponent(network_password_title)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(network_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(93, Short.MAX_VALUE)))
+                    .addContainerGap(97, Short.MAX_VALUE)))
         );
 
         P1.add(jP3, "panelThree");
@@ -463,7 +497,7 @@ public class testframe extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -502,10 +536,6 @@ public class testframe extends javax.swing.JFrame {
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1, "panelFour");
     }//GEN-LAST:event_jPB4ActionPerformed
-
-    private void jPB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB3ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jPB3ActionPerformed
 
     private void user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_nameActionPerformed
         // TODO add your handling code here:
@@ -551,6 +581,52 @@ public class testframe extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_network_nameActionPerformed
 
+    private void jPB4_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB4_connectActionPerformed
+        // TODO add your handling code here:
+        
+        network_name_global = (String)network_name.getSelectedItem();
+        network_password_global = new String(network_password.getPassword());
+        
+        try {
+            ProcessBuilder pb = new ProcessBuilder("/home/pi/connect_network_rpi.sh");
+            Map<String, String> env = pb.environment();
+            env.put("name", network_name_global);
+            env.put("password", network_password_global);
+            Process p = pb.start();
+            p.waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1, "panelFour");
+    }//GEN-LAST:event_jPB4_connectActionPerformed
+
+    private void jPB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB3ActionPerformed
+            Runtime rt_reboot = Runtime.getRuntime();
+
+            String[] cmd_reboot = { "/bin/bash", "-c", "reboot now" };
+
+            Process proc_reboot = null;
+            try {
+                proc_reboot = rt_reboot.exec(cmd_reboot);
+            } catch (IOException ex) {
+                Logger.getLogger(testframe.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            BufferedReader is_reboot = new BufferedReader(new InputStreamReader(proc_reboot.getInputStream()));
+            String line_reboot;
+            try {
+                while ((line_reboot = is_reboot.readLine()) != null) {
+                    System.out.println(line_reboot);
+                }
+                  } catch (IOException ex) {
+                Logger.getLogger(testframe.class.getName()).log(Level.SEVERE, null, ex);
+            }
+      
+        
+        System.exit(0);
+    }//GEN-LAST:event_jPB3ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -590,6 +666,7 @@ public class testframe extends javax.swing.JFrame {
     private javax.swing.JButton iPB4_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -603,6 +680,7 @@ public class testframe extends javax.swing.JFrame {
     private javax.swing.JButton jPB2_add_user;
     private javax.swing.JButton jPB3;
     private javax.swing.JButton jPB4;
+    private javax.swing.JButton jPB4_connect;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -611,6 +689,7 @@ public class testframe extends javax.swing.JFrame {
     private javax.swing.JLabel network_name_title;
     private javax.swing.JPasswordField network_password;
     private javax.swing.JLabel network_password_title;
+    private javax.swing.JLabel next_button_explain;
     private javax.swing.JLabel subtitle_jp2;
     private javax.swing.JLabel title_jp2;
     private javax.swing.JTextField user_name;
