@@ -5,18 +5,22 @@ Created by Adrian Rupala 2017
 */
 
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Map;
 
 public class testframe extends javax.swing.JFrame {
 
     public static String user_name_global = "";
     public static String user_password_global = "";
-    
+
     public testframe() {
-        setTitle("");  
+        setTitle("");
         setResizable(false);
         setUndecorated(true);
-        setVisible(true);  
+        setVisible(true);
         initComponents();
     }
 
@@ -45,7 +49,7 @@ public class testframe extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         network_name_title = new javax.swing.JLabel();
-        network_name = new javax.swing.JTextField();
+        network_name = new javax.swing.JComboBox<>();
         network_password_title = new javax.swing.JLabel();
         network_password = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
@@ -272,6 +276,23 @@ public class testframe extends javax.swing.JFrame {
         network_name_title.setForeground(new java.awt.Color(149, 152, 154));
         network_name_title.setText("Wybierz swoją sieć:");
 
+        network_name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wybierz sieć." }));
+        network_name.removeAllItems();
+        try {
+            String[] network_command = {"/home/pi/avilible_networks.sh"};
+            Process network_process = Runtime.getRuntime().exec(network_command);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(network_process.getInputStream()));
+            String read;
+            while ((read = reader.readLine()) != null) {
+                String [] parts = read.split(": ");
+                network_name.addItem(parts[1].trim());
+                //String x = String.valueOf(network_name.getSelectedItem());
+                //network_name.setSelectedItem();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        network_name.setAutoscrolls(true);
         network_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 network_nameActionPerformed(evt);
@@ -331,19 +352,20 @@ public class testframe extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                    .addGroup(jP3Layout.createSequentialGroup()
+                        .addComponent(network_name_title, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(network_name, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP3Layout.createSequentialGroup()
                     .addGap(6, 6, 6)
                     .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(network_name)
                         .addComponent(network_password)
                         .addGroup(jP3Layout.createSequentialGroup()
-                            .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(network_password_title)
-                                .addComponent(network_name_title, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 491, Short.MAX_VALUE)))
+                            .addComponent(network_password_title)
+                            .addGap(0, 510, Short.MAX_VALUE)))
                     .addGap(6, 6, 6)))
         );
         jP3Layout.setVerticalGroup(
@@ -353,15 +375,15 @@ public class testframe extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addComponent(network_name_title)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(network_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP3Layout.createSequentialGroup()
-                    .addGap(93, 93, 93)
-                    .addComponent(network_name_title)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(network_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
+                    .addGap(156, 156, 156)
                     .addComponent(network_password_title)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(network_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -476,12 +498,12 @@ public class testframe extends javax.swing.JFrame {
 
     private void jPB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB2ActionPerformed
         CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1, "panelThree");        
+        card.show(P1, "panelThree");
     }//GEN-LAST:event_jPB2ActionPerformed
 
     private void jPB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB4ActionPerformed
         CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1, "panelFour");             
+        card.show(P1, "panelFour");
     }//GEN-LAST:event_jPB4ActionPerformed
 
     private void jPB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB3ActionPerformed
@@ -505,38 +527,34 @@ public class testframe extends javax.swing.JFrame {
     }//GEN-LAST:event_iPB4_backActionPerformed
 
     private void iPB3_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPB3_backActionPerformed
-        // TODO add your handling code here:     
+        // TODO add your handling code here:
         CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1,"panelThree");        
+        card.show(P1,"panelThree");
     }//GEN-LAST:event_iPB3_backActionPerformed
 
-    private void network_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_network_nameActionPerformed
-        // TODO add your handling code here:  
-    }//GEN-LAST:event_network_nameActionPerformed
-
     private void jPB2_add_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB2_add_userActionPerformed
-        // TODO add your handling code here:       
+        // TODO add your handling code here:
         user_name_global = user_name.getText();
         user_password_global = new String(user_password.getPassword());
-        
+
         try {
-            ProcessBuilder pb = new ProcessBuilder("/home/adrix/add_user.sh");
+            ProcessBuilder pb = new ProcessBuilder("/home/pi/add_user.sh");
             Map<String, String> env = pb.environment();
             env.put("username", user_name_global);
             env.put("password", user_password_global);
-            Process p = pb.start();    
-            p.waitFor();              
+            Process p = pb.start();
+            p.waitFor();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }//GEN-LAST:event_jPB2_add_userActionPerformed
-
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -588,7 +606,7 @@ public class testframe extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField network_name;
+    private javax.swing.JComboBox<String> network_name;
     private javax.swing.JLabel network_name_title;
     private javax.swing.JPasswordField network_password;
     private javax.swing.JLabel network_password_title;

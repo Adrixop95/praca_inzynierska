@@ -375,11 +375,16 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel8" alignment="0" pref="598" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="network_name_title" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="network_name" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -387,14 +392,10 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="network_name" alignment="0" max="32767" attributes="0"/>
                               <Component id="network_password" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="network_password_title" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="network_name_title" min="-2" pref="107" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="491" max="32767" attributes="0"/>
+                                  <Component id="network_password_title" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="510" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -409,16 +410,16 @@
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="160" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="network_name_title" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="network_name" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="89" max="32767" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                          <Component id="network_name_title" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="network_name" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
                           <Component id="network_password_title" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="network_password" min="-2" max="-2" attributes="0"/>
@@ -468,10 +469,20 @@
                 <Property name="text" type="java.lang.String" value="Wybierz swoj&#x105; sie&#x107;:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="network_name">
+            <Component class="javax.swing.JComboBox" name="network_name">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="network_name.removeAllItems();&#xa;        try {&#xa;            String[] network_command = {&quot;/home/pi/avilible_networks.sh&quot;};&#xa;            Process network_process = Runtime.getRuntime().exec(network_command);&#xa;            BufferedReader reader = new BufferedReader(new InputStreamReader(network_process.getInputStream()));&#xa;            String read;&#xa;            while ((read = reader.readLine()) != null) {&#xa;                String [] parts = read.split(&quot;: &quot;);&#xa;                network_name.addItem(parts[1].trim());&#xa;                //String x = String.valueOf(network_name.getSelectedItem());&#xa;                //network_name.setSelectedItem();&#xa;            }&#xa;        } catch (Exception e) {&#xa;            e.printStackTrace();&#xa;        }">
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Wybierz sie&#x107;.&quot; })" type="code"/>
+                </Property>
+                <Property name="autoscrolls" type="boolean" value="true"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="network_nameActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;&gt;()"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="network_password_title">
               <Properties>
