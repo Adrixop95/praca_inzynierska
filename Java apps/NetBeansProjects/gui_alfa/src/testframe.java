@@ -5,8 +5,6 @@ Created by Adrian Rupala 2017
 */
 
 import java.awt.CardLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Map;
@@ -276,7 +274,7 @@ public class testframe extends javax.swing.JFrame {
         network_name_title.setForeground(new java.awt.Color(149, 152, 154));
         network_name_title.setText("Wybierz swoją sieć:");
 
-        network_name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wybierz sieć." }));
+        network_name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wybież swoją sieć." }));
         network_name.removeAllItems();
         try {
             String[] network_command = {"/home/pi/avilible_networks.sh"};
@@ -286,12 +284,11 @@ public class testframe extends javax.swing.JFrame {
             while ((read = reader.readLine()) != null) {
                 String [] parts = read.split(": ");
                 network_name.addItem(parts[1].trim());
-                //String x = String.valueOf(network_name.getSelectedItem());
-                //network_name.setSelectedItem();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         network_name.setAutoscrolls(true);
         network_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -549,7 +546,11 @@ public class testframe extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jPB2_add_userActionPerformed
-    
+
+    private void network_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_network_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_network_nameActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
