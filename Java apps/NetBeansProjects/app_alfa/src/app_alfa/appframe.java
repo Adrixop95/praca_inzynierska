@@ -75,6 +75,14 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP2 = new javax.swing.JPanel();
         Next_jP2 = new javax.swing.JButton();
         Back_jP2 = new javax.swing.JButton();
+        jP3 = new javax.swing.JPanel();
+        Title_jP3 = new javax.swing.JLabel();
+        Subtitle_jP3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        Panel_jP3 = new javax.swing.JPanel();
+        Next_jP3 = new javax.swing.JButton();
+        Back_jP3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -277,6 +285,97 @@ public class appframe extends javax.swing.JFrame {
 
         P1.add(jP2, "panelTwo");
 
+        jP3.setBackground(new java.awt.Color(38, 38, 38));
+
+        Title_jP3.setBackground(new java.awt.Color(204, 204, 198));
+        Title_jP3.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
+        Title_jP3.setForeground(new java.awt.Color(204, 204, 198));
+        Title_jP3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title_jP3.setText("Dodaj plik.");
+        Title_jP3.setPreferredSize(new java.awt.Dimension(54, 39));
+
+        Subtitle_jP3.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
+        Subtitle_jP3.setForeground(new java.awt.Color(149, 152, 154));
+        Subtitle_jP3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Subtitle_jP3.setText("Chcesz stworzyć czy dodać gotowy plik?");
+        Subtitle_jP3.setPreferredSize(new java.awt.Dimension(503, 24));
+
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton1");
+
+        Panel_jP3.setBackground(new java.awt.Color(28, 28, 28));
+        Panel_jP3.setForeground(new java.awt.Color(28, 28, 28));
+        Panel_jP3.setPreferredSize(new java.awt.Dimension(88, 59));
+
+        Next_jP3.setText("Dalej");
+        Next_jP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Next_jP3ActionPerformed(evt);
+            }
+        });
+
+        Back_jP3.setText("Wstecz");
+        Back_jP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_jP3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_jP3Layout = new javax.swing.GroupLayout(Panel_jP3);
+        Panel_jP3.setLayout(Panel_jP3Layout);
+        Panel_jP3Layout.setHorizontalGroup(
+            Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Back_jP3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Next_jP3)
+                .addContainerGap())
+        );
+        Panel_jP3Layout.setVerticalGroup(
+            Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Next_jP3)
+                    .addComponent(Back_jP3))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jP3Layout = new javax.swing.GroupLayout(jP3);
+        jP3.setLayout(jP3Layout);
+        jP3Layout.setHorizontalGroup(
+            jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_jP3, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addGroup(jP3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Title_jP3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jP3Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jP3Layout.setVerticalGroup(
+            jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Subtitle_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Panel_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        P1.add(jP3, "panelThree");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -399,7 +498,20 @@ public class appframe extends javax.swing.JFrame {
         PASS = new String(password_jP2.getPassword());
         
         System.out.println(USER + " " + PASS);
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelThree");
+        
     }//GEN-LAST:event_Next_jP2ActionPerformed
+
+    private void Next_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Next_jP3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Next_jP3ActionPerformed
+
+    private void Back_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP3ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelTwo");
+    }//GEN-LAST:event_Back_jP3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -443,19 +555,27 @@ public class appframe extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back_jP2;
+    private javax.swing.JButton Back_jP3;
     private javax.swing.JButton Next_jP1;
     private javax.swing.JButton Next_jP2;
+    private javax.swing.JButton Next_jP3;
     private javax.swing.JPanel P1;
     private javax.swing.JPanel Panel_jP1;
     private javax.swing.JPanel Panel_jP2;
+    private javax.swing.JPanel Panel_jP3;
     private javax.swing.JButton Refresh_jP1;
     private javax.swing.JLabel Subtitle_jP1;
     private javax.swing.JLabel Subtitle_jP2;
+    private javax.swing.JLabel Subtitle_jP3;
     private javax.swing.JLabel Title_combobox_jP1;
     private javax.swing.JLabel Title_jP1;
     private javax.swing.JLabel Title_jP2;
+    private javax.swing.JLabel Title_jP3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
+    private javax.swing.JPanel jP3;
     private javax.swing.JPasswordField password_jP2;
     private javax.swing.JLabel password_title_jP2;
     private javax.swing.JComboBox<String> rpilist_jP1;
