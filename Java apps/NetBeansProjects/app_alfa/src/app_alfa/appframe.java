@@ -6,12 +6,36 @@
 package app_alfa;
 
 import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
+import java.net.Socket;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
  * @author adrix
  */
 public class appframe extends javax.swing.JFrame {
+
+    public static String komenda = "";
+    public static String USER = "";
+    public static String PASS = "";
+    public static String host = "";
+    public static String ip_route = "";
+    public static String ip_addr_glob = "";
+    public static int port = 0;
+    private ArrayList<String> avilible_raspberry = new ArrayList<String>();
 
     /**
      * Creates new form appframe
@@ -39,6 +63,7 @@ public class appframe extends javax.swing.JFrame {
         rpilist_jP1 = new javax.swing.JComboBox<>();
         Panel_jP1 = new javax.swing.JPanel();
         Next_jP1 = new javax.swing.JButton();
+        Refresh_jP1 = new javax.swing.JButton();
         jP2 = new javax.swing.JPanel();
         Title_jP2 = new javax.swing.JLabel();
         Subtitle_jP2 = new javax.swing.JLabel();
@@ -72,7 +97,7 @@ public class appframe extends javax.swing.JFrame {
         Title_combobox_jP1.setForeground(new java.awt.Color(149, 152, 154));
         Title_combobox_jP1.setText("Urządzenia podłączone do sieci...");
 
-        rpilist_jP1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rpilist_jP1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Przed użyciem odśwież listę urządzeń" }));
         rpilist_jP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rpilist_jP1ActionPerformed(evt);
@@ -90,12 +115,21 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
+        Refresh_jP1.setText("Odśwież listę");
+        Refresh_jP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Refresh_jP1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_jP1Layout = new javax.swing.GroupLayout(Panel_jP1);
         Panel_jP1.setLayout(Panel_jP1Layout);
         Panel_jP1Layout.setHorizontalGroup(
             Panel_jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(Refresh_jP1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Next_jP1)
                 .addContainerGap())
         );
@@ -103,7 +137,9 @@ public class appframe extends javax.swing.JFrame {
             Panel_jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP1Layout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(Next_jP1)
+                .addGroup(Panel_jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Next_jP1)
+                    .addComponent(Refresh_jP1))
                 .addContainerGap())
         );
 
@@ -270,6 +306,84 @@ public class appframe extends javax.swing.JFrame {
         card.show(P1,"panelTwo");
     }//GEN-LAST:event_Next_jP1ActionPerformed
 
+    private void Refresh_jP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh_jP1ActionPerformed
+        // TODO add your handling code here:
+        rpilist_jP1.removeAllItems();
+
+        int timeout=100;
+        int port = 1234;
+        String ip_addr = "";
+        
+        Set<String> HostAddresses = new HashSet<>();
+            try {
+                for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                    if (!ni.isLoopback() && ni.isUp() && ni.getHardwareAddress() != null) {
+                        for (InterfaceAddress ia : ni.getInterfaceAddresses()) {
+                            if (ia.getBroadcast() != null) {  //If limited to IPV4
+                                HostAddresses.add(ia.getAddress().getHostAddress());
+                                ip_addr = HostAddresses.toString();
+                                System.out.println(ip_addr);
+                            }
+                        }
+                    }
+                }
+            } catch (SocketException e) { }
+        
+        try {
+            int index = ip_addr.indexOf(" ");
+            String firststring = ip_addr.substring(0, index);
+            System.out.println(firststring);
+            
+            firststring = firststring.substring(1);
+            String subnet = getSubnet(firststring);
+            System.out.println("subnet: " + subnet);
+            
+            for (int i=1;i<254;i++){
+
+                String host = subnet + i;
+                System.out.println("Checking :" + host);
+
+                if (InetAddress.getByName(host).isReachable(timeout)){
+                    System.out.println(host + " is reachable");
+                    try {
+                        Socket connected = new Socket(subnet, port);
+                    }
+                    catch (Exception s) {
+                        System.out.println(s);
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+
+
+        Runtime rt_arp = Runtime.getRuntime();
+        //System.out.println("Twoje Raspberry PI w sieci: ");
+        String[] cmd_arp = { "/bin/bash", "-c", "arp -a | grep 'b8:27:eb'" };
+
+        Process proc_arp = null;
+        try {
+            proc_arp = rt_arp.exec(cmd_arp);
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        BufferedReader is_arp = new BufferedReader(new InputStreamReader(proc_arp.getInputStream()));
+        String line_arp;
+        try {
+            while ((line_arp = is_arp.readLine()) != null) {
+                String[] parts = line_arp.split(" ");
+                System.out.println("Nazwa urządzenia: " + parts[0] + ", adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
+                rpilist_jP1.addItem("Nazwa urządzenia: " + parts[0] + ", adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
+            }
+              } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_Refresh_jP1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -277,7 +391,7 @@ public class appframe extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -305,6 +419,11 @@ public class appframe extends javax.swing.JFrame {
         });
     }
 
+    public static String getSubnet(String ip_addr) {
+        int firstSeparator = ip_addr.lastIndexOf("/");
+        int lastSeparator = ip_addr.lastIndexOf(".");
+        return ip_addr.substring(firstSeparator+1, lastSeparator+1);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back_jP2;
     private javax.swing.JButton Next_jP1;
@@ -312,6 +431,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel P1;
     private javax.swing.JPanel Panel_jP1;
     private javax.swing.JPanel Panel_jP2;
+    private javax.swing.JButton Refresh_jP1;
     private javax.swing.JLabel Subtitle_jP1;
     private javax.swing.JLabel Subtitle_jP2;
     private javax.swing.JLabel Title_combobox_jP1;

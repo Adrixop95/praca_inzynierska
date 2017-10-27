@@ -578,7 +578,7 @@ public class testframe extends javax.swing.JFrame {
     }//GEN-LAST:event_jPB2_add_userActionPerformed
 
     private void network_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_network_nameActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handlin    g code here:
     }//GEN-LAST:event_network_nameActionPerformed
 
     private void jPB4_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB4_connectActionPerformed
