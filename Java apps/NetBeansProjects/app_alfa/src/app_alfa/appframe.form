@@ -181,20 +181,20 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="Next_jP1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Dalej"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Next_jP1ActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JButton" name="Refresh_jP1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Od&#x15b;wie&#x17c; list&#x119;"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Refresh_jP1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="Next_jP1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalej"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Next_jP1ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -222,15 +222,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Title_jP2" alignment="1" max="32767" attributes="0"/>
                           <Component id="Subtitle_jP2" alignment="1" pref="614" max="32767" attributes="0"/>
-                          <Component id="jTextField1" max="32767" attributes="0"/>
+                          <Component id="username_jP2" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Title_combobox_jP2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Title_combobox_jP3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="username_title_jP2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="password_title_jP2" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jPasswordField1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="password_jP2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -244,14 +244,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Subtitle_jP2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Title_combobox_jP2" min="-2" max="-2" attributes="0"/>
+                      <Component id="username_title_jP2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="username_jP2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Title_combobox_jP3" min="-2" max="-2" attributes="0"/>
+                      <Component id="password_title_jP2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                      <Component id="password_jP2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                       <Component id="Panel_jP2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -291,7 +291,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Title_combobox_jP2">
+            <Component class="javax.swing.JLabel" name="username_title_jP2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9a" green="98" red="95" type="rgb"/>
@@ -299,12 +299,9 @@
                 <Property name="text" type="java.lang.String" value="Nazwa u&#x17c;ytkownika:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="username_jP2">
             </Component>
-            <Component class="javax.swing.JLabel" name="Title_combobox_jP3">
+            <Component class="javax.swing.JLabel" name="password_title_jP2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9a" green="98" red="95" type="rgb"/>
@@ -312,10 +309,7 @@
                 <Property name="text" type="java.lang.String" value="Has&#x142;o:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-              </Properties>
+            <Component class="javax.swing.JPasswordField" name="password_jP2">
             </Component>
             <Container class="javax.swing.JPanel" name="Panel_jP2">
               <Properties>
@@ -360,6 +354,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Dalej"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Next_jP2ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Back_jP2">
                   <Properties>

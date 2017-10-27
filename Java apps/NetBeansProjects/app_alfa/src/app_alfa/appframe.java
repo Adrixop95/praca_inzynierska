@@ -33,6 +33,7 @@ public class appframe extends javax.swing.JFrame {
     public static String PASS = "";
     public static String host = "";
     public static String ip_route = "";
+    public static String full_get_selected = "";
     public static String ip_addr_glob = "";
     public static int port = 0;
     private ArrayList<String> avilible_raspberry = new ArrayList<String>();
@@ -62,15 +63,15 @@ public class appframe extends javax.swing.JFrame {
         Title_combobox_jP1 = new javax.swing.JLabel();
         rpilist_jP1 = new javax.swing.JComboBox<>();
         Panel_jP1 = new javax.swing.JPanel();
-        Next_jP1 = new javax.swing.JButton();
         Refresh_jP1 = new javax.swing.JButton();
+        Next_jP1 = new javax.swing.JButton();
         jP2 = new javax.swing.JPanel();
         Title_jP2 = new javax.swing.JLabel();
         Subtitle_jP2 = new javax.swing.JLabel();
-        Title_combobox_jP2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        Title_combobox_jP3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        username_title_jP2 = new javax.swing.JLabel();
+        username_jP2 = new javax.swing.JTextField();
+        password_title_jP2 = new javax.swing.JLabel();
+        password_jP2 = new javax.swing.JPasswordField();
         Panel_jP2 = new javax.swing.JPanel();
         Next_jP2 = new javax.swing.JButton();
         Back_jP2 = new javax.swing.JButton();
@@ -108,17 +109,17 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP1.setForeground(new java.awt.Color(28, 28, 28));
         Panel_jP1.setPreferredSize(new java.awt.Dimension(88, 59));
 
-        Next_jP1.setText("Dalej");
-        Next_jP1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Next_jP1ActionPerformed(evt);
-            }
-        });
-
         Refresh_jP1.setText("Odśwież listę");
         Refresh_jP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Refresh_jP1ActionPerformed(evt);
+            }
+        });
+
+        Next_jP1.setText("Dalej");
+        Next_jP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Next_jP1ActionPerformed(evt);
             }
         });
 
@@ -191,21 +192,22 @@ public class appframe extends javax.swing.JFrame {
         Subtitle_jP2.setText("Podaj nazwę użytkownika oraz hasło.");
         Subtitle_jP2.setPreferredSize(new java.awt.Dimension(503, 24));
 
-        Title_combobox_jP2.setForeground(new java.awt.Color(149, 152, 154));
-        Title_combobox_jP2.setText("Nazwa użytkownika:");
+        username_title_jP2.setForeground(new java.awt.Color(149, 152, 154));
+        username_title_jP2.setText("Nazwa użytkownika:");
 
-        jTextField1.setText("jTextField1");
-
-        Title_combobox_jP3.setForeground(new java.awt.Color(149, 152, 154));
-        Title_combobox_jP3.setText("Hasło:");
-
-        jPasswordField1.setText("jPasswordField1");
+        password_title_jP2.setForeground(new java.awt.Color(149, 152, 154));
+        password_title_jP2.setText("Hasło:");
 
         Panel_jP2.setBackground(new java.awt.Color(28, 28, 28));
         Panel_jP2.setForeground(new java.awt.Color(28, 28, 28));
         Panel_jP2.setPreferredSize(new java.awt.Dimension(88, 59));
 
         Next_jP2.setText("Dalej");
+        Next_jP2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Next_jP2ActionPerformed(evt);
+            }
+        });
 
         Back_jP2.setText("Wstecz");
         Back_jP2.addActionListener(new java.awt.event.ActionListener() {
@@ -245,13 +247,13 @@ public class appframe extends javax.swing.JFrame {
                 .addGroup(jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Subtitle_jP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
+                    .addComponent(username_jP2)
                     .addGroup(jP2Layout.createSequentialGroup()
                         .addGroup(jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Title_combobox_jP2)
-                            .addComponent(Title_combobox_jP3))
+                            .addComponent(username_title_jP2)
+                            .addComponent(password_title_jP2))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPasswordField1))
+                    .addComponent(password_jP2))
                 .addContainerGap())
         );
         jP2Layout.setVerticalGroup(
@@ -262,14 +264,14 @@ public class appframe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Subtitle_jP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Title_combobox_jP2)
+                .addComponent(username_title_jP2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(username_jP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Title_combobox_jP3)
+                .addComponent(password_title_jP2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addComponent(password_jP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
                 .addComponent(Panel_jP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -291,7 +293,7 @@ public class appframe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rpilist_jP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rpilist_jP1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
     }//GEN-LAST:event_rpilist_jP1ActionPerformed
 
     private void Back_jP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP2ActionPerformed
@@ -304,6 +306,13 @@ public class appframe extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelTwo");
+        
+        full_get_selected = (String)rpilist_jP1.getSelectedItem();
+        String[] parts = full_get_selected.split(" ");
+        ip_addr_glob = parts[5].substring(0,parts[5].length()-1);
+        System.out.println(ip_addr_glob);
+        
+        
     }//GEN-LAST:event_Next_jP1ActionPerformed
 
     private void Refresh_jP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh_jP1ActionPerformed
@@ -384,6 +393,14 @@ public class appframe extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Refresh_jP1ActionPerformed
 
+    private void Next_jP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Next_jP2ActionPerformed
+        // TODO add your handling code here:
+        USER = username_jP2.getText();
+        PASS = new String(password_jP2.getPassword());
+        
+        System.out.println(USER + " " + PASS);
+    }//GEN-LAST:event_Next_jP2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -435,14 +452,14 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Subtitle_jP1;
     private javax.swing.JLabel Subtitle_jP2;
     private javax.swing.JLabel Title_combobox_jP1;
-    private javax.swing.JLabel Title_combobox_jP2;
-    private javax.swing.JLabel Title_combobox_jP3;
     private javax.swing.JLabel Title_jP1;
     private javax.swing.JLabel Title_jP2;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField password_jP2;
+    private javax.swing.JLabel password_title_jP2;
     private javax.swing.JComboBox<String> rpilist_jP1;
+    private javax.swing.JTextField username_jP2;
+    private javax.swing.JLabel username_title_jP2;
     // End of variables declaration//GEN-END:variables
 }
