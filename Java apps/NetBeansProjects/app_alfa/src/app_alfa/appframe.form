@@ -738,6 +738,11 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="select_file_jP5ActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JTextField" name="file_path_jP5">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="file_path_jP5ActionPerformed"/>
+              </Events>
+            </Component>
             <Container class="javax.swing.JPanel" name="Panel_jP5">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -758,6 +763,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Back_jP5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="send_button_jP5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="Next_jP5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -770,6 +777,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Next_jP5" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Back_jP5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="send_button_jP5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -793,13 +801,16 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Back_jP5ActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JButton" name="send_button_jP5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Prze&#x15b;lij plik"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="send_button_jP5ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="file_path_jP5">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="file_path_jP5ActionPerformed"/>
-              </Events>
-            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

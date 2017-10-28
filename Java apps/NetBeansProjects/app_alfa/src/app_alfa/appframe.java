@@ -5,6 +5,7 @@
  */
 package app_alfa;
 
+import com.jcraft.jsch.*;
 import java.awt.CardLayout;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,25 +15,20 @@ import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-import javax.swing.JButton;
-import javax.swing.JDialog;
+import java.io.FileInputStream;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 
 /**
  *
  * @author adrix
  */
+
 public class appframe extends javax.swing.JFrame {
 
     public static String komenda = "";
@@ -42,8 +38,8 @@ public class appframe extends javax.swing.JFrame {
     public static String ip_route = "";
     public static String full_get_selected = "";
     public static String ip_addr_glob = "";
-    public static int port = 0;
-    private ArrayList<String> avilible_raspberry = new ArrayList<String>();
+    public static String file_path_glob = "";
+    public static int port = 22;
 
     /**
      * Creates new form appframe
@@ -99,10 +95,11 @@ public class appframe extends javax.swing.JFrame {
         Title_jP5 = new javax.swing.JLabel();
         Subtitle_jP5 = new javax.swing.JLabel();
         select_file_jP5 = new javax.swing.JButton();
+        file_path_jP5 = new javax.swing.JTextField();
         Panel_jP5 = new javax.swing.JPanel();
         Next_jP5 = new javax.swing.JButton();
         Back_jP5 = new javax.swing.JButton();
-        file_path_jP5 = new javax.swing.JTextField();
+        send_button_jP5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -496,6 +493,12 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
+        file_path_jP5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                file_path_jP5ActionPerformed(evt);
+            }
+        });
+
         Panel_jP5.setBackground(new java.awt.Color(28, 28, 28));
         Panel_jP5.setForeground(new java.awt.Color(28, 28, 28));
         Panel_jP5.setPreferredSize(new java.awt.Dimension(88, 59));
@@ -514,6 +517,13 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
+        send_button_jP5.setText("Prześlij plik");
+        send_button_jP5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                send_button_jP5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_jP5Layout = new javax.swing.GroupLayout(Panel_jP5);
         Panel_jP5.setLayout(Panel_jP5Layout);
         Panel_jP5Layout.setHorizontalGroup(
@@ -522,6 +532,8 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Back_jP5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(send_button_jP5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Next_jP5)
                 .addContainerGap())
         );
@@ -531,15 +543,10 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(Panel_jP5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Next_jP5)
-                    .addComponent(Back_jP5))
+                    .addComponent(Back_jP5)
+                    .addComponent(send_button_jP5))
                 .addContainerGap())
         );
-
-        file_path_jP5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                file_path_jP5ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jP5_sendLayout = new javax.swing.GroupLayout(jP5_send);
         jP5_send.setLayout(jP5_sendLayout);
@@ -746,6 +753,7 @@ public class appframe extends javax.swing.JFrame {
         if (returnValue == JFileChooser.APPROVE_OPTION) {
           File selectedFile = fileChooser.getSelectedFile();
           System.out.println(selectedFile.getName());
+          file_path_glob = fileChooser.getSelectedFile().getAbsolutePath();
           file_path_jP5.setText(fileChooser.getSelectedFile().getAbsolutePath());
         }
     }//GEN-LAST:event_select_file_jP5ActionPerformed
@@ -753,6 +761,31 @@ public class appframe extends javax.swing.JFrame {
     private void file_path_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_file_path_jP5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_file_path_jP5ActionPerformed
+
+    private void send_button_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_send_button_jP5ActionPerformed
+        Session session = null;
+        Channel channel = null;
+        ChannelSftp channelSftp = null;
+        
+        try {
+            JSch jsch = new JSch();
+            session = jsch.getSession(USER, ip_addr_glob, port);
+            session.setPassword(PASS);
+            java.util.Properties config = new java.util.Properties();
+            config.put("StrictHostKeyChecking", "no");
+            session.setConfig(config);
+            session.connect();
+            channel = session.openChannel("sftp");
+            channel.connect();
+            channelSftp = (ChannelSftp) channel;
+            channelSftp.cd("/home/pi/Pictures");
+            File f = new File(file_path_glob);
+            channelSftp.put(new FileInputStream(f), f.getName());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+  
+    }//GEN-LAST:event_send_button_jP5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -832,6 +865,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel password_title_jP2;
     private javax.swing.JComboBox<String> rpilist_jP1;
     private javax.swing.JButton select_file_jP5;
+    private javax.swing.JButton send_button_jP5;
     private javax.swing.JButton send_jP3;
     private javax.swing.JTextField username_jP2;
     private javax.swing.JLabel username_title_jP2;
