@@ -20,7 +20,14 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 /**
  *
@@ -78,11 +85,24 @@ public class appframe extends javax.swing.JFrame {
         jP3 = new javax.swing.JPanel();
         Title_jP3 = new javax.swing.JLabel();
         Subtitle_jP3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        create_jP3 = new javax.swing.JButton();
+        send_jP3 = new javax.swing.JButton();
         Panel_jP3 = new javax.swing.JPanel();
-        Next_jP3 = new javax.swing.JButton();
         Back_jP3 = new javax.swing.JButton();
+        jP4_create = new javax.swing.JPanel();
+        Title_jP4 = new javax.swing.JLabel();
+        Subtitle_jP4 = new javax.swing.JLabel();
+        Panel_jP4 = new javax.swing.JPanel();
+        Next_jP4 = new javax.swing.JButton();
+        Back_jP4 = new javax.swing.JButton();
+        jP5_send = new javax.swing.JPanel();
+        Title_jP5 = new javax.swing.JLabel();
+        Subtitle_jP5 = new javax.swing.JLabel();
+        select_file_jP5 = new javax.swing.JButton();
+        Panel_jP5 = new javax.swing.JPanel();
+        Next_jP5 = new javax.swing.JButton();
+        Back_jP5 = new javax.swing.JButton();
+        file_path_jP5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,12 +176,12 @@ public class appframe extends javax.swing.JFrame {
         jP1.setLayout(jP1Layout);
         jP1Layout.setHorizontalGroup(
             jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+            .addComponent(Panel_jP1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
             .addGroup(jP1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
                     .addGroup(jP1Layout.createSequentialGroup()
                         .addComponent(Title_combobox_jP1)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -249,12 +269,12 @@ public class appframe extends javax.swing.JFrame {
         jP2.setLayout(jP2Layout);
         jP2Layout.setHorizontalGroup(
             jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP2, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+            .addComponent(Panel_jP2, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
             .addGroup(jP2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
                     .addComponent(username_jP2)
                     .addGroup(jP2Layout.createSequentialGroup()
                         .addGroup(jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,20 +320,23 @@ public class appframe extends javax.swing.JFrame {
         Subtitle_jP3.setText("Chcesz stworzyć czy dodać gotowy plik?");
         Subtitle_jP3.setPreferredSize(new java.awt.Dimension(503, 24));
 
-        jButton1.setText("jButton1");
+        create_jP3.setText("Stwórz plik");
+        create_jP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                create_jP3ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton1");
+        send_jP3.setText("Prześlij plik");
+        send_jP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                send_jP3ActionPerformed(evt);
+            }
+        });
 
         Panel_jP3.setBackground(new java.awt.Color(28, 28, 28));
         Panel_jP3.setForeground(new java.awt.Color(28, 28, 28));
         Panel_jP3.setPreferredSize(new java.awt.Dimension(88, 59));
-
-        Next_jP3.setText("Dalej");
-        Next_jP3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Next_jP3ActionPerformed(evt);
-            }
-        });
 
         Back_jP3.setText("Wstecz");
         Back_jP3.addActionListener(new java.awt.event.ActionListener() {
@@ -329,17 +352,13 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back_jP3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Next_jP3)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Panel_jP3Layout.setVerticalGroup(
             Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Next_jP3)
-                    .addComponent(Back_jP3))
+                .addComponent(Back_jP3)
                 .addContainerGap())
         );
 
@@ -354,9 +373,9 @@ public class appframe extends javax.swing.JFrame {
                     .addComponent(Title_jP3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Subtitle_jP3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jP3Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(create_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(send_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jP3Layout.setVerticalGroup(
@@ -368,13 +387,192 @@ public class appframe extends javax.swing.JFrame {
                 .addComponent(Subtitle_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(create_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(send_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         P1.add(jP3, "panelThree");
+
+        jP4_create.setBackground(new java.awt.Color(38, 38, 38));
+
+        Title_jP4.setBackground(new java.awt.Color(204, 204, 198));
+        Title_jP4.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
+        Title_jP4.setForeground(new java.awt.Color(204, 204, 198));
+        Title_jP4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title_jP4.setText("Stwórz plik.");
+        Title_jP4.setPreferredSize(new java.awt.Dimension(54, 39));
+
+        Subtitle_jP4.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
+        Subtitle_jP4.setForeground(new java.awt.Color(149, 152, 154));
+        Subtitle_jP4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Subtitle_jP4.setText("Wybierz schemat i wprowadź tekst.");
+        Subtitle_jP4.setPreferredSize(new java.awt.Dimension(503, 24));
+
+        Panel_jP4.setBackground(new java.awt.Color(28, 28, 28));
+        Panel_jP4.setForeground(new java.awt.Color(28, 28, 28));
+        Panel_jP4.setPreferredSize(new java.awt.Dimension(88, 59));
+
+        Next_jP4.setText("Dalej");
+        Next_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Next_jP4ActionPerformed(evt);
+            }
+        });
+
+        Back_jP4.setText("Wstecz");
+        Back_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_jP4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_jP4Layout = new javax.swing.GroupLayout(Panel_jP4);
+        Panel_jP4.setLayout(Panel_jP4Layout);
+        Panel_jP4Layout.setHorizontalGroup(
+            Panel_jP4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Back_jP4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Next_jP4)
+                .addContainerGap())
+        );
+        Panel_jP4Layout.setVerticalGroup(
+            Panel_jP4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP4Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(Panel_jP4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Next_jP4)
+                    .addComponent(Back_jP4))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jP4_createLayout = new javax.swing.GroupLayout(jP4_create);
+        jP4_create.setLayout(jP4_createLayout);
+        jP4_createLayout.setHorizontalGroup(
+            jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_jP4, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addGroup(jP4_createLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Title_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jP4_createLayout.setVerticalGroup(
+            jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP4_createLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Subtitle_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(211, 211, 211)
+                .addComponent(Panel_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        P1.add(jP4_create, "panelFour");
+
+        jP5_send.setBackground(new java.awt.Color(38, 38, 38));
+
+        Title_jP5.setBackground(new java.awt.Color(204, 204, 198));
+        Title_jP5.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
+        Title_jP5.setForeground(new java.awt.Color(204, 204, 198));
+        Title_jP5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title_jP5.setText("Prześlij plik.");
+        Title_jP5.setPreferredSize(new java.awt.Dimension(54, 39));
+
+        Subtitle_jP5.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
+        Subtitle_jP5.setForeground(new java.awt.Color(149, 152, 154));
+        Subtitle_jP5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Subtitle_jP5.setText("Wybierz plik który chcesz przesłać.");
+        Subtitle_jP5.setPreferredSize(new java.awt.Dimension(503, 24));
+
+        select_file_jP5.setText("Wybierz plik");
+        select_file_jP5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                select_file_jP5ActionPerformed(evt);
+            }
+        });
+
+        Panel_jP5.setBackground(new java.awt.Color(28, 28, 28));
+        Panel_jP5.setForeground(new java.awt.Color(28, 28, 28));
+        Panel_jP5.setPreferredSize(new java.awt.Dimension(88, 59));
+
+        Next_jP5.setText("Dalej");
+        Next_jP5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Next_jP5ActionPerformed(evt);
+            }
+        });
+
+        Back_jP5.setText("Wstecz");
+        Back_jP5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_jP5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_jP5Layout = new javax.swing.GroupLayout(Panel_jP5);
+        Panel_jP5.setLayout(Panel_jP5Layout);
+        Panel_jP5Layout.setHorizontalGroup(
+            Panel_jP5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Back_jP5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Next_jP5)
+                .addContainerGap())
+        );
+        Panel_jP5Layout.setVerticalGroup(
+            Panel_jP5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP5Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(Panel_jP5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Next_jP5)
+                    .addComponent(Back_jP5))
+                .addContainerGap())
+        );
+
+        file_path_jP5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                file_path_jP5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP5_sendLayout = new javax.swing.GroupLayout(jP5_send);
+        jP5_send.setLayout(jP5_sendLayout);
+        jP5_sendLayout.setHorizontalGroup(
+            jP5_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_jP5, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addGroup(jP5_sendLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP5_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Title_jP5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP5_sendLayout.createSequentialGroup()
+                        .addComponent(file_path_jP5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(select_file_jP5)))
+                .addContainerGap())
+        );
+        jP5_sendLayout.setVerticalGroup(
+            jP5_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP5_sendLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title_jP5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Subtitle_jP5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jP5_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(select_file_jP5)
+                    .addComponent(file_path_jP5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(170, 170, 170)
+                .addComponent(Panel_jP5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        P1.add(jP5_send, "panelFive");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -503,15 +701,58 @@ public class appframe extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Next_jP2ActionPerformed
 
-    private void Next_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Next_jP3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Next_jP3ActionPerformed
-
     private void Back_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP3ActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelTwo");
     }//GEN-LAST:event_Back_jP3ActionPerformed
+
+    private void Next_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Next_jP4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Next_jP4ActionPerformed
+
+    private void Back_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP4ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelThree");
+    }//GEN-LAST:event_Back_jP4ActionPerformed
+
+    private void Next_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Next_jP5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Next_jP5ActionPerformed
+
+    private void Back_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP5ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelThree");        
+    }//GEN-LAST:event_Back_jP5ActionPerformed
+
+    private void create_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_jP3ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelFour");
+    }//GEN-LAST:event_create_jP3ActionPerformed
+
+    private void send_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_send_jP3ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelFive");
+    }//GEN-LAST:event_send_jP3ActionPerformed
+
+    private void select_file_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_select_file_jP5ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+          File selectedFile = fileChooser.getSelectedFile();
+          System.out.println(selectedFile.getName());
+          file_path_jP5.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        }
+    }//GEN-LAST:event_select_file_jP5ActionPerformed
+
+    private void file_path_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_file_path_jP5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_file_path_jP5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -556,29 +797,42 @@ public class appframe extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back_jP2;
     private javax.swing.JButton Back_jP3;
+    private javax.swing.JButton Back_jP4;
+    private javax.swing.JButton Back_jP5;
     private javax.swing.JButton Next_jP1;
     private javax.swing.JButton Next_jP2;
-    private javax.swing.JButton Next_jP3;
+    private javax.swing.JButton Next_jP4;
+    private javax.swing.JButton Next_jP5;
     private javax.swing.JPanel P1;
     private javax.swing.JPanel Panel_jP1;
     private javax.swing.JPanel Panel_jP2;
     private javax.swing.JPanel Panel_jP3;
+    private javax.swing.JPanel Panel_jP4;
+    private javax.swing.JPanel Panel_jP5;
     private javax.swing.JButton Refresh_jP1;
     private javax.swing.JLabel Subtitle_jP1;
     private javax.swing.JLabel Subtitle_jP2;
     private javax.swing.JLabel Subtitle_jP3;
+    private javax.swing.JLabel Subtitle_jP4;
+    private javax.swing.JLabel Subtitle_jP5;
     private javax.swing.JLabel Title_combobox_jP1;
     private javax.swing.JLabel Title_jP1;
     private javax.swing.JLabel Title_jP2;
     private javax.swing.JLabel Title_jP3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel Title_jP4;
+    private javax.swing.JLabel Title_jP5;
+    private javax.swing.JButton create_jP3;
+    private javax.swing.JTextField file_path_jP5;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
     private javax.swing.JPanel jP3;
+    private javax.swing.JPanel jP4_create;
+    private javax.swing.JPanel jP5_send;
     private javax.swing.JPasswordField password_jP2;
     private javax.swing.JLabel password_title_jP2;
     private javax.swing.JComboBox<String> rpilist_jP1;
+    private javax.swing.JButton select_file_jP5;
+    private javax.swing.JButton send_jP3;
     private javax.swing.JTextField username_jP2;
     private javax.swing.JLabel username_title_jP2;
     // End of variables declaration//GEN-END:variables
