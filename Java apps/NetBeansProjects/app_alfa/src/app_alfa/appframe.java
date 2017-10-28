@@ -85,6 +85,7 @@ public class appframe extends javax.swing.JFrame {
         send_jP3 = new javax.swing.JButton();
         Panel_jP3 = new javax.swing.JPanel();
         Back_jP3 = new javax.swing.JButton();
+        Settings_jP3 = new javax.swing.JButton();
         jP4_create = new javax.swing.JPanel();
         Title_jP4 = new javax.swing.JLabel();
         Subtitle_jP4 = new javax.swing.JLabel();
@@ -100,6 +101,15 @@ public class appframe extends javax.swing.JFrame {
         Next_jP5 = new javax.swing.JButton();
         Back_jP5 = new javax.swing.JButton();
         send_button_jP5 = new javax.swing.JButton();
+        jP6_settings = new javax.swing.JPanel();
+        Title_jP6 = new javax.swing.JLabel();
+        Panel_jP6 = new javax.swing.JPanel();
+        Back_jP6 = new javax.swing.JButton();
+        start_system_jP6 = new javax.swing.JButton();
+        restart_system_jP6 = new javax.swing.JButton();
+        restart_device_jP6 = new javax.swing.JButton();
+        add_user_jP6 = new javax.swing.JButton();
+        google_auth_jP6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -342,6 +352,13 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
+        Settings_jP3.setText("Ustawienia systemu");
+        Settings_jP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Settings_jP3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_jP3Layout = new javax.swing.GroupLayout(Panel_jP3);
         Panel_jP3.setLayout(Panel_jP3Layout);
         Panel_jP3Layout.setHorizontalGroup(
@@ -349,13 +366,17 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back_jP3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Settings_jP3)
+                .addContainerGap())
         );
         Panel_jP3Layout.setVerticalGroup(
             Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(Back_jP3)
+                .addGroup(Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back_jP3)
+                    .addComponent(Settings_jP3))
                 .addContainerGap())
         );
 
@@ -581,6 +602,95 @@ public class appframe extends javax.swing.JFrame {
 
         P1.add(jP5_send, "panelFive");
 
+        jP6_settings.setBackground(new java.awt.Color(38, 38, 38));
+
+        Title_jP6.setBackground(new java.awt.Color(204, 204, 198));
+        Title_jP6.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
+        Title_jP6.setForeground(new java.awt.Color(204, 204, 198));
+        Title_jP6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title_jP6.setText("Ustawienia systemu.");
+        Title_jP6.setPreferredSize(new java.awt.Dimension(54, 39));
+
+        Panel_jP6.setBackground(new java.awt.Color(28, 28, 28));
+        Panel_jP6.setForeground(new java.awt.Color(28, 28, 28));
+        Panel_jP6.setPreferredSize(new java.awt.Dimension(88, 59));
+
+        Back_jP6.setText("Wstecz");
+        Back_jP6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_jP6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_jP6Layout = new javax.swing.GroupLayout(Panel_jP6);
+        Panel_jP6.setLayout(Panel_jP6Layout);
+        Panel_jP6Layout.setHorizontalGroup(
+            Panel_jP6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Back_jP6)
+                .addContainerGap(534, Short.MAX_VALUE))
+        );
+        Panel_jP6Layout.setVerticalGroup(
+            Panel_jP6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP6Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(Back_jP6)
+                .addContainerGap())
+        );
+
+        start_system_jP6.setText("Uruchom system");
+
+        restart_system_jP6.setText("Zrestartuj system");
+
+        restart_device_jP6.setText("Zrestartuj urządzenie");
+
+        add_user_jP6.setText("Dodaj użytkownika");
+
+        google_auth_jP6.setText("Autoryzacja Dysku Google");
+
+        javax.swing.GroupLayout jP6_settingsLayout = new javax.swing.GroupLayout(jP6_settings);
+        jP6_settings.setLayout(jP6_settingsLayout);
+        jP6_settingsLayout.setHorizontalGroup(
+            jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addGroup(jP6_settingsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Title_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jP6_settingsLayout.createSequentialGroup()
+                        .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(add_user_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(start_system_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(restart_system_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(google_auth_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(restart_device_jP6)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jP6_settingsLayout.setVerticalGroup(
+            jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP6_settingsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title_jP6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(start_system_jP6)
+                    .addComponent(restart_device_jP6)
+                    .addComponent(restart_system_jP6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add_user_jP6)
+                    .addComponent(google_auth_jP6))
+                .addGap(165, 165, 165)
+                .addComponent(Panel_jP6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        P1.add(jP6_settings, "panelSix");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -787,6 +897,18 @@ public class appframe extends javax.swing.JFrame {
   
     }//GEN-LAST:event_send_button_jP5ActionPerformed
 
+    private void Back_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP6ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelThree");
+    }//GEN-LAST:event_Back_jP6ActionPerformed
+
+    private void Settings_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Settings_jP3ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelSix");
+    }//GEN-LAST:event_Settings_jP3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -832,6 +954,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton Back_jP3;
     private javax.swing.JButton Back_jP4;
     private javax.swing.JButton Back_jP5;
+    private javax.swing.JButton Back_jP6;
     private javax.swing.JButton Next_jP1;
     private javax.swing.JButton Next_jP2;
     private javax.swing.JButton Next_jP4;
@@ -842,7 +965,9 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_jP3;
     private javax.swing.JPanel Panel_jP4;
     private javax.swing.JPanel Panel_jP5;
+    private javax.swing.JPanel Panel_jP6;
     private javax.swing.JButton Refresh_jP1;
+    private javax.swing.JButton Settings_jP3;
     private javax.swing.JLabel Subtitle_jP1;
     private javax.swing.JLabel Subtitle_jP2;
     private javax.swing.JLabel Subtitle_jP3;
@@ -854,19 +979,26 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Title_jP3;
     private javax.swing.JLabel Title_jP4;
     private javax.swing.JLabel Title_jP5;
+    private javax.swing.JLabel Title_jP6;
+    private javax.swing.JButton add_user_jP6;
     private javax.swing.JButton create_jP3;
     private javax.swing.JTextField file_path_jP5;
+    private javax.swing.JButton google_auth_jP6;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
     private javax.swing.JPanel jP3;
     private javax.swing.JPanel jP4_create;
     private javax.swing.JPanel jP5_send;
+    private javax.swing.JPanel jP6_settings;
     private javax.swing.JPasswordField password_jP2;
     private javax.swing.JLabel password_title_jP2;
+    private javax.swing.JButton restart_device_jP6;
+    private javax.swing.JButton restart_system_jP6;
     private javax.swing.JComboBox<String> rpilist_jP1;
     private javax.swing.JButton select_file_jP5;
     private javax.swing.JButton send_button_jP5;
     private javax.swing.JButton send_jP3;
+    private javax.swing.JButton start_system_jP6;
     private javax.swing.JTextField username_jP2;
     private javax.swing.JLabel username_title_jP2;
     // End of variables declaration//GEN-END:variables
