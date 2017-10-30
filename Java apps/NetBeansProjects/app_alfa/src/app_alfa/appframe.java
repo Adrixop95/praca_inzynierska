@@ -22,6 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Map;
 import javax.swing.JFileChooser;
 
 /**
@@ -39,6 +41,9 @@ public class appframe extends javax.swing.JFrame {
     public static String full_get_selected = "";
     public static String ip_addr_glob = "";
     public static String file_path_glob = "";
+    public static String user_name_global = "";
+    public static String user_password_global = "";
+    
     public static int port = 22;
 
     /**
@@ -89,6 +94,10 @@ public class appframe extends javax.swing.JFrame {
         jP4_create = new javax.swing.JPanel();
         Title_jP4 = new javax.swing.JLabel();
         Subtitle_jP4 = new javax.swing.JLabel();
+        choose_picture_jP4 = new javax.swing.JComboBox<>();
+        choose_place_jP4 = new javax.swing.JComboBox<>();
+        add_text_jP4 = new javax.swing.JButton();
+        get_text_jP4 = new javax.swing.JTextField();
         Panel_jP4 = new javax.swing.JPanel();
         Next_jP4 = new javax.swing.JButton();
         Back_jP4 = new javax.swing.JButton();
@@ -103,13 +112,23 @@ public class appframe extends javax.swing.JFrame {
         send_button_jP5 = new javax.swing.JButton();
         jP6_settings = new javax.swing.JPanel();
         Title_jP6 = new javax.swing.JLabel();
-        Panel_jP6 = new javax.swing.JPanel();
-        Back_jP6 = new javax.swing.JButton();
         start_system_jP6 = new javax.swing.JButton();
-        restart_system_jP6 = new javax.swing.JButton();
+        off_system_jP6 = new javax.swing.JButton();
         restart_device_jP6 = new javax.swing.JButton();
         add_user_jP6 = new javax.swing.JButton();
         google_auth_jP6 = new javax.swing.JButton();
+        Panel_jP6 = new javax.swing.JPanel();
+        Back_jP6 = new javax.swing.JButton();
+        jP7_add_user = new javax.swing.JPanel();
+        Title_jP7 = new javax.swing.JLabel();
+        Subtitle_jP7 = new javax.swing.JLabel();
+        user_label_jP7 = new javax.swing.JLabel();
+        user_jP7 = new javax.swing.JTextField();
+        password_label_jP7 = new javax.swing.JLabel();
+        password_jP7 = new javax.swing.JPasswordField();
+        Panel_jP7 = new javax.swing.JPanel();
+        Back_jP7 = new javax.swing.JButton();
+        add_user_button_jP7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -428,6 +447,12 @@ public class appframe extends javax.swing.JFrame {
         Subtitle_jP4.setText("Wybierz schemat i wprowadź tekst.");
         Subtitle_jP4.setPreferredSize(new java.awt.Dimension(503, 24));
 
+        choose_picture_jP4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        choose_place_jP4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        add_text_jP4.setText("Dodaj tekst");
+
         Panel_jP4.setBackground(new java.awt.Color(28, 28, 28));
         Panel_jP4.setForeground(new java.awt.Color(28, 28, 28));
         Panel_jP4.setPreferredSize(new java.awt.Dimension(88, 59));
@@ -475,8 +500,14 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(jP4_createLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(choose_place_jP4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Title_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
+                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP4_createLayout.createSequentialGroup()
+                        .addComponent(get_text_jP4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(add_text_jP4))
+                    .addComponent(choose_picture_jP4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jP4_createLayout.setVerticalGroup(
@@ -486,7 +517,15 @@ public class appframe extends javax.swing.JFrame {
                 .addComponent(Title_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Subtitle_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(211, 211, 211)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(choose_picture_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(choose_place_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add_text_jP4)
+                    .addComponent(get_text_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(104, 104, 104)
                 .addComponent(Panel_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -611,6 +650,36 @@ public class appframe extends javax.swing.JFrame {
         Title_jP6.setText("Ustawienia systemu.");
         Title_jP6.setPreferredSize(new java.awt.Dimension(54, 39));
 
+        start_system_jP6.setText("Uruchom system");
+        start_system_jP6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                start_system_jP6ActionPerformed(evt);
+            }
+        });
+
+        off_system_jP6.setText("Wyłącz system");
+        off_system_jP6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                off_system_jP6ActionPerformed(evt);
+            }
+        });
+
+        restart_device_jP6.setText("Zrestartuj urządzenie");
+        restart_device_jP6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restart_device_jP6ActionPerformed(evt);
+            }
+        });
+
+        add_user_jP6.setText("Dodaj użytkownika");
+        add_user_jP6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_user_jP6ActionPerformed(evt);
+            }
+        });
+
+        google_auth_jP6.setText("Autoryzacja Dysku Google");
+
         Panel_jP6.setBackground(new java.awt.Color(28, 28, 28));
         Panel_jP6.setForeground(new java.awt.Color(28, 28, 28));
         Panel_jP6.setPreferredSize(new java.awt.Dimension(88, 59));
@@ -639,16 +708,6 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        start_system_jP6.setText("Uruchom system");
-
-        restart_system_jP6.setText("Zrestartuj system");
-
-        restart_device_jP6.setText("Zrestartuj urządzenie");
-
-        add_user_jP6.setText("Dodaj użytkownika");
-
-        google_auth_jP6.setText("Autoryzacja Dysku Google");
-
         javax.swing.GroupLayout jP6_settingsLayout = new javax.swing.GroupLayout(jP6_settings);
         jP6_settings.setLayout(jP6_settingsLayout);
         jP6_settingsLayout.setHorizontalGroup(
@@ -664,7 +723,7 @@ public class appframe extends javax.swing.JFrame {
                             .addComponent(start_system_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(restart_system_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(off_system_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(google_auth_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(restart_device_jP6)
@@ -677,10 +736,11 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Title_jP6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(start_system_jP6)
+                .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(restart_device_jP6)
-                    .addComponent(restart_system_jP6))
+                    .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(start_system_jP6)
+                        .addComponent(off_system_jP6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_user_jP6)
@@ -690,6 +750,104 @@ public class appframe extends javax.swing.JFrame {
         );
 
         P1.add(jP6_settings, "panelSix");
+
+        jP7_add_user.setBackground(new java.awt.Color(38, 38, 38));
+
+        Title_jP7.setBackground(new java.awt.Color(204, 204, 198));
+        Title_jP7.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
+        Title_jP7.setForeground(new java.awt.Color(204, 204, 198));
+        Title_jP7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title_jP7.setText("Dodaj użytkownika");
+        Title_jP7.setPreferredSize(new java.awt.Dimension(54, 39));
+
+        Subtitle_jP7.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
+        Subtitle_jP7.setForeground(new java.awt.Color(149, 152, 154));
+        Subtitle_jP7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Subtitle_jP7.setText("Podaj nazwę oraz hasło dla nowego użytkownika.");
+        Subtitle_jP7.setPreferredSize(new java.awt.Dimension(503, 24));
+
+        user_label_jP7.setFont(new java.awt.Font("SF Pro Text", 0, 10)); // NOI18N
+        user_label_jP7.setForeground(new java.awt.Color(149, 152, 154));
+        user_label_jP7.setText("Podaj nazwę użytkownika.");
+
+        password_label_jP7.setFont(new java.awt.Font("SF Pro Text", 0, 10)); // NOI18N
+        password_label_jP7.setForeground(new java.awt.Color(149, 152, 154));
+        password_label_jP7.setText("Podaj hasło.");
+
+        Panel_jP7.setBackground(new java.awt.Color(28, 28, 28));
+        Panel_jP7.setForeground(new java.awt.Color(28, 28, 28));
+        Panel_jP7.setPreferredSize(new java.awt.Dimension(88, 59));
+
+        Back_jP7.setText("Wstecz");
+        Back_jP7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_jP7ActionPerformed(evt);
+            }
+        });
+
+        add_user_button_jP7.setText("Dodaj użytkownika");
+        add_user_button_jP7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_user_button_jP7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_jP7Layout = new javax.swing.GroupLayout(Panel_jP7);
+        Panel_jP7.setLayout(Panel_jP7Layout);
+        Panel_jP7Layout.setHorizontalGroup(
+            Panel_jP7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Back_jP7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(add_user_button_jP7))
+        );
+        Panel_jP7Layout.setVerticalGroup(
+            Panel_jP7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP7Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(Panel_jP7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back_jP7)
+                    .addComponent(add_user_button_jP7))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jP7_add_userLayout = new javax.swing.GroupLayout(jP7_add_user);
+        jP7_add_user.setLayout(jP7_add_userLayout);
+        jP7_add_userLayout.setHorizontalGroup(
+            jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addGroup(jP7_add_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Title_jP7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(user_label_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(user_jP7)
+                    .addComponent(password_label_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(password_jP7))
+                .addContainerGap())
+        );
+        jP7_add_userLayout.setVerticalGroup(
+            jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP7_add_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Subtitle_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(user_label_jP7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(user_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(password_label_jP7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(password_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(Panel_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        P1.add(jP7_add_user, "panelSeven");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -909,6 +1067,287 @@ public class appframe extends javax.swing.JFrame {
         card.show(P1,"panelSix");
     }//GEN-LAST:event_Settings_jP3ActionPerformed
 
+    private void start_system_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_system_jP6ActionPerformed
+        // TODO add your handling code here:
+        komenda = "cd ~/ && screen -dm bash -c '/home/pi/Server_wyswietlania/DisplayMode.sh'";        
+        
+        try
+        {
+            JSch jsch = new JSch();
+
+            Session session = jsch.getSession(USER, host, port);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword(PASS);
+            session.connect();
+
+            String command = komenda;
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand(command);
+
+            channel.setInputStream(null);
+
+            ((ChannelExec) channel).setErrStream(System.err);
+
+            InputStream in = channel.getInputStream();
+
+            channel.connect();
+            StringBuilder sb = new StringBuilder();
+            byte[] tmp = new byte[1024];
+            while (true)
+            {
+                while (in.available() > 0)
+                {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0)
+                        break;
+                    sb.append(new String(tmp, 0, i));
+                }
+                if (channel.isClosed())
+                {
+                    if (in.available() > 0)
+                        continue;
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
+                    break;
+                }
+                try
+                {
+                    Thread.sleep(500);
+                }
+                catch (Exception ee)
+                {
+                }
+            }
+            //disconnecting and closing
+            channel.disconnect();
+
+            session.disconnect();
+            System.out.println("System został uruchomiony bez błędu.");
+            System.out.println(sb.toString());
+        }
+        catch (Exception e)
+        {
+             //something should be done here
+            e.printStackTrace();
+
+        }        
+    }//GEN-LAST:event_start_system_jP6ActionPerformed
+
+    private void restart_device_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restart_device_jP6ActionPerformed
+        // TODO add your handling code here:
+        komenda = "sudo reboot now";
+        
+        try
+        {
+            JSch jsch = new JSch();
+
+            Session session = jsch.getSession(USER, host, port);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword(PASS);
+            session.connect();
+
+            String command = komenda;
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand(command);
+
+            channel.setInputStream(null);
+
+            ((ChannelExec) channel).setErrStream(System.err);
+
+            InputStream in = channel.getInputStream();
+
+            channel.connect();
+            StringBuilder sb = new StringBuilder();
+            byte[] tmp = new byte[1024];
+            while (true)
+            {
+                while (in.available() > 0)
+                {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0)
+                        break;
+                    sb.append(new String(tmp, 0, i));
+                }
+                if (channel.isClosed())
+                {
+                    if (in.available() > 0)
+                        continue;
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
+                    break;
+                }
+                try
+                {
+                    Thread.sleep(500);
+                }
+                catch (Exception ee)
+                {
+                }
+            }
+            //disconnecting and closing
+            channel.disconnect();
+
+            session.disconnect();
+            System.out.println("Restart serwera powiódł się.");
+            System.out.println(sb.toString());
+        }
+        catch (Exception e)
+        {
+             //something should be done here
+            e.printStackTrace();
+        }       
+        
+    }//GEN-LAST:event_restart_device_jP6ActionPerformed
+
+    private void off_system_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_off_system_jP6ActionPerformed
+        // TODO add your handling code here:
+        komenda = "pkill -f 'SCREEN -dm bash -c' && pkill -f 'java -jar'";
+        
+        try
+        {
+            JSch jsch = new JSch();
+
+            Session session = jsch.getSession(USER, host, port);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword(PASS);
+            session.connect();
+
+            String command = komenda;
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand(command);
+
+            channel.setInputStream(null);
+
+            ((ChannelExec) channel).setErrStream(System.err);
+
+            InputStream in = channel.getInputStream();
+
+            channel.connect();
+            StringBuilder sb = new StringBuilder();
+            byte[] tmp = new byte[1024];
+            while (true)
+            {
+                while (in.available() > 0)
+                {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0)
+                        break;
+                    sb.append(new String(tmp, 0, i));
+                }
+                if (channel.isClosed())
+                {
+                    if (in.available() > 0)
+                        continue;
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
+                    break;
+                }
+                try
+                {
+                    Thread.sleep(500);
+                }
+                catch (Exception ee)
+                {
+                }
+            }
+            //disconnecting and closing
+            channel.disconnect();
+
+            session.disconnect();
+            System.out.println("System został wyłączony poprawnie.");
+            System.out.println(sb.toString());
+        }
+        catch (Exception e)
+        {
+             //something should be done here
+            e.printStackTrace();
+
+        }       
+        
+    }//GEN-LAST:event_off_system_jP6ActionPerformed
+
+    private void Back_jP7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP7ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelSix");        
+    }//GEN-LAST:event_Back_jP7ActionPerformed
+
+    private void add_user_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_user_jP6ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelSeven");
+    }//GEN-LAST:event_add_user_jP6ActionPerformed
+
+    private void add_user_button_jP7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_user_button_jP7ActionPerformed
+        // TODO add your handling code here:
+        user_name_global = user_jP7.getText();
+        user_password_global = new String(password_jP7.getPassword());
+
+        komenda = "pkill -f 'SCREEN -dm bash -c' && /home/pi/add_user.sh'" + user_name_global + user_password_global;
+        
+        try
+        {
+            JSch jsch = new JSch();
+
+            Session session = jsch.getSession(USER, host, port);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword(PASS);
+            session.connect();
+
+            String command = komenda;
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand(command);
+
+            channel.setInputStream(null);
+
+            ((ChannelExec) channel).setErrStream(System.err);
+
+            InputStream in = channel.getInputStream();
+
+            channel.connect();
+            StringBuilder sb = new StringBuilder();
+            byte[] tmp = new byte[1024];
+            while (true)
+            {
+                while (in.available() > 0)
+                {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0)
+                        break;
+                    sb.append(new String(tmp, 0, i));
+                }
+                if (channel.isClosed())
+                {
+                    if (in.available() > 0)
+                        continue;
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
+                    break;
+                }
+                try
+                {
+                    Thread.sleep(500);
+                }
+                catch (Exception ee)
+                {
+                }
+            }
+            //disconnecting and closing
+            channel.disconnect();
+
+            session.disconnect();
+            System.out.println("System został wyłączony poprawnie.");
+            System.out.println(sb.toString());
+        }
+        catch (Exception e)
+        {
+             //something should be done here
+            e.printStackTrace();
+
+        }       
+
+    }//GEN-LAST:event_add_user_button_jP7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -955,6 +1394,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton Back_jP4;
     private javax.swing.JButton Back_jP5;
     private javax.swing.JButton Back_jP6;
+    private javax.swing.JButton Back_jP7;
     private javax.swing.JButton Next_jP1;
     private javax.swing.JButton Next_jP2;
     private javax.swing.JButton Next_jP4;
@@ -966,6 +1406,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_jP4;
     private javax.swing.JPanel Panel_jP5;
     private javax.swing.JPanel Panel_jP6;
+    private javax.swing.JPanel Panel_jP7;
     private javax.swing.JButton Refresh_jP1;
     private javax.swing.JButton Settings_jP3;
     private javax.swing.JLabel Subtitle_jP1;
@@ -973,6 +1414,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Subtitle_jP3;
     private javax.swing.JLabel Subtitle_jP4;
     private javax.swing.JLabel Subtitle_jP5;
+    private javax.swing.JLabel Subtitle_jP7;
     private javax.swing.JLabel Title_combobox_jP1;
     private javax.swing.JLabel Title_jP1;
     private javax.swing.JLabel Title_jP2;
@@ -980,9 +1422,15 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Title_jP4;
     private javax.swing.JLabel Title_jP5;
     private javax.swing.JLabel Title_jP6;
+    private javax.swing.JLabel Title_jP7;
+    private javax.swing.JButton add_text_jP4;
+    private javax.swing.JButton add_user_button_jP7;
     private javax.swing.JButton add_user_jP6;
+    private javax.swing.JComboBox<String> choose_picture_jP4;
+    private javax.swing.JComboBox<String> choose_place_jP4;
     private javax.swing.JButton create_jP3;
     private javax.swing.JTextField file_path_jP5;
+    private javax.swing.JTextField get_text_jP4;
     private javax.swing.JButton google_auth_jP6;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
@@ -990,15 +1438,20 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel jP4_create;
     private javax.swing.JPanel jP5_send;
     private javax.swing.JPanel jP6_settings;
+    private javax.swing.JPanel jP7_add_user;
+    private javax.swing.JButton off_system_jP6;
     private javax.swing.JPasswordField password_jP2;
+    private javax.swing.JPasswordField password_jP7;
+    private javax.swing.JLabel password_label_jP7;
     private javax.swing.JLabel password_title_jP2;
     private javax.swing.JButton restart_device_jP6;
-    private javax.swing.JButton restart_system_jP6;
     private javax.swing.JComboBox<String> rpilist_jP1;
     private javax.swing.JButton select_file_jP5;
     private javax.swing.JButton send_button_jP5;
     private javax.swing.JButton send_jP3;
     private javax.swing.JButton start_system_jP6;
+    private javax.swing.JTextField user_jP7;
+    private javax.swing.JLabel user_label_jP7;
     private javax.swing.JTextField username_jP2;
     private javax.swing.JLabel username_title_jP2;
     // End of variables declaration//GEN-END:variables
