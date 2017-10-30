@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+Created by Adrian Rupala 2017
+
+*/
+
 package app_alfa;
 
 import com.jcraft.jsch.*;
