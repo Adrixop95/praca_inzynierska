@@ -90,12 +90,13 @@ Pełna lista plików testowych zawartych w projecie.
 + echo "exec openbox-session" > ~/.xinitrc 
 + sudo raspi-config (w celu ustawienia automatycznego logowania i bootowania do DE)
 + sudo nano /etc/lightdm/lightdm.conf
-	- Dodanie polecenia `xserver-command=X -s 0 dpms` w celu wyłąćzenia sleepu
+	- Dodanie polecenia `xserver-command=X -s 0 dpms` w celu wyłączenia sleepu
 + sudo nano /boot/cmdline.txt
 	- consoleblank=0
 +  xscreensaver-demo w celu wyłączenia wygaszania ekranu
 +  sudo nano ./xinitrc i dodanie polecenia `@unclutter -display :0 -noevents -grab` oraz poleceń `xset s noblank 
 `,`xset s off `,`xset -dpms`
++ export XAUTHORITY=~/.Xauthority w celu umożliwienia sudo użycia export display
 
 <br><br>
 **Stworzone dla UŚ oraz ŚMCEBI z ♥**

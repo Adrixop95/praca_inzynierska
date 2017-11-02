@@ -4,8 +4,6 @@
 
 printf "Przygotowania do uruchomienia aplikacji...\n"
 printf "Trwa aktualizowanie oraz instalowanie potrzebnych aplikacji...\n\n"
-#sudo apt-get update
-#sudo apt-get install openjdk-8-jre openjdk-8-jdk wget unzip -y
 pkill -f 'java -jar'
 export DISPLAY=:0
 xset s noblank

@@ -24,7 +24,6 @@ public class testframe extends javax.swing.JFrame {
         setTitle("");
         setResizable(false);
         setUndecorated(true);
-        //setVisible(true);
         initComponents();
     }
 
