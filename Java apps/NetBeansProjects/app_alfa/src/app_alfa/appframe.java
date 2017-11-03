@@ -44,6 +44,7 @@ public class appframe extends javax.swing.JFrame {
     public static String file_path_glob = "";
     public static String user_name_global = "";
     public static String user_password_global = "";
+    public static String gdrive_auth = "";
     
     public static int port = 22;
 
@@ -132,10 +133,14 @@ public class appframe extends javax.swing.JFrame {
         add_user_button_jP7 = new javax.swing.JButton();
         jP8_gdrive = new javax.swing.JPanel();
         Title_jP9 = new javax.swing.JLabel();
+        Subtitle_jP9 = new javax.swing.JLabel();
         info_text1_jP9 = new javax.swing.JLabel();
         website_button_jP9 = new javax.swing.JButton();
+        info_text2_jP9 = new javax.swing.JLabel();
+        get_auth_code_jP9 = new javax.swing.JTextField();
         Panel_jP9 = new javax.swing.JPanel();
         Back_jP9 = new javax.swing.JButton();
+        auth_button_jP9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -769,7 +774,7 @@ public class appframe extends javax.swing.JFrame {
         Title_jP7.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
         Title_jP7.setForeground(new java.awt.Color(204, 204, 198));
         Title_jP7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title_jP7.setText("Dodaj użytkownika");
+        Title_jP7.setText("Dodaj użytkownika.");
         Title_jP7.setPreferredSize(new java.awt.Dimension(54, 39));
 
         Subtitle_jP7.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
@@ -870,14 +875,36 @@ public class appframe extends javax.swing.JFrame {
         Title_jP9.setText("Autoryzacja Google Drive.");
         Title_jP9.setPreferredSize(new java.awt.Dimension(54, 39));
 
+        Subtitle_jP9.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
+        Subtitle_jP9.setForeground(new java.awt.Color(149, 152, 154));
+        Subtitle_jP9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Subtitle_jP9.setText("Autoryzacja jest potrzebna do synchronizacji plików.");
+        Subtitle_jP9.setPreferredSize(new java.awt.Dimension(503, 24));
+
         info_text1_jP9.setFont(new java.awt.Font("SF Pro Text", 0, 14)); // NOI18N
         info_text1_jP9.setForeground(new java.awt.Color(204, 204, 198));
         info_text1_jP9.setText("Kliknij w przycisk po prawej stronie aby przejść do strony autoryzacji.");
+        info_text1_jP9.setMaximumSize(new java.awt.Dimension(129, 16));
+        info_text1_jP9.setMinimumSize(new java.awt.Dimension(129, 16));
+        info_text1_jP9.setPreferredSize(new java.awt.Dimension(129, 16));
 
         website_button_jP9.setText("Przejdź do strony!");
         website_button_jP9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 website_button_jP9ActionPerformed(evt);
+            }
+        });
+
+        info_text2_jP9.setFont(new java.awt.Font("SF Pro Text", 0, 14)); // NOI18N
+        info_text2_jP9.setForeground(new java.awt.Color(204, 204, 198));
+        info_text2_jP9.setText("Kliknij w przycisk po prawej stronie aby przejść do strony autoryzacji.");
+        info_text2_jP9.setMaximumSize(new java.awt.Dimension(129, 16));
+        info_text2_jP9.setMinimumSize(new java.awt.Dimension(129, 16));
+        info_text2_jP9.setPreferredSize(new java.awt.Dimension(129, 16));
+
+        get_auth_code_jP9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                get_auth_code_jP9ActionPerformed(evt);
             }
         });
 
@@ -892,6 +919,13 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
+        auth_button_jP9.setText("Autoryzuj");
+        auth_button_jP9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                auth_button_jP9ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_jP9Layout = new javax.swing.GroupLayout(Panel_jP9);
         Panel_jP9.setLayout(Panel_jP9Layout);
         Panel_jP9Layout.setHorizontalGroup(
@@ -899,13 +933,17 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back_jP9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(auth_button_jP9)
+                .addContainerGap())
         );
         Panel_jP9Layout.setVerticalGroup(
             Panel_jP9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP9Layout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(Back_jP9)
+                .addGroup(Panel_jP9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back_jP9)
+                    .addComponent(auth_button_jP9))
                 .addContainerGap())
         );
 
@@ -918,10 +956,13 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jP8_gdriveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(info_text1_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(info_text2_jP9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jP8_gdriveLayout.createSequentialGroup()
-                        .addComponent(info_text1_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(website_button_jP9)))
+                        .addComponent(website_button_jP9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(get_auth_code_jP9)
+                    .addComponent(Subtitle_jP9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jP8_gdriveLayout.setVerticalGroup(
@@ -930,10 +971,16 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Title_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jP8_gdriveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(website_button_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(info_text1_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(208, 208, 208)
+                .addComponent(Subtitle_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(info_text1_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(website_button_jP9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(info_text2_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(get_auth_code_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
                 .addComponent(Panel_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1291,6 +1338,7 @@ public class appframe extends javax.swing.JFrame {
 
     private void off_system_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_off_system_jP6ActionPerformed
         // TODO add your handling code here:
+        
         komenda = "pkill -f 'SCREEN -dm bash -c' && pkill -f 'java -jar'";
         
         try
@@ -1460,6 +1508,81 @@ public class appframe extends javax.swing.JFrame {
         
     }//GEN-LAST:event_google_auth_jP6ActionPerformed
 
+    private void get_auth_code_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_get_auth_code_jP9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_get_auth_code_jP9ActionPerformed
+
+    private void auth_button_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auth_button_jP9ActionPerformed
+        // TODO add your handling code here:
+        user_name_global = user_jP7.getText();
+        user_password_global = new String(password_jP7.getPassword());
+        gdrive_auth = get_auth_code_jP9.getText();
+        
+        komenda = "gdfstool auth -a /home/pi/gdfs.creds '"+gdrive_auth+"'";     
+        System.out.println(komenda);
+
+        try
+        {
+            JSch jsch = new JSch();
+
+            Session session = jsch.getSession(USER, host, port);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword(PASS);
+            session.connect();
+
+            String command = komenda;
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand(command);
+
+            channel.setInputStream(null);
+
+            ((ChannelExec) channel).setErrStream(System.err);
+
+            InputStream in = channel.getInputStream();
+
+            channel.connect();
+            StringBuilder sb = new StringBuilder();
+            byte[] tmp = new byte[1024];
+            while (true)
+            {
+                while (in.available() > 0)
+                {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0)
+                        break;
+                    sb.append(new String(tmp, 0, i));
+                }
+                if (channel.isClosed())
+                {
+                    if (in.available() > 0)
+                        continue;
+                    //System.out.println("exit-status: "
+                    //        + channel.getExitStatus());
+                    break;
+                }
+                try
+                {
+                    Thread.sleep(500);
+                }
+                catch (Exception ee)
+                {
+                }
+            }
+            //disconnecting and closing
+            channel.disconnect();
+
+            session.disconnect();
+            System.out.println("System został wyłączony poprawnie.");
+            System.out.println(sb.toString());
+        }
+        catch (Exception e)
+        {
+             //something should be done here
+            e.printStackTrace();
+
+        }              
+    }//GEN-LAST:event_auth_button_jP9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1529,6 +1652,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Subtitle_jP4;
     private javax.swing.JLabel Subtitle_jP5;
     private javax.swing.JLabel Subtitle_jP7;
+    private javax.swing.JLabel Subtitle_jP9;
     private javax.swing.JLabel Title_combobox_jP1;
     private javax.swing.JLabel Title_jP1;
     private javax.swing.JLabel Title_jP2;
@@ -1541,13 +1665,16 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton add_text_jP4;
     private javax.swing.JButton add_user_button_jP7;
     private javax.swing.JButton add_user_jP6;
+    private javax.swing.JButton auth_button_jP9;
     private javax.swing.JComboBox<String> choose_picture_jP4;
     private javax.swing.JComboBox<String> choose_place_jP4;
     private javax.swing.JButton create_jP3;
     private javax.swing.JTextField file_path_jP5;
+    private javax.swing.JTextField get_auth_code_jP9;
     private javax.swing.JTextField get_text_jP4;
     private javax.swing.JButton google_auth_jP6;
     private javax.swing.JLabel info_text1_jP9;
+    private javax.swing.JLabel info_text2_jP9;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
     private javax.swing.JPanel jP3;
