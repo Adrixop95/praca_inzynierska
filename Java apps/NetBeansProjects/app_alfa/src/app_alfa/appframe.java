@@ -130,6 +130,12 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP7 = new javax.swing.JPanel();
         Back_jP7 = new javax.swing.JButton();
         add_user_button_jP7 = new javax.swing.JButton();
+        jP8_gdrive = new javax.swing.JPanel();
+        Title_jP9 = new javax.swing.JLabel();
+        info_text1_jP9 = new javax.swing.JLabel();
+        website_button_jP9 = new javax.swing.JButton();
+        Panel_jP9 = new javax.swing.JPanel();
+        Back_jP9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -203,12 +209,12 @@ public class appframe extends javax.swing.JFrame {
         jP1.setLayout(jP1Layout);
         jP1Layout.setHorizontalGroup(
             jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(Panel_jP1, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
             .addGroup(jP1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addGroup(jP1Layout.createSequentialGroup()
                         .addComponent(Title_combobox_jP1)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -226,7 +232,7 @@ public class appframe extends javax.swing.JFrame {
                 .addComponent(Title_combobox_jP1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rpilist_jP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(Panel_jP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -296,12 +302,12 @@ public class appframe extends javax.swing.JFrame {
         jP2.setLayout(jP2Layout);
         jP2Layout.setHorizontalGroup(
             jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP2, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(Panel_jP2, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
             .addGroup(jP2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addComponent(username_jP2)
                     .addGroup(jP2Layout.createSequentialGroup()
                         .addGroup(jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,7 +410,7 @@ public class appframe extends javax.swing.JFrame {
         jP3.setLayout(jP3Layout);
         jP3Layout.setHorizontalGroup(
             jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP3, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(Panel_jP3, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
             .addGroup(jP3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,13 +503,13 @@ public class appframe extends javax.swing.JFrame {
         jP4_create.setLayout(jP4_createLayout);
         jP4_createLayout.setHorizontalGroup(
             jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP4, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(Panel_jP4, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
             .addGroup(jP4_createLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(choose_place_jP4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Title_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP4_createLayout.createSequentialGroup()
                         .addComponent(get_text_jP4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -613,12 +619,12 @@ public class appframe extends javax.swing.JFrame {
         jP5_send.setLayout(jP5_sendLayout);
         jP5_sendLayout.setHorizontalGroup(
             jP5_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP5, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(Panel_jP5, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
             .addGroup(jP5_sendLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP5_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP5_sendLayout.createSequentialGroup()
                         .addComponent(file_path_jP5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -680,6 +686,11 @@ public class appframe extends javax.swing.JFrame {
         });
 
         google_auth_jP6.setText("Autoryzacja Dysku Google");
+        google_auth_jP6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                google_auth_jP6ActionPerformed(evt);
+            }
+        });
 
         Panel_jP6.setBackground(new java.awt.Color(28, 28, 28));
         Panel_jP6.setForeground(new java.awt.Color(28, 28, 28));
@@ -699,7 +710,7 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back_jP6)
-                .addContainerGap(534, Short.MAX_VALUE))
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         Panel_jP6Layout.setVerticalGroup(
             Panel_jP6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -713,7 +724,7 @@ public class appframe extends javax.swing.JFrame {
         jP6_settings.setLayout(jP6_settingsLayout);
         jP6_settingsLayout.setHorizontalGroup(
             jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(Panel_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
             .addGroup(jP6_settingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -817,12 +828,12 @@ public class appframe extends javax.swing.JFrame {
         jP7_add_user.setLayout(jP7_add_userLayout);
         jP7_add_userLayout.setHorizontalGroup(
             jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(Panel_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
             .addGroup(jP7_add_userLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addComponent(user_label_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(user_jP7)
                     .addComponent(password_label_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -849,6 +860,84 @@ public class appframe extends javax.swing.JFrame {
         );
 
         P1.add(jP7_add_user, "panelSeven");
+
+        jP8_gdrive.setBackground(new java.awt.Color(38, 38, 38));
+
+        Title_jP9.setBackground(new java.awt.Color(204, 204, 198));
+        Title_jP9.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
+        Title_jP9.setForeground(new java.awt.Color(204, 204, 198));
+        Title_jP9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title_jP9.setText("Autoryzacja Google Drive.");
+        Title_jP9.setPreferredSize(new java.awt.Dimension(54, 39));
+
+        info_text1_jP9.setFont(new java.awt.Font("SF Pro Text", 0, 14)); // NOI18N
+        info_text1_jP9.setForeground(new java.awt.Color(204, 204, 198));
+        info_text1_jP9.setText("Kliknij w przycisk po prawej stronie aby przejść do strony autoryzacji.");
+
+        website_button_jP9.setText("Przejdź do strony!");
+        website_button_jP9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                website_button_jP9ActionPerformed(evt);
+            }
+        });
+
+        Panel_jP9.setBackground(new java.awt.Color(28, 28, 28));
+        Panel_jP9.setForeground(new java.awt.Color(28, 28, 28));
+        Panel_jP9.setPreferredSize(new java.awt.Dimension(88, 59));
+
+        Back_jP9.setText("Wstecz");
+        Back_jP9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_jP9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_jP9Layout = new javax.swing.GroupLayout(Panel_jP9);
+        Panel_jP9.setLayout(Panel_jP9Layout);
+        Panel_jP9Layout.setHorizontalGroup(
+            Panel_jP9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Back_jP9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Panel_jP9Layout.setVerticalGroup(
+            Panel_jP9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP9Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(Back_jP9)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jP8_gdriveLayout = new javax.swing.GroupLayout(jP8_gdrive);
+        jP8_gdrive.setLayout(jP8_gdriveLayout);
+        jP8_gdriveLayout.setHorizontalGroup(
+            jP8_gdriveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addGroup(jP8_gdriveLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP8_gdriveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Title_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jP8_gdriveLayout.createSequentialGroup()
+                        .addComponent(info_text1_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(website_button_jP9)))
+                .addContainerGap())
+        );
+        jP8_gdriveLayout.setVerticalGroup(
+            jP8_gdriveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP8_gdriveLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jP8_gdriveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(website_button_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(info_text1_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(208, 208, 208)
+                .addComponent(Panel_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        P1.add(jP8_gdrive, "panelEight");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1349,6 +1438,28 @@ public class appframe extends javax.swing.JFrame {
 
     }//GEN-LAST:event_add_user_button_jP7ActionPerformed
 
+    private void Back_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Back_jP9ActionPerformed
+
+    private void website_button_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_website_button_jP9ActionPerformed
+        // TODO add your handling code here:
+        try { 
+         String url = "https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&response_type=code&client_id=1056816309698.apps.googleusercontent.com&access_type=offline";
+         java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+       }
+       catch (java.io.IOException e) {
+           System.out.println(e.getMessage());
+       }        
+    }//GEN-LAST:event_website_button_jP9ActionPerformed
+
+    private void google_auth_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_google_auth_jP6ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelEight");
+        
+    }//GEN-LAST:event_google_auth_jP6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1396,6 +1507,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton Back_jP5;
     private javax.swing.JButton Back_jP6;
     private javax.swing.JButton Back_jP7;
+    private javax.swing.JButton Back_jP9;
     private javax.swing.JButton Next_jP1;
     private javax.swing.JButton Next_jP2;
     private javax.swing.JButton Next_jP4;
@@ -1408,6 +1520,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_jP5;
     private javax.swing.JPanel Panel_jP6;
     private javax.swing.JPanel Panel_jP7;
+    private javax.swing.JPanel Panel_jP9;
     private javax.swing.JButton Refresh_jP1;
     private javax.swing.JButton Settings_jP3;
     private javax.swing.JLabel Subtitle_jP1;
@@ -1424,6 +1537,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Title_jP5;
     private javax.swing.JLabel Title_jP6;
     private javax.swing.JLabel Title_jP7;
+    private javax.swing.JLabel Title_jP9;
     private javax.swing.JButton add_text_jP4;
     private javax.swing.JButton add_user_button_jP7;
     private javax.swing.JButton add_user_jP6;
@@ -1433,6 +1547,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JTextField file_path_jP5;
     private javax.swing.JTextField get_text_jP4;
     private javax.swing.JButton google_auth_jP6;
+    private javax.swing.JLabel info_text1_jP9;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
     private javax.swing.JPanel jP3;
@@ -1440,6 +1555,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel jP5_send;
     private javax.swing.JPanel jP6_settings;
     private javax.swing.JPanel jP7_add_user;
+    private javax.swing.JPanel jP8_gdrive;
     private javax.swing.JButton off_system_jP6;
     private javax.swing.JPasswordField password_jP2;
     private javax.swing.JPasswordField password_jP7;
@@ -1455,5 +1571,6 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel user_label_jP7;
     private javax.swing.JTextField username_jP2;
     private javax.swing.JLabel username_title_jP2;
+    private javax.swing.JButton website_button_jP9;
     // End of variables declaration//GEN-END:variables
 }

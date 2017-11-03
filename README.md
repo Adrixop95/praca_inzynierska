@@ -56,6 +56,7 @@ Przejdź do pobranego folderu z systemem oraz wpisz komendy
 + [Apple macOS](https://www.apple.com)
 + [Microsoft Windows](https://www.microsoft.com/pl-pl/windows/)
 + [OPENICONIC](https://useiconic.com/open)
++ [GDriveFS](https://github.com/dsoprea/GDriveFS)
 
 Pełna lista zostanie zaktualizana w przyszłości.
 
@@ -77,6 +78,7 @@ Pełna lista plików testowych zawartych w projecie.
 + xscreensaver (standardowy zestaw wygaszaczy ekranu)
 + unclutter (aplikacja służąca do ukrycia kursora)
 + find (znajdowanie plików na dysku)
++ GDriveFS (synchrinizacja z Google Drive)
 
 ### Komendy wykonane na obrazie od pierwszego uruchomienia
 + sudo raspi-config (w celu uruchomienia połączenia ssh)
@@ -86,7 +88,7 @@ Pełna lista plików testowych zawartych w projecie.
 	-  	psk="haslo"
 	-   }
 + sudo apt-get update && sudo apt-get upgrade
-+ sudo apt-get install openbox xorg lightdm htop nano vim openjdk-8-jre openjdk-8-jdk screen xscreensaver unclutter
++ sudo apt-get install openbox xorg lightdm htop nano vim openjdk-8-jre openjdk-8-jdk screen xscreensaver unclutter python-pip build-essential python-dev libfuse-dev
 + echo "exec openbox-session" > ~/.xinitrc 
 + sudo raspi-config (w celu ustawienia automatycznego logowania i bootowania do DE)
 + sudo nano /etc/lightdm/lightdm.conf
@@ -97,6 +99,7 @@ Pełna lista plików testowych zawartych w projecie.
 +  sudo nano ./xinitrc i dodanie polecenia `@unclutter -display :0 -noevents -grab` oraz poleceń `xset s noblank 
 `,`xset s off `,`xset -dpms`
 + export XAUTHORITY=~/.Xauthority w celu umożliwienia sudo użycia export display
++ sudo pip install gdrivefs w celu synchronizacji z Google Drive
 
 <br><br>
 **Stworzone dla UŚ oraz ŚMCEBI z ♥**
