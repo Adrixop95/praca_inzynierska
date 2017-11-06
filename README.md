@@ -100,6 +100,17 @@ Pełna lista plików testowych zawartych w projecie.
 `,`xset s off `,`xset -dpms`
 + export XAUTHORITY=~/.Xauthority w celu umożliwienia sudo użycia export display
 + sudo pip install gdrivefs w celu synchronizacji z Google Drive
++ zmodyfikowanie skryptu /etc/rc.local z dodaniem komendy `gdfs -o allow_other /home/pi/gdfs.creds /mnt/gdrivefs` dodającej autouruchamianie synchronizacji z google drive 
++ dodanie do /etc/xdg/openbox/autostart kodu
+`export DISPLAY=:0
+xset s noblank
+xset s off
+xset -dpms
+if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
+  bash /home/pi/Serwer_wyswietlania/DisplayMode.sh &
+else
+  sudo java -jar /home/pi/Serwer_wyswietlania/Pierwsze/gui_alfa.jar &
+fi` w celu autostartu skryptów zgodnie ze statusem sieci
 
 <br><br>
 **Stworzone dla UŚ oraz ŚMCEBI z ♥**

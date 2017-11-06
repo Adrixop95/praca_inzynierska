@@ -24,8 +24,10 @@ import java.util.logging.Logger;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.util.Map;
 import javax.swing.JFileChooser;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.text.DefaultEditorKit;
 
 /**
  *
@@ -882,7 +884,7 @@ public class appframe extends javax.swing.JFrame {
         Subtitle_jP9.setPreferredSize(new java.awt.Dimension(503, 24));
 
         info_text1_jP9.setFont(new java.awt.Font("SF Pro Text", 0, 14)); // NOI18N
-        info_text1_jP9.setForeground(new java.awt.Color(204, 204, 198));
+        info_text1_jP9.setForeground(new java.awt.Color(149, 152, 154));
         info_text1_jP9.setText("Kliknij w przycisk po prawej stronie aby przejść do strony autoryzacji.");
         info_text1_jP9.setMaximumSize(new java.awt.Dimension(129, 16));
         info_text1_jP9.setMinimumSize(new java.awt.Dimension(129, 16));
@@ -896,7 +898,7 @@ public class appframe extends javax.swing.JFrame {
         });
 
         info_text2_jP9.setFont(new java.awt.Font("SF Pro Text", 0, 14)); // NOI18N
-        info_text2_jP9.setForeground(new java.awt.Color(204, 204, 198));
+        info_text2_jP9.setForeground(new java.awt.Color(149, 152, 154));
         info_text2_jP9.setText("Kliknij w przycisk po prawej stronie aby przejść do strony autoryzacji.");
         info_text2_jP9.setMaximumSize(new java.awt.Dimension(129, 16));
         info_text2_jP9.setMinimumSize(new java.awt.Dimension(129, 16));
@@ -1510,6 +1512,7 @@ public class appframe extends javax.swing.JFrame {
 
     private void get_auth_code_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_get_auth_code_jP9ActionPerformed
         // TODO add your handling code here:
+     
     }//GEN-LAST:event_get_auth_code_jP9ActionPerformed
 
     private void auth_button_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auth_button_jP9ActionPerformed

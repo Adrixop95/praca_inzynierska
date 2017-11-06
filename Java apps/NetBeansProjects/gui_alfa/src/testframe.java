@@ -291,7 +291,7 @@ public class testframe extends javax.swing.JFrame {
         network_name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wybież swoją sieć." }));
         network_name.removeAllItems();
         try {
-            String[] network_command = {"/home/pi/avilible_networks.sh"};
+            String[] network_command = {"/home/pi/Serwer_wyswietlania/Pierwsze/scripts/avilible_networks.sh"};
             Process network_process = Runtime.getRuntime().exec(network_command);
             BufferedReader reader = new BufferedReader(new InputStreamReader(network_process.getInputStream()));
             String read;
@@ -563,7 +563,7 @@ public class testframe extends javax.swing.JFrame {
         user_password_global = new String(user_password.getPassword());
 
         try {
-            ProcessBuilder pb = new ProcessBuilder("/home/pi/add_user.sh");
+            ProcessBuilder pb = new ProcessBuilder("/home/pi/Serwer_wyswietlania/Pierwsze/scripts/add_user.sh");
             Map<String, String> env = pb.environment();
             env.put("username", user_name_global);
             env.put("password", user_password_global);
@@ -586,7 +586,7 @@ public class testframe extends javax.swing.JFrame {
         network_password_global = new String(network_password.getPassword());
         
         try {
-            ProcessBuilder pb = new ProcessBuilder("/home/pi/connect_network_rpi.sh");
+            ProcessBuilder pb = new ProcessBuilder("/home/pi/Serwer_wyswietlania/Pierwsze/scripts/connect_network_rpi.sh");
             Map<String, String> env = pb.environment();
             env.put("name", network_name_global);
             env.put("password", network_password_global);
