@@ -1490,6 +1490,8 @@ public class appframe extends javax.swing.JFrame {
 
     private void Back_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP9ActionPerformed
         // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelSix");        
     }//GEN-LAST:event_Back_jP9ActionPerformed
 
     private void website_button_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_website_button_jP9ActionPerformed
