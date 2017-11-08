@@ -6,3 +6,10 @@
 *.tar.gz
 *.rar
 
+/Java apps/NetBeansProjects/GUI_ssh/nbproject/private/
+/Java apps/NetBeansProjects/app_alfa/nbproject/private/
+/Java apps/NetBeansProjects/app_alfa/build/
+/Java apps/NetBeansProjects/app_alfa/dist/
+/Java apps/NetBeansProjects/GUI_ssh/build/
+/Java apps/NetBeansProjects/picturetest/nbproject/private/
+/Java apps/NetBeansProjects/picturetest/build/

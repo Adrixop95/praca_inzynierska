@@ -4,9 +4,7 @@
 #First run script
 
 if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
-  cd /home/pi/Serwer_wyswietlania
-  screen ./DisplayMode.sh
+  screen bash /home/pi/Serwer_wyswietlania/DisplayMode.sh &
 else
-  echo "IPv4 is down"
-  sudo java -jar /home/pi/Serwer_wyswietlania/Pierwsze/gui_alfa.jar
+  sudo java -jar /home/pi/Serwer_wyswietlania/Pierwsze/gui_alfa.jar &
 fi
