@@ -25,9 +25,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import javax.swing.JFileChooser;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.text.DefaultEditorKit;
 
 /**
  *
@@ -1030,7 +1027,7 @@ public class appframe extends javax.swing.JFrame {
         // TODO add your handling code here:
         rpilist_jP1.removeAllItems();
 
-        int timeout=100;
+        int timeout=10;
         int port = 1234;
         String ip_addr = "";
         
