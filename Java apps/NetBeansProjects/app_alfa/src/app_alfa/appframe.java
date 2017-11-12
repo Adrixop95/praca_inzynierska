@@ -50,6 +50,7 @@ public class appframe extends javax.swing.JFrame {
     /**
      * Creates new form appframe
      */
+    
     public appframe() {
         setTitle("");
         setResizable(false);
