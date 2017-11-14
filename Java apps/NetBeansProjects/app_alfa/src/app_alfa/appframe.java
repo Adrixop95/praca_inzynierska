@@ -85,24 +85,37 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP2 = new javax.swing.JPanel();
         Next_jP2 = new javax.swing.JButton();
         Back_jP2 = new javax.swing.JButton();
+        jP3_choose = new javax.swing.JPanel();
+        Title_jP8 = new javax.swing.JLabel();
+        Subtitle_jP6 = new javax.swing.JLabel();
+        create_jP4 = new javax.swing.JButton();
+        send_jP4 = new javax.swing.JButton();
+        Panel_jP8 = new javax.swing.JPanel();
+        Back_jP8 = new javax.swing.JButton();
+        Settings_jP4 = new javax.swing.JButton();
         jP3 = new javax.swing.JPanel();
         Title_jP3 = new javax.swing.JLabel();
         Subtitle_jP3 = new javax.swing.JLabel();
-        create_jP3 = new javax.swing.JButton();
-        send_jP3 = new javax.swing.JButton();
+        gdrive_sync_jP3 = new javax.swing.JButton();
+        local_storage_jP3 = new javax.swing.JButton();
         Panel_jP3 = new javax.swing.JPanel();
         Back_jP3 = new javax.swing.JButton();
-        Settings_jP3 = new javax.swing.JButton();
         jP4_create = new javax.swing.JPanel();
         Title_jP4 = new javax.swing.JLabel();
         Subtitle_jP4 = new javax.swing.JLabel();
-        choose_picture_jP4 = new javax.swing.JComboBox<>();
-        choose_place_jP4 = new javax.swing.JComboBox<>();
-        add_text_jP4 = new javax.swing.JButton();
-        get_text_jP4 = new javax.swing.JTextField();
+        file_path_jP4 = new javax.swing.JTextField();
+        select_file_jP4 = new javax.swing.JButton();
         Panel_jP4 = new javax.swing.JPanel();
         Next_jP4 = new javax.swing.JButton();
         Back_jP4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jP5_send = new javax.swing.JPanel();
         Title_jP5 = new javax.swing.JLabel();
         Subtitle_jP5 = new javax.swing.JLabel();
@@ -141,6 +154,8 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP9 = new javax.swing.JPanel();
         Back_jP9 = new javax.swing.JButton();
         auth_button_jP9 = new javax.swing.JButton();
+        create_picture_jP9 = new javax.swing.JButton();
+        info_text2_jP10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -343,32 +358,133 @@ public class appframe extends javax.swing.JFrame {
 
         P1.add(jP2, "panelTwo");
 
+        jP3_choose.setBackground(new java.awt.Color(38, 38, 38));
+
+        Title_jP8.setBackground(new java.awt.Color(204, 204, 198));
+        Title_jP8.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
+        Title_jP8.setForeground(new java.awt.Color(204, 204, 198));
+        Title_jP8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title_jP8.setText("Dodaj plik.");
+        Title_jP8.setPreferredSize(new java.awt.Dimension(54, 39));
+
+        Subtitle_jP6.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
+        Subtitle_jP6.setForeground(new java.awt.Color(149, 152, 154));
+        Subtitle_jP6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Subtitle_jP6.setText("Chcesz stworzyć czy dodać gotowy plik?");
+        Subtitle_jP6.setPreferredSize(new java.awt.Dimension(503, 24));
+
+        create_jP4.setText("Stwórz plik");
+        create_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                create_jP4ActionPerformed(evt);
+            }
+        });
+
+        send_jP4.setText("Prześlij plik");
+        send_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                send_jP4ActionPerformed(evt);
+            }
+        });
+
+        Panel_jP8.setBackground(new java.awt.Color(28, 28, 28));
+        Panel_jP8.setForeground(new java.awt.Color(28, 28, 28));
+        Panel_jP8.setPreferredSize(new java.awt.Dimension(88, 59));
+
+        Back_jP8.setText("Wstecz");
+        Back_jP8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_jP8ActionPerformed(evt);
+            }
+        });
+
+        Settings_jP4.setText("Ustawienia systemu");
+        Settings_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Settings_jP4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_jP8Layout = new javax.swing.GroupLayout(Panel_jP8);
+        Panel_jP8.setLayout(Panel_jP8Layout);
+        Panel_jP8Layout.setHorizontalGroup(
+            Panel_jP8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Back_jP8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Settings_jP4)
+                .addContainerGap())
+        );
+        Panel_jP8Layout.setVerticalGroup(
+            Panel_jP8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP8Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(Panel_jP8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back_jP8)
+                    .addComponent(Settings_jP4))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jP3_chooseLayout = new javax.swing.GroupLayout(jP3_choose);
+        jP3_choose.setLayout(jP3_chooseLayout);
+        jP3_chooseLayout.setHorizontalGroup(
+            jP3_chooseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_jP8, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addGroup(jP3_chooseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP3_chooseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Title_jP8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jP3_chooseLayout.createSequentialGroup()
+                        .addComponent(create_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(send_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jP3_chooseLayout.setVerticalGroup(
+            jP3_chooseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP3_chooseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title_jP8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Subtitle_jP6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jP3_chooseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(create_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(send_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Panel_jP8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        P1.add(jP3_choose, "panelInactve1");
+
         jP3.setBackground(new java.awt.Color(38, 38, 38));
 
         Title_jP3.setBackground(new java.awt.Color(204, 204, 198));
         Title_jP3.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
         Title_jP3.setForeground(new java.awt.Color(204, 204, 198));
         Title_jP3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title_jP3.setText("Dodaj plik.");
+        Title_jP3.setText("Wybierz opcję synchronizacji.");
         Title_jP3.setPreferredSize(new java.awt.Dimension(54, 39));
 
         Subtitle_jP3.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
         Subtitle_jP3.setForeground(new java.awt.Color(149, 152, 154));
         Subtitle_jP3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Subtitle_jP3.setText("Chcesz stworzyć czy dodać gotowy plik?");
+        Subtitle_jP3.setText("Wolisz używać chmury czy lokalnego dysku?");
         Subtitle_jP3.setPreferredSize(new java.awt.Dimension(503, 24));
 
-        create_jP3.setText("Stwórz plik");
-        create_jP3.addActionListener(new java.awt.event.ActionListener() {
+        gdrive_sync_jP3.setText("Chrmura Google");
+        gdrive_sync_jP3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                create_jP3ActionPerformed(evt);
+                gdrive_sync_jP3ActionPerformed(evt);
             }
         });
 
-        send_jP3.setText("Prześlij plik");
-        send_jP3.addActionListener(new java.awt.event.ActionListener() {
+        local_storage_jP3.setText("Przestrzeń lokalna");
+        local_storage_jP3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                send_jP3ActionPerformed(evt);
+                local_storage_jP3ActionPerformed(evt);
             }
         });
 
@@ -383,13 +499,6 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
-        Settings_jP3.setText("Ustawienia systemu");
-        Settings_jP3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Settings_jP3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout Panel_jP3Layout = new javax.swing.GroupLayout(Panel_jP3);
         Panel_jP3.setLayout(Panel_jP3Layout);
         Panel_jP3Layout.setHorizontalGroup(
@@ -397,17 +506,13 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back_jP3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Settings_jP3)
-                .addContainerGap())
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         Panel_jP3Layout.setVerticalGroup(
             Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Back_jP3)
-                    .addComponent(Settings_jP3))
+                .addComponent(Back_jP3)
                 .addContainerGap())
         );
 
@@ -422,9 +527,9 @@ public class appframe extends javax.swing.JFrame {
                     .addComponent(Title_jP3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Subtitle_jP3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jP3Layout.createSequentialGroup()
-                        .addComponent(create_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(gdrive_sync_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(send_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(local_storage_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jP3Layout.setVerticalGroup(
@@ -436,8 +541,8 @@ public class appframe extends javax.swing.JFrame {
                 .addComponent(Subtitle_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(create_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(send_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gdrive_sync_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(local_storage_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -450,7 +555,7 @@ public class appframe extends javax.swing.JFrame {
         Title_jP4.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
         Title_jP4.setForeground(new java.awt.Color(204, 204, 198));
         Title_jP4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title_jP4.setText("Stwórz plik.");
+        Title_jP4.setText("Stwórz obraz.");
         Title_jP4.setPreferredSize(new java.awt.Dimension(54, 39));
 
         Subtitle_jP4.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
@@ -459,11 +564,18 @@ public class appframe extends javax.swing.JFrame {
         Subtitle_jP4.setText("Wybierz schemat i wprowadź tekst.");
         Subtitle_jP4.setPreferredSize(new java.awt.Dimension(503, 24));
 
-        choose_picture_jP4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        file_path_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                file_path_jP4ActionPerformed(evt);
+            }
+        });
 
-        choose_place_jP4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        add_text_jP4.setText("Dodaj tekst");
+        select_file_jP4.setText("Wybierz plik");
+        select_file_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                select_file_jP4ActionPerformed(evt);
+            }
+        });
 
         Panel_jP4.setBackground(new java.awt.Color(28, 28, 28));
         Panel_jP4.setForeground(new java.awt.Color(28, 28, 28));
@@ -504,6 +616,25 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel1.setForeground(new java.awt.Color(149, 152, 154));
+        jLabel1.setText("Wybierz szablon pliku.");
+
+        jLabel2.setForeground(new java.awt.Color(149, 152, 154));
+        jLabel2.setText("Wprowadź nagłówek.");
+
+        jLabel3.setForeground(new java.awt.Color(149, 152, 154));
+        jLabel3.setText("Wprowadź treść.");
+
+        jLabel4.setForeground(new java.awt.Color(149, 152, 154));
+        jLabel4.setText("Wybierz obraz.");
+
+        jButton1.setText("Wybierz plik");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jP4_createLayout = new javax.swing.GroupLayout(jP4_create);
         jP4_create.setLayout(jP4_createLayout);
         jP4_createLayout.setHorizontalGroup(
@@ -512,14 +643,25 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(jP4_createLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(choose_place_jP4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1)
                     .addComponent(Title_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP4_createLayout.createSequentialGroup()
-                        .addComponent(get_text_jP4)
+                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField2)
+                    .addGroup(jP4_createLayout.createSequentialGroup()
+                        .addComponent(jTextField3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(add_text_jP4))
-                    .addComponent(choose_picture_jP4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1))
+                    .addGroup(jP4_createLayout.createSequentialGroup()
+                        .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jP4_createLayout.createSequentialGroup()
+                                .addComponent(file_path_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(select_file_jP4))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jP4_createLayout.setVerticalGroup(
@@ -529,15 +671,27 @@ public class appframe extends javax.swing.JFrame {
                 .addComponent(Title_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Subtitle_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(choose_picture_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(choose_place_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_text_jP4)
-                    .addComponent(get_text_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(104, 104, 104)
+                    .addComponent(select_file_jP4)
+                    .addComponent(file_path_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(1, 1, 1)
                 .addComponent(Panel_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -926,6 +1080,13 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
+        create_picture_jP9.setText("Generowanie obrazu");
+        create_picture_jP9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                create_picture_jP9ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_jP9Layout = new javax.swing.GroupLayout(Panel_jP9);
         Panel_jP9.setLayout(Panel_jP9Layout);
         Panel_jP9Layout.setHorizontalGroup(
@@ -933,6 +1094,8 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back_jP9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(create_picture_jP9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(auth_button_jP9)
                 .addContainerGap())
@@ -943,9 +1106,17 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(Panel_jP9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Back_jP9)
-                    .addComponent(auth_button_jP9))
+                    .addComponent(auth_button_jP9)
+                    .addComponent(create_picture_jP9))
                 .addContainerGap())
         );
+
+        info_text2_jP10.setFont(new java.awt.Font("SF Pro Text", 0, 14)); // NOI18N
+        info_text2_jP10.setForeground(new java.awt.Color(149, 152, 154));
+        info_text2_jP10.setText("Kolejne pliki będziesz synchronizował za pomocą wrzucania ich na wybrany dysk Google.");
+        info_text2_jP10.setMaximumSize(new java.awt.Dimension(129, 16));
+        info_text2_jP10.setMinimumSize(new java.awt.Dimension(129, 16));
+        info_text2_jP10.setPreferredSize(new java.awt.Dimension(129, 16));
 
         javax.swing.GroupLayout jP8_gdriveLayout = new javax.swing.GroupLayout(jP8_gdrive);
         jP8_gdrive.setLayout(jP8_gdriveLayout);
@@ -958,11 +1129,12 @@ public class appframe extends javax.swing.JFrame {
                     .addComponent(Title_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(info_text1_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(info_text2_jP9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(get_auth_code_jP9)
+                    .addComponent(Subtitle_jP9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addGroup(jP8_gdriveLayout.createSequentialGroup()
                         .addComponent(website_button_jP9)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(get_auth_code_jP9)
-                    .addComponent(Subtitle_jP9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE))
+                    .addComponent(info_text2_jP10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jP8_gdriveLayout.setVerticalGroup(
@@ -980,7 +1152,9 @@ public class appframe extends javax.swing.JFrame {
                 .addComponent(info_text2_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(get_auth_code_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(info_text2_jP10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
                 .addComponent(Panel_jP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1026,59 +1200,58 @@ public class appframe extends javax.swing.JFrame {
 
     private void Refresh_jP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh_jP1ActionPerformed
         // TODO add your handling code here:
-        rpilist_jP1.removeAllItems();
+        //rpilist_jP1.removeAllItems();
 
-        int timeout=10;
-        int port = 1234;
+        int timeout=150;
+        int port_ping = 1234;
+        
         String ip_addr = "";
         
         Set<String> HostAddresses = new HashSet<>();
             try {
                 for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (!ni.isLoopback() && ni.isUp() && ni.getHardwareAddress() != null) {
+                    if (!ni.isLoopback() && ni.isUp() && !ni.isVirtual() && ni.getHardwareAddress() != null) {
                         for (InterfaceAddress ia : ni.getInterfaceAddresses()) {
-                            if (ia.getBroadcast() != null) {  //If limited to IPV4
-                                HostAddresses.add(ia.getAddress().getHostAddress());
-                                ip_addr = HostAddresses.toString();
-                                System.out.println(ip_addr);
+                            if (ia.getBroadcast() != null) {
+                                    HostAddresses.add(ia.getAddress().getHostAddress());
+                                    ip_addr = HostAddresses.toString();
+                                    System.out.println(ip_addr);
                             }
                         }
                     }
                 }
             } catch (SocketException e) { }
         
-        try {
-            int index = ip_addr.indexOf(" ");
-            String firststring = ip_addr.substring(0, index);
-            System.out.println(firststring);
-            
-            firststring = firststring.substring(1);
-            String subnet = getSubnet(firststring);
-            System.out.println("subnet: " + subnet);
-            
-            for (int i=1;i<254;i++){
+            for (String s : HostAddresses){
+                try {
+                    int index = ip_addr.indexOf(" ");
 
-                String host = subnet + i;
-                System.out.println("Checking :" + host);
+                    System.out.println(s);
 
-                if (InetAddress.getByName(host).isReachable(timeout)){
-                    System.out.println(host + " is reachable");
-                    try {
-                        Socket connected = new Socket(subnet, port);
+                    s = s.substring(0);
+                    String subnet = getSubnet(s);
+                    System.out.println("subnet: " + subnet);
+
+                    for (int i=1;i<254;i++){
+
+                        String host_ip = subnet + i;
+                        System.out.println("Checking :" + host_ip);
+
+                            if (InetAddress.getByName(host_ip).isReachable(timeout)){
+                                System.out.println(host_ip + " is reachable");
+                                try {
+                                    Socket connected = new Socket(subnet, port_ping);
+                                }
+                                catch (IOException x) {
+                                    System.out.println(x);
+                                }
+                            }
+                        }
                     }
-                    catch (Exception s) {
-                        System.out.println(s);
-                    }
-                }
-            }
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
-
+        catch(IOException e){ }
+    }
 
         Runtime rt_arp = Runtime.getRuntime();
-        //System.out.println("Twoje Raspberry PI w sieci: ");
         String[] cmd_arp = { "/bin/bash", "-c", "arp -a | grep 'b8:27:eb'" };
 
         Process proc_arp = null;
@@ -1098,8 +1271,6 @@ public class appframe extends javax.swing.JFrame {
               } catch (IOException ex) {
             Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }//GEN-LAST:event_Refresh_jP1ActionPerformed
 
     private void Next_jP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Next_jP2ActionPerformed
@@ -1139,17 +1310,17 @@ public class appframe extends javax.swing.JFrame {
         card.show(P1,"panelThree");        
     }//GEN-LAST:event_Back_jP5ActionPerformed
 
-    private void create_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_jP3ActionPerformed
+    private void gdrive_sync_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gdrive_sync_jP3ActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1,"panelFour");
-    }//GEN-LAST:event_create_jP3ActionPerformed
+        card.show(P1,"panelEight");
+    }//GEN-LAST:event_gdrive_sync_jP3ActionPerformed
 
-    private void send_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_send_jP3ActionPerformed
+    private void local_storage_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_local_storage_jP3ActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelFive");
-    }//GEN-LAST:event_send_jP3ActionPerformed
+    }//GEN-LAST:event_local_storage_jP3ActionPerformed
 
     private void select_file_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_select_file_jP5ActionPerformed
         // TODO add your handling code here:
@@ -1197,12 +1368,6 @@ public class appframe extends javax.swing.JFrame {
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelThree");
     }//GEN-LAST:event_Back_jP6ActionPerformed
-
-    private void Settings_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Settings_jP3ActionPerformed
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1,"panelSix");
-    }//GEN-LAST:event_Settings_jP3ActionPerformed
 
     private void start_system_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_system_jP6ActionPerformed
         // TODO add your handling code here:
@@ -1489,7 +1654,7 @@ public class appframe extends javax.swing.JFrame {
     private void Back_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP9ActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1,"panelSix");        
+        card.show(P1,"panelThree");        
     }//GEN-LAST:event_Back_jP9ActionPerformed
 
     private void website_button_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_website_button_jP9ActionPerformed
@@ -1586,6 +1751,48 @@ public class appframe extends javax.swing.JFrame {
         }              
     }//GEN-LAST:event_auth_button_jP9ActionPerformed
 
+    private void create_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_jP4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_create_jP4ActionPerformed
+
+    private void send_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_send_jP4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_send_jP4ActionPerformed
+
+    private void Back_jP8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Back_jP8ActionPerformed
+
+    private void Settings_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Settings_jP4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Settings_jP4ActionPerformed
+
+    private void file_path_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_file_path_jP4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_file_path_jP4ActionPerformed
+
+    private void select_file_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_select_file_jP4ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+          File selectedFile = fileChooser.getSelectedFile();
+          System.out.println(selectedFile.getName());
+          file_path_glob = fileChooser.getSelectedFile().getAbsolutePath();
+          file_path_jP4.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        }        
+    }//GEN-LAST:event_select_file_jP4ActionPerformed
+
+    private void create_picture_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_picture_jP9ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelFour");        
+    }//GEN-LAST:event_create_picture_jP9ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1621,11 +1828,12 @@ public class appframe extends javax.swing.JFrame {
         });
     }
 
-    public static String getSubnet(String ip_addr) {
-        int firstSeparator = ip_addr.lastIndexOf("/");
-        int lastSeparator = ip_addr.lastIndexOf(".");
-        return ip_addr.substring(firstSeparator+1, lastSeparator+1);
+    public static String getSubnet(String firststring) {
+        int firstSeparator = firststring.lastIndexOf("/");
+        int lastSeparator = firststring.lastIndexOf(".");
+        return firststring.substring(firstSeparator+1, lastSeparator+1);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back_jP2;
     private javax.swing.JButton Back_jP3;
@@ -1633,6 +1841,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton Back_jP5;
     private javax.swing.JButton Back_jP6;
     private javax.swing.JButton Back_jP7;
+    private javax.swing.JButton Back_jP8;
     private javax.swing.JButton Back_jP9;
     private javax.swing.JButton Next_jP1;
     private javax.swing.JButton Next_jP2;
@@ -1646,14 +1855,16 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_jP5;
     private javax.swing.JPanel Panel_jP6;
     private javax.swing.JPanel Panel_jP7;
+    private javax.swing.JPanel Panel_jP8;
     private javax.swing.JPanel Panel_jP9;
     private javax.swing.JButton Refresh_jP1;
-    private javax.swing.JButton Settings_jP3;
+    private javax.swing.JButton Settings_jP4;
     private javax.swing.JLabel Subtitle_jP1;
     private javax.swing.JLabel Subtitle_jP2;
     private javax.swing.JLabel Subtitle_jP3;
     private javax.swing.JLabel Subtitle_jP4;
     private javax.swing.JLabel Subtitle_jP5;
+    private javax.swing.JLabel Subtitle_jP6;
     private javax.swing.JLabel Subtitle_jP7;
     private javax.swing.JLabel Subtitle_jP9;
     private javax.swing.JLabel Title_combobox_jP1;
@@ -1664,28 +1875,39 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Title_jP5;
     private javax.swing.JLabel Title_jP6;
     private javax.swing.JLabel Title_jP7;
+    private javax.swing.JLabel Title_jP8;
     private javax.swing.JLabel Title_jP9;
-    private javax.swing.JButton add_text_jP4;
     private javax.swing.JButton add_user_button_jP7;
     private javax.swing.JButton add_user_jP6;
     private javax.swing.JButton auth_button_jP9;
-    private javax.swing.JComboBox<String> choose_picture_jP4;
-    private javax.swing.JComboBox<String> choose_place_jP4;
-    private javax.swing.JButton create_jP3;
+    private javax.swing.JButton create_jP4;
+    private javax.swing.JButton create_picture_jP9;
+    private javax.swing.JTextField file_path_jP4;
     private javax.swing.JTextField file_path_jP5;
+    private javax.swing.JButton gdrive_sync_jP3;
     private javax.swing.JTextField get_auth_code_jP9;
-    private javax.swing.JTextField get_text_jP4;
     private javax.swing.JButton google_auth_jP6;
     private javax.swing.JLabel info_text1_jP9;
+    private javax.swing.JLabel info_text2_jP10;
     private javax.swing.JLabel info_text2_jP9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
     private javax.swing.JPanel jP3;
+    private javax.swing.JPanel jP3_choose;
     private javax.swing.JPanel jP4_create;
     private javax.swing.JPanel jP5_send;
     private javax.swing.JPanel jP6_settings;
     private javax.swing.JPanel jP7_add_user;
     private javax.swing.JPanel jP8_gdrive;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton local_storage_jP3;
     private javax.swing.JButton off_system_jP6;
     private javax.swing.JPasswordField password_jP2;
     private javax.swing.JPasswordField password_jP7;
@@ -1693,9 +1915,10 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel password_title_jP2;
     private javax.swing.JButton restart_device_jP6;
     private javax.swing.JComboBox<String> rpilist_jP1;
+    private javax.swing.JButton select_file_jP4;
     private javax.swing.JButton select_file_jP5;
     private javax.swing.JButton send_button_jP5;
-    private javax.swing.JButton send_jP3;
+    private javax.swing.JButton send_jP4;
     private javax.swing.JButton start_system_jP6;
     private javax.swing.JTextField user_jP7;
     private javax.swing.JLabel user_label_jP7;
