@@ -1252,7 +1252,7 @@ public class appframe extends javax.swing.JFrame {
     }
 
         Runtime rt_arp = Runtime.getRuntime();
-        String[] cmd_arp = { "/bin/bash", "-c", "arp -a | grep 'b8:27:eb'" };
+        String[] cmd_arp = { "/bin/bash", "-c", "arp -an | grep 'b8:27:eb'" };
 
         Process proc_arp = null;
         try {
