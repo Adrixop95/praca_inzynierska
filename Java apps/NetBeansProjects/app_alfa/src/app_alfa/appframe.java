@@ -1200,7 +1200,7 @@ public class appframe extends javax.swing.JFrame {
 
     private void Refresh_jP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh_jP1ActionPerformed
         // TODO add your handling code here:
-        //rpilist_jP1.removeAllItems();
+        rpilist_jP1.removeAllItems();
 
         int timeout=150;
         int port_ping = 1234;
@@ -1682,18 +1682,15 @@ public class appframe extends javax.swing.JFrame {
 
     private void auth_button_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auth_button_jP9ActionPerformed
         // TODO add your handling code here:
-        user_name_global = user_jP7.getText();
-        user_password_global = new String(password_jP7.getPassword());
         gdrive_auth = get_auth_code_jP9.getText();
         
-        komenda = "gdfstool auth -a /home/pi/gdfs.creds '"+gdrive_auth+"'";     
+        komenda = "gdfstool auth -a /home/pi/Serwer_wyswietlania/gdfs.creds '"+gdrive_auth+"'";     
         System.out.println(komenda);
 
         try
         {
             JSch jsch = new JSch();
-
-            Session session = jsch.getSession(USER, host, port);
+            Session session = jsch.getSession(USER, ip_addr_glob, port);
             session.setConfig("StrictHostKeyChecking", "no");
             session.setPassword(PASS);
             session.connect();
@@ -1740,15 +1737,9 @@ public class appframe extends javax.swing.JFrame {
             channel.disconnect();
 
             session.disconnect();
-            System.out.println("System został wyłączony poprawnie.");
             System.out.println(sb.toString());
         }
-        catch (Exception e)
-        {
-             //something should be done here
-            e.printStackTrace();
-
-        }              
+        catch (JSchException | IOException e){ }              
     }//GEN-LAST:event_auth_button_jP9ActionPerformed
 
     private void create_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_jP4ActionPerformed
