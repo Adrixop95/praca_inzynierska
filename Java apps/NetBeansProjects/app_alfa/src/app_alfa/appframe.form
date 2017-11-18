@@ -251,7 +251,7 @@
                       <Component id="password_title_jP2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="password_jP2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                       <Component id="Panel_jP2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -409,11 +409,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Subtitle_jP6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="create_jP4" alignment="3" min="-2" pref="193" max="-2" attributes="0"/>
-                          <Component id="send_jP4" alignment="3" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="create_jP4" pref="193" max="32767" attributes="0"/>
+                          <Component id="send_jP4" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="Panel_jP8" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -543,20 +543,20 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Panel_jP3" alignment="0" pref="632" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Title_jP3" alignment="1" max="32767" attributes="0"/>
                           <Component id="Subtitle_jP3" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="gdrive_sync_jP3" min="-2" pref="305" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="10" max="32767" attributes="0"/>
                               <Component id="local_storage_jP3" min="-2" pref="305" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
+                  <Component id="Panel_jP3" alignment="0" pref="632" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -571,7 +571,7 @@
                           <Component id="gdrive_sync_jP3" alignment="3" min="-2" pref="193" max="-2" attributes="0"/>
                           <Component id="local_storage_jP3" alignment="3" min="-2" pref="193" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="Panel_jP3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -950,7 +950,7 @@
                           <Component id="select_file_jP5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="file_path_jP5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
                       <Component id="Panel_jP5" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1130,7 +1130,7 @@
                           <Component id="add_user_jP6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="google_auth_jP6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
                       <Component id="Panel_jP6" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1286,7 +1286,7 @@
                       <Component id="password_label_jP7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="password_jP7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       <Component id="Panel_jP7" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1461,7 +1461,7 @@
                       <Component id="get_auth_code_jP9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="info_text2_jP10" min="-2" pref="23" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       <Component id="Panel_jP9" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
