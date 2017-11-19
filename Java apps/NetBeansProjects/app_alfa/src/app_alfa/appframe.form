@@ -1537,7 +1537,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9a" green="98" red="95" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Kliknij w przycisk po prawej stronie aby przej&#x15b;&#x107; do strony autoryzacji."/>
+                <Property name="text" type="java.lang.String" value="Wklej lub przepisz kod kt&#xf3;ry zosta&#x142; dla Ciebie wygenerowany."/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[129, 16]"/>
                 </Property>

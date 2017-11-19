@@ -26,11 +26,6 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import javax.swing.JFileChooser;
 
-/**
- *
- * @author adrix
- */
-
 public class appframe extends javax.swing.JFrame {
 
     public static String komenda = "";
@@ -1051,7 +1046,7 @@ public class appframe extends javax.swing.JFrame {
 
         info_text2_jP9.setFont(new java.awt.Font("SF Pro Text", 0, 14)); // NOI18N
         info_text2_jP9.setForeground(new java.awt.Color(149, 152, 154));
-        info_text2_jP9.setText("Kliknij w przycisk po prawej stronie aby przejść do strony autoryzacji.");
+        info_text2_jP9.setText("Wklej lub przepisz kod który został dla Ciebie wygenerowany.");
         info_text2_jP9.setMaximumSize(new java.awt.Dimension(129, 16));
         info_text2_jP9.setMinimumSize(new java.awt.Dimension(129, 16));
         info_text2_jP9.setPreferredSize(new java.awt.Dimension(129, 16));

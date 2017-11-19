@@ -1,3 +1,9 @@
+/*
+
+Created by Adrian Rupala 2017
+
+*/
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;

@@ -1,8 +1,15 @@
+/*
+
+Created by Adrian Rupala 2017
+
+*/
+
 package picturetest;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -18,9 +25,7 @@ import javax.imageio.ImageIO;
 
 
 public class Picturetest {
-
-    
-    
+   
     public static void main(String[] args) throws IOException {
         
         String filename;
@@ -35,28 +40,14 @@ public class Picturetest {
         
         String url = "file:///Users/adrix/Pictures/pictures_test/smcebi.png";
         String title = "Zażółć gęślą jaźń.";
-        String text = "no i ja się pytam człowieku dumny ty jesteś z siebie zdajesz sobie sprawę z tego co robisz?masz ty wogóle rozum i godnośc człowieka?ja nie wiem ale żałosny typek z ciebie ,chyba nie pomyślałes nawet co robisz i kogo obrażasz ,możesz sobie obrażac tych co na to zasłużyli sobie ale nie naszego papieża polaka naszego rodaka wielką osobę ,i tak wyjątkowa i ważną bo to nie jest ktoś tam taki sobie że możesz go sobie wyśmiać bo tak ci się podoba nie wiem w jakiej ty się wychowałes rodzinie ale chyba ty nie wiem nie rozumiesz co to jest wiara .jeśli myslisz że jestes wspaniały to jestes zwykłym czubkiem którego ktoś nie odizolował jeszcze od społeczeństwa ,nie wiem co w tym jest takie śmieszne ale czepcie się stalina albo hitlera albo innych zwyrodnialców a nie czepiacie się takiej świętej osoby jak papież jan paweł 2 .jak można wogóle publicznie zamieszczac takie zdięcia na forach internetowych?ja się pytam kto powinien za to odpowiedziec bo chyba widac że do koscioła nie chodzi jak jestes nie wiem ateistą albo wierzysz w jakies sekty czy wogóle jestes może ty sługą szatana a nie będziesz z papieża robił takiego ,to ty chyba jestes jakis nie wiem co sie jarasz pomiotami szatana .wez pomyśl sobie ile papież zrobił ,on był kimś a ty kim jestes żeby z niego sobie robić kpiny co? kto dał ci prawo obrażac wogóle papieża naszego ?pomyślałes wogóle nad tym że to nie jest osoba taka sobie że ją wyśmieje i mnie będa wszyscy chwalic? wez dziecko naprawdę jestes jakis psycholek bo w przeciwieństwie do ciebie to papież jest autorytetem dla mnie a ty to nie wiem czyim możesz być autorytetem chyba takich samych jakiś głupków jak ty którzy nie wiedza co to kosciół i religia ,widac że się nie modlisz i nie chodzisz na religie do szkoły ,widac nie szanujesz religii to nie wiem jak chcesz to sobie wez swoje zdięcie wstaw ciekawe czy byś sie odważył .naprawdę wezta się dzieci zastanówcie co wy roicie bo nie macie widac pojęcia o tym kim był papież jan paweł2 jak nie jestescie w pełni rozwinięte umysłowo to się nie zabierajcie za taką osobę jak ojciec swięty bo to świadczy o tym że nie macie chyba w domu krzyża ani jednego obraza świętego nie chodzi tutaj o kosciół mnie ale wogóle ogólnie o zasady wiary żeby mieć jakąs godnosc bo papież nikogo nie obrażał a ty za co go obrażasz co? no powiedz za co obrażasz taką osobę jak ojciec święty ?brak mnie słów ale jakbyś miał pojęcie chociaz i sięgnął po pismo święte i poczytał sobie to może byś się odmienił .nie wiem idz do kościoła bo widac już dawno szatan jest w tobie człowieku ,nie lubisz kościoła to chociaż siedz cicho i nie obrażaj innych ludzi .";
+        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum, libero sed dignissim ultrices, ante ligula ultricies dui, blandit vestibulum mi diam sed lorem. Maecenas pellentesque tellus vel feugiat posuere. Vestibulum efficitur id mauris in mattis. Sed et ipsum pharetra, semper urna in, condimentum magna. Sed tellus mi, gravida ut viverra vel, mollis id enim. Cras egestas dolor sapien, a sollicitudin libero iaculis vitae. Praesent volutpat non felis ac iaculis. Vestibulum luctus, quam quis viverra euismod, purus elit fermentum leo, eu vehicula lacus felis in nibh.";
         String resized_location = "/Users/adrix/Pictures/pictures_test/";
         BufferedImage img_res = ImageIO.read(new File("/Users/adrix/Pictures/pictures_test/luska1.png"));
-        
-        int counterarr = 0;
-        String[] array = null;
-        
-        if (text.length() > 20){
-            array = text.split("(?<=\\G.{20})");
-
-            for (int i = 0; i < array.length; i++){
-                if (array[i] != null){
-                    counterarr++;
-                }
-            }
-            counterarr--;
-        }
-       
+                     
         BufferedImage a = createResizedCopy(img_res, 200, 200, false);
         ImageIO.write(a, "PNG", new File(resized_location, "resized.png"));     
         
-        byte[] b = mergeImageAndText(url, title, text, new Point(45, 170), new Point(45,220));
+        byte[] b = mergeImageAndText(url, title, text, new Point(45, 170), new Point(45,240));
         
         filename = "/Users/adrix/Pictures/pictures_test/obraz"+countedimage+".png";
         FileOutputStream fos = new FileOutputStream(filename);
@@ -95,13 +86,14 @@ public class Picturetest {
         g2.setRenderingHint(
             RenderingHints.KEY_TEXT_ANTIALIASING,
             RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        g2.setFont(new Font("Arial", Font.BOLD, 20)); 
+        g2.setFont(new Font("Arial", Font.BOLD, 20));
         g2.drawString(text, textPosition.x, textPosition.y);
-        g2.drawString(text2, textPosition2.x, textPosition2.y);
+        drawStringMultiLine(g2, text2, 30, textPosition2.x, textPosition2.y);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ImageIO.write(im, "png", baos);
         return baos.toByteArray();
     }
+      
     
     public static BufferedImage createResizedCopy(Image originalImage, 
         int scaledWidth, int scaledHeight, 
@@ -115,7 +107,31 @@ public class Picturetest {
         g.drawImage(originalImage, 0, 0, scaledWidth, scaledHeight, null); 
         g.dispose();
         return scaledBI;
+    } 
+    
+    public static void drawStringMultiLine(Graphics2D g, String text, int lineWidth, int x, int y) {
+        FontMetrics m = g.getFontMetrics();
+        if(m.stringWidth(text) < lineWidth) {
+            g.drawString(text, x, y);
+        } else {
+            //String[] words = text.split(" ");
+            String[] words = text.split("(?<=\\G.{55})");
+            String currentLine = words[0];
+            for(int i = 1; i < words.length; i++) {
+                if(m.stringWidth(currentLine+words[i]) < lineWidth) {
+                    currentLine += " "+words[i];
+                } else {
+                    g.drawString(currentLine, x, y);
+                    y += m.getHeight();
+                    currentLine = words[i];
+                }
+            }
+            if(currentLine.trim().length() > 0) {
+                g.drawString(currentLine, x, y);
+            }
+        }
     }
+
     
     public static String getSubnet(String firststring) {
         int firstSeparator = firststring.lastIndexOf("/");
