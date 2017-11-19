@@ -7,8 +7,19 @@ Created by Adrian Rupala 2017
 package app_alfa;
 
 import com.jcraft.jsch.*;
+import java.awt.AlphaComposite;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
@@ -23,7 +34,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 
 public class appframe extends javax.swing.JFrame {
@@ -39,6 +54,10 @@ public class appframe extends javax.swing.JFrame {
     public static String user_name_global = "";
     public static String user_password_global = "";
     public static String gdrive_auth = "";
+    public static String url = "";
+    public static String text = "";
+    public static String filepath = "";
+    
     
     public static int port = 22;
 
@@ -105,9 +124,9 @@ public class appframe extends javax.swing.JFrame {
         Back_jP4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        title_jP4 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        text_jP4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -617,6 +636,12 @@ public class appframe extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(149, 152, 154));
         jLabel2.setText("Wprowadź nagłówek.");
 
+        title_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                title_jP4ActionPerformed(evt);
+            }
+        });
+
         jLabel3.setForeground(new java.awt.Color(149, 152, 154));
         jLabel3.setText("Wprowadź treść.");
 
@@ -638,10 +663,10 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(jP4_createLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
+                    .addComponent(title_jP4)
                     .addComponent(Title_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
+                    .addComponent(text_jP4)
                     .addGroup(jP4_createLayout.createSequentialGroup()
                         .addComponent(jTextField3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -675,11 +700,11 @@ public class appframe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(title_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(text_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1287,6 +1312,95 @@ public class appframe extends javax.swing.JFrame {
 
     private void Next_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Next_jP4ActionPerformed
         // TODO add your handling code here:
+        String filename;
+        int countedimage = 0;
+        
+        File folder = new File("/Users/adrix/Pictures/pictures_test/output");
+        File[] filelist = folder.listFiles();
+        
+        for (int i = 0; i < filelist.length; i++){
+            countedimage += 1;
+        }
+        
+        String get_sample = file_path_jP4.getText();
+        url = "file://"+get_sample;
+        //String title = "Zażółć gęślą jaźń.";
+        String title = title_jP4.getText();
+        //String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum, libero sed dignissim ultrices, ante ligula ultricies dui, blandit vestibulum mi diam sed lorem. Maecenas pellentesque tellus vel feugiat posuere. Vestibulum efficitur id mauris in mattis. Sed et ipsum pharetra, semper urna in, condimentum magna. Sed tellus mi, gravida ut viverra vel, mollis id enim. Cras egestas dolor sapien, a sollicitudin libero iaculis vitae. Praesent volutpat non felis ac iaculis. Vestibulum luctus, quam quis viverra euismod, purus elit fermentum leo, eu vehicula lacus felis in nibh.";
+        String text = text_jP4.getText();
+        String filepath = jTextField3.getText();
+        String resized_location = "/Users/adrix/Pictures/pictures_test/";
+        BufferedImage img_res = null;
+        try {
+            img_res = ImageIO.read(new File(filepath));
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                     
+        BufferedImage a = createResizedCopy(img_res, 600, 450, false);
+        try {     
+            ImageIO.write(a, "PNG", new File(resized_location, "resized.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        byte[] b = null;
+        try {
+            b = mergeImageAndText(url, title, text, new Point(45, 170), new Point(45,240));
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        filename = "/Users/adrix/Pictures/pictures_test/obraz"+countedimage+".png";
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(filename);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            fos.write(b);
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            fos.close();
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        BufferedImage img_text = null; 
+        try {
+            img_text = ImageIO.read(new File("/Users/adrix/Pictures/pictures_test/resized.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        BufferedImage img_back = null;
+        try {
+            img_back = ImageIO.read(new File (filename));
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        int w = Math.max(img_text.getWidth(), img_back.getWidth());
+        int h = Math.max(img_text.getHeight(), img_back.getHeight());
+        BufferedImage combined = new BufferedImage(w,h, BufferedImage.TYPE_INT_ARGB);
+        
+        Graphics g = combined.getGraphics();
+        g.drawImage(img_back, 0, 0, null);
+        g.drawImage(img_text, 630, 130, null);
+        
+        String picname = "polaczone"+countedimage+".png";
+        try {
+            ImageIO.write(combined, "PNG", new File(resized_location+"/output", picname));
+        } catch (IOException ex) {
+            Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        File del1 = new File("/Users/adrix/Pictures/pictures_test/resized.png");
+        File del2 = new File(filename);
+        del1.delete();
+        del2.delete();        
     }//GEN-LAST:event_Next_jP4ActionPerformed
 
     private void Back_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP4ActionPerformed
@@ -1765,7 +1879,7 @@ public class appframe extends javax.swing.JFrame {
           File selectedFile = fileChooser.getSelectedFile();
           System.out.println(selectedFile.getName());
           file_path_glob = fileChooser.getSelectedFile().getAbsolutePath();
-          file_path_jP4.setText(fileChooser.getSelectedFile().getAbsolutePath());
+          file_path_jP4.setText(fileChooser.getSelectedFile().getAbsolutePath());  
         }        
     }//GEN-LAST:event_select_file_jP4ActionPerformed
 
@@ -1777,8 +1891,80 @@ public class appframe extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+          File selectedFile = fileChooser.getSelectedFile();
+          System.out.println(selectedFile.getName());
+          file_path_glob = fileChooser.getSelectedFile().getAbsolutePath();
+          jTextField3.setText(fileChooser.getSelectedFile().getAbsolutePath());  
+          url = fileChooser.getSelectedFile().getAbsolutePath();   
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void title_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_title_jP4ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_title_jP4ActionPerformed
+
+        public static byte[] mergeImageAndText(String imageFilePath,
+            String text, String text2, 
+            Point textPosition, Point textPosition2) throws IOException {
+        BufferedImage im = ImageIO.read(new URL(imageFilePath));
+        Graphics2D g2 = im.createGraphics();
+        g2.setColor(Color.black);
+        g2.setRenderingHint(
+            RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setRenderingHint(
+            RenderingHints.KEY_TEXT_ANTIALIASING,
+            RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g2.setFont(new Font("Arial", Font.BOLD, 20));
+        g2.drawString(text, textPosition.x, textPosition.y);
+        drawStringMultiLine(g2, text2, 30, textPosition2.x, textPosition2.y);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(im, "png", baos);
+        return baos.toByteArray();
+    }
+      
+    
+    public static BufferedImage createResizedCopy(Image originalImage, 
+        int scaledWidth, int scaledHeight, 
+            boolean preserveAlpha){
+        int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
+        BufferedImage scaledBI = new BufferedImage(scaledWidth, scaledHeight, imageType);
+        Graphics2D g = scaledBI.createGraphics();
+        if (preserveAlpha) {
+            g.setComposite(AlphaComposite.Src);
+        }
+        g.drawImage(originalImage, 0, 0, scaledWidth, scaledHeight, null); 
+        g.dispose();
+        return scaledBI;
+    } 
+    
+    public static void drawStringMultiLine(Graphics2D g, String text, int lineWidth, int x, int y) {
+        FontMetrics m = g.getFontMetrics();
+        if(m.stringWidth(text) < lineWidth) {
+            g.drawString(text, x, y);
+        } else {
+            //String[] words = text.split(" ");
+            String[] words = text.split("(?<=\\G.{55})");
+            String currentLine = words[0];
+            for(int i = 1; i < words.length; i++) {
+                if(m.stringWidth(currentLine+words[i]) < lineWidth) {
+                    currentLine += " "+words[i];
+                } else {
+                    g.drawString(currentLine, x, y);
+                    y += m.getHeight();
+                    currentLine = words[i];
+                }
+            }
+            if(currentLine.trim().length() > 0) {
+                g.drawString(currentLine, x, y);
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1813,6 +1999,7 @@ public class appframe extends javax.swing.JFrame {
             }
         });
     }
+       
 
     public static String getSubnet(String firststring) {
         int firstSeparator = firststring.lastIndexOf("/");
@@ -1890,8 +2077,6 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel jP6_settings;
     private javax.swing.JPanel jP7_add_user;
     private javax.swing.JPanel jP8_gdrive;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JButton local_storage_jP3;
     private javax.swing.JButton off_system_jP6;
@@ -1906,6 +2091,8 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton send_button_jP5;
     private javax.swing.JButton send_jP4;
     private javax.swing.JButton start_system_jP6;
+    private javax.swing.JTextField text_jP4;
+    private javax.swing.JTextField title_jP4;
     private javax.swing.JTextField user_jP7;
     private javax.swing.JLabel user_label_jP7;
     private javax.swing.JTextField username_jP2;

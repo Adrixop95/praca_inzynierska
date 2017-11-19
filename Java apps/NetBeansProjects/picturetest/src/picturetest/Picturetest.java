@@ -42,9 +42,9 @@ public class Picturetest {
         String title = "Zażółć gęślą jaźń.";
         String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum, libero sed dignissim ultrices, ante ligula ultricies dui, blandit vestibulum mi diam sed lorem. Maecenas pellentesque tellus vel feugiat posuere. Vestibulum efficitur id mauris in mattis. Sed et ipsum pharetra, semper urna in, condimentum magna. Sed tellus mi, gravida ut viverra vel, mollis id enim. Cras egestas dolor sapien, a sollicitudin libero iaculis vitae. Praesent volutpat non felis ac iaculis. Vestibulum luctus, quam quis viverra euismod, purus elit fermentum leo, eu vehicula lacus felis in nibh.";
         String resized_location = "/Users/adrix/Pictures/pictures_test/";
-        BufferedImage img_res = ImageIO.read(new File("/Users/adrix/Pictures/pictures_test/luska1.png"));
+        BufferedImage img_res = ImageIO.read(new File("/Users/adrix/Pictures/pictures_test/IMG_4873.jpg"));
                      
-        BufferedImage a = createResizedCopy(img_res, 200, 200, false);
+        BufferedImage a = createResizedCopy(img_res, 600, 450, false);
         ImageIO.write(a, "PNG", new File(resized_location, "resized.png"));     
         
         byte[] b = mergeImageAndText(url, title, text, new Point(45, 170), new Point(45,240));
@@ -131,13 +131,4 @@ public class Picturetest {
             }
         }
     }
-
-    
-    public static String getSubnet(String firststring) {
-        int firstSeparator = firststring.lastIndexOf("/");
-        int lastSeparator = firststring.lastIndexOf(".");
-        return firststring.substring(firstSeparator+1, lastSeparator+1);
-    }   
 }
-
-
