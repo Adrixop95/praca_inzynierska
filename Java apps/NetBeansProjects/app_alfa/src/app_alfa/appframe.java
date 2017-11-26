@@ -68,7 +68,7 @@ public class appframe extends javax.swing.JFrame {
     public appframe() {
         setTitle("");
         setResizable(false);
-        initComponents();
+        initComponents();        
     }
 
     /**
@@ -114,6 +114,8 @@ public class appframe extends javax.swing.JFrame {
         local_storage_jP3 = new javax.swing.JButton();
         Panel_jP3 = new javax.swing.JPanel();
         Back_jP3 = new javax.swing.JButton();
+        Settings_jP3 = new javax.swing.JButton();
+        generate_pic_jP3 = new javax.swing.JButton();
         jP4_create = new javax.swing.JPanel();
         Title_jP4 = new javax.swing.JLabel();
         Subtitle_jP4 = new javax.swing.JLabel();
@@ -168,7 +170,6 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP9 = new javax.swing.JPanel();
         Back_jP9 = new javax.swing.JButton();
         auth_button_jP9 = new javax.swing.JButton();
-        create_picture_jP9 = new javax.swing.JButton();
         info_text2_jP10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -513,6 +514,20 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
+        Settings_jP3.setText("Ustawienia systemu");
+        Settings_jP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Settings_jP3ActionPerformed(evt);
+            }
+        });
+
+        generate_pic_jP3.setText("Stwórz obraz");
+        generate_pic_jP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generate_pic_jP3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_jP3Layout = new javax.swing.GroupLayout(Panel_jP3);
         Panel_jP3.setLayout(Panel_jP3Layout);
         Panel_jP3Layout.setHorizontalGroup(
@@ -520,13 +535,20 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back_jP3)
-                .addContainerGap(538, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(generate_pic_jP3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Settings_jP3)
+                .addContainerGap())
         );
         Panel_jP3Layout.setVerticalGroup(
             Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(Back_jP3)
+                .addGroup(Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back_jP3)
+                    .addComponent(Settings_jP3)
+                    .addComponent(generate_pic_jP3))
                 .addContainerGap())
         );
 
@@ -595,7 +617,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP4.setForeground(new java.awt.Color(28, 28, 28));
         Panel_jP4.setPreferredSize(new java.awt.Dimension(88, 59));
 
-        Next_jP4.setText("Dalej");
+        Next_jP4.setText("Wygeneruj");
         Next_jP4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Next_jP4ActionPerformed(evt);
@@ -1100,13 +1122,6 @@ public class appframe extends javax.swing.JFrame {
             }
         });
 
-        create_picture_jP9.setText("Generowanie obrazu");
-        create_picture_jP9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                create_picture_jP9ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout Panel_jP9Layout = new javax.swing.GroupLayout(Panel_jP9);
         Panel_jP9.setLayout(Panel_jP9Layout);
         Panel_jP9Layout.setHorizontalGroup(
@@ -1114,8 +1129,6 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back_jP9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(create_picture_jP9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(auth_button_jP9)
                 .addContainerGap())
@@ -1126,8 +1139,7 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(Panel_jP9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Back_jP9)
-                    .addComponent(auth_button_jP9)
-                    .addComponent(create_picture_jP9))
+                    .addComponent(auth_button_jP9))
                 .addContainerGap())
         );
 
@@ -1190,6 +1202,8 @@ public class appframe extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(P1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        getAccessibleContext().setAccessibleName("jFrame1");
 
         pack();
         setLocationRelativeTo(null);
@@ -1337,7 +1351,7 @@ public class appframe extends javax.swing.JFrame {
             Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
         }
                      
-        BufferedImage a = createResizedCopy(img_res, 600, 450, false);
+        BufferedImage a = createResizedCopy(img_res, 610, 480, false);
         try {     
             ImageIO.write(a, "PNG", new File(resized_location, "resized.png"));
         } catch (IOException ex) {
@@ -1346,7 +1360,7 @@ public class appframe extends javax.swing.JFrame {
         
         byte[] b = null;
         try {
-            b = mergeImageAndText(url, title, text, new Point(45, 170), new Point(45,240));
+            b = mergeImageAndText(url, title, text, new Point(37, 170), new Point(37,240));
         } catch (IOException ex) {
             Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1883,12 +1897,6 @@ public class appframe extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_select_file_jP4ActionPerformed
 
-    private void create_picture_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_picture_jP9ActionPerformed
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1,"panelFour");        
-    }//GEN-LAST:event_create_picture_jP9ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
@@ -1906,6 +1914,18 @@ public class appframe extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_title_jP4ActionPerformed
+
+    private void Settings_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Settings_jP3ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelSix");
+    }//GEN-LAST:event_Settings_jP3ActionPerformed
+
+    private void generate_pic_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generate_pic_jP3ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)P1.getLayout();
+        card.show(P1,"panelFour");
+    }//GEN-LAST:event_generate_pic_jP3ActionPerformed
 
         public static byte[] mergeImageAndText(String imageFilePath,
             String text, String text2, 
@@ -2031,6 +2051,7 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_jP8;
     private javax.swing.JPanel Panel_jP9;
     private javax.swing.JButton Refresh_jP1;
+    private javax.swing.JButton Settings_jP3;
     private javax.swing.JButton Settings_jP4;
     private javax.swing.JLabel Subtitle_jP1;
     private javax.swing.JLabel Subtitle_jP2;
@@ -2054,10 +2075,10 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton add_user_jP6;
     private javax.swing.JButton auth_button_jP9;
     private javax.swing.JButton create_jP4;
-    private javax.swing.JButton create_picture_jP9;
     private javax.swing.JTextField file_path_jP4;
     private javax.swing.JTextField file_path_jP5;
     private javax.swing.JButton gdrive_sync_jP3;
+    private javax.swing.JButton generate_pic_jP3;
     private javax.swing.JTextField get_auth_code_jP9;
     private javax.swing.JButton google_auth_jP6;
     private javax.swing.JLabel info_text1_jP9;

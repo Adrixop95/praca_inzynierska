@@ -4,6 +4,9 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
+  <AccessibilityProperties>
+    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="jFrame1"/>
+  </AccessibilityProperties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
@@ -646,7 +649,11 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Back_jP3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="538" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="generate_pic_jP3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Settings_jP3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -654,7 +661,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="24" max="32767" attributes="0"/>
-                          <Component id="Back_jP3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Back_jP3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Settings_jP3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="generate_pic_jP3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -667,6 +678,22 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Back_jP3ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="Settings_jP3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Ustawienia systemu"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Settings_jP3ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="generate_pic_jP3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Stw&#xf3;rz obraz"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generate_pic_jP3ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -843,7 +870,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="Next_jP4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Dalej"/>
+                    <Property name="text" type="java.lang.String" value="Wygeneruj"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Next_jP4ActionPerformed"/>
@@ -1576,8 +1603,6 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Back_jP9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="create_picture_jP9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="auth_button_jP9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1591,7 +1616,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Back_jP9" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="auth_button_jP9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="create_picture_jP9" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -1613,14 +1637,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="auth_button_jP9ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="create_picture_jP9">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Generowanie obrazu"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="create_picture_jP9ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

@@ -40,14 +40,14 @@ public class Picturetest {
         
         String url = "file:///Users/adrix/Pictures/pictures_test/smcebi.png";
         String title = "Zażółć gęślą jaźń.";
-        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum, libero sed dignissim ultrices, ante ligula ultricies dui, blandit vestibulum mi diam sed lorem. Maecenas pellentesque tellus vel feugiat posuere. Vestibulum efficitur id mauris in mattis. Sed et ipsum pharetra, semper urna in, condimentum magna. Sed tellus mi, gravida ut viverra vel, mollis id enim. Cras egestas dolor sapien, a sollicitudin libero iaculis vitae. Praesent volutpat non felis ac iaculis. Vestibulum luctus, quam quis viverra euismod, purus elit fermentum leo, eu vehicula lacus felis in nibh.";
+        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elielitelittelitelitelit . In elementum, libero sed dignissim ultrices, ante ligula ultricies dui, blandit vestibulum mi diam sed lorem. Maecenas pellentesque tellus vel feugiat posuere. Vestibulum efficitur id mauris in mattis. Sed et ipsum pharetra, semper urna in, condimentum magna. Sed tellus mi, gravida ut viverra vel, mollis id enim. Cras egestas dolor sapien, a sollicitudin libero iaculis vitae. Praesent volutpat non felis ac iaculis. Vestibulum luctus, quam quis viverra euismod, purus elit fermentum leo, eu vehicula lacus felis in nibh.";
         String resized_location = "/Users/adrix/Pictures/pictures_test/";
         BufferedImage img_res = ImageIO.read(new File("/Users/adrix/Pictures/pictures_test/IMG_4873.jpg"));
                      
-        BufferedImage a = createResizedCopy(img_res, 600, 450, false);
+        BufferedImage a = createResizedCopy(img_res, 610, 480, false);
         ImageIO.write(a, "PNG", new File(resized_location, "resized.png"));     
         
-        byte[] b = mergeImageAndText(url, title, text, new Point(45, 170), new Point(45,240));
+        byte[] b = mergeImageAndText(url, title, text, new Point(37, 170), new Point(37,240));
         
         filename = "/Users/adrix/Pictures/pictures_test/obraz"+countedimage+".png";
         FileOutputStream fos = new FileOutputStream(filename);
@@ -63,7 +63,7 @@ public class Picturetest {
         
         Graphics g = combined.getGraphics();
         g.drawImage(img_back, 0, 0, null);
-        g.drawImage(img_text, 630, 130, null);
+        g.drawImage(img_text, 630, 120, null);
         
         String picname = "polaczone"+countedimage+".png";
         ImageIO.write(combined, "PNG", new File(resized_location+"/output", picname));
@@ -88,7 +88,7 @@ public class Picturetest {
             RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setFont(new Font("Arial", Font.BOLD, 20));
         g2.drawString(text, textPosition.x, textPosition.y);
-        drawStringMultiLine(g2, text2, 30, textPosition2.x, textPosition2.y);
+        drawStringMultiLine(g2, text2, 30, textPosition2.x, textPosition2.y);   
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ImageIO.write(im, "png", baos);
         return baos.toByteArray();
