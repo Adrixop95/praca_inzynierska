@@ -75,15 +75,9 @@ public class Pokaz extends JFrame{
 
     public static void main(String[] args) throws FileNotFoundException{ 
     
-    if(System.getProperty("os.name").startsWith("Windows")){
-        System.out.println("Wykryty system operacyjny to Windows");
-        path_to_files = "example_pictures/";
-    } else if(System.getProperty("os.name").startsWith("Mac")) {
-        System.out.println("Wykryty system operacyjny to macOS");
-        path_to_files = "example_pictures/";
-    } else if(System.getProperty("os.name").startsWith("Linux")){
+    if(System.getProperty("os.name").startsWith("Linux")){
         System.out.println("Wykryty system operacyjny to GNU/Linux.");
-        path_to_files = "example_pictures/";
+        path_to_files = "/mnt/gdrivefs/display_pictures";
     } else {
         System.out.println("Nie wykryto systemu operacyjnego, podaj sciezke recznie: ");
         Scanner diff_path = new Scanner(System.in);

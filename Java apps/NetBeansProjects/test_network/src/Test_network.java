@@ -41,7 +41,7 @@ public class Test_network {
         
             for (String s : HostAddresses){
                 try {
-                    int index = ip_addr.indexOf(" ");
+                    //int index = ip_addr.indexOf(" ");
 
                     System.out.println(s);
 

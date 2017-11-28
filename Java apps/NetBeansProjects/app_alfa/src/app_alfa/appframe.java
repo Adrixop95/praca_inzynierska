@@ -20,6 +20,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
@@ -37,7 +38,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 
@@ -692,18 +696,18 @@ public class appframe extends javax.swing.JFrame {
                     .addGroup(jP4_createLayout.createSequentialGroup()
                         .addComponent(jTextField3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jP4_createLayout.createSequentialGroup()
                         .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jP4_createLayout.createSequentialGroup()
-                                .addComponent(file_path_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(select_file_jP4))
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jP4_createLayout.createSequentialGroup()
+                        .addComponent(file_path_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(select_file_jP4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jP4_createLayout.setVerticalGroup(
@@ -1402,7 +1406,7 @@ public class appframe extends javax.swing.JFrame {
         
         Graphics g = combined.getGraphics();
         g.drawImage(img_back, 0, 0, null);
-        g.drawImage(img_text, 630, 130, null);
+        g.drawImage(img_text, 630, 120, null);
         
         String picname = "polaczone"+countedimage+".png";
         try {
@@ -1413,8 +1417,11 @@ public class appframe extends javax.swing.JFrame {
         
         File del1 = new File("/Users/adrix/Pictures/pictures_test/resized.png");
         File del2 = new File(filename);
+        File del_text = new File("/Users/adrix/Pictures/pictures_test/text.txt");
+
         del1.delete();
-        del2.delete();        
+        del2.delete();    
+        del_text.delete();
     }//GEN-LAST:event_Next_jP4ActionPerformed
 
     private void Back_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP4ActionPerformed
@@ -1962,13 +1969,52 @@ public class appframe extends javax.swing.JFrame {
         return scaledBI;
     } 
     
-    public static void drawStringMultiLine(Graphics2D g, String text, int lineWidth, int x, int y) {
+    public static void drawStringMultiLine(Graphics2D g, String text, int lineWidth, int x, int y) throws FileNotFoundException, IOException {
         FontMetrics m = g.getFontMetrics();
         if(m.stringWidth(text) < lineWidth) {
             g.drawString(text, x, y);
         } else {
-            //String[] words = text.split(" ");
-            String[] words = text.split("(?<=\\G.{55})");
+            StringBuilder justifiedText = new StringBuilder();
+            StringBuilder justifiedLine = new StringBuilder();
+            String[] words_spl = text.split(" ");
+            for (int i = 0; i < words_spl.length; i++) {
+                justifiedLine.append(words_spl[i]).append(" ");
+                if (i+1 == words_spl.length || justifiedLine.length() + words_spl[i+1].length() > 55) {
+                    justifiedLine.deleteCharAt(justifiedLine.length() - 1);
+                    justifiedText.append(justifiedLine.toString()).append(System.lineSeparator());
+                    justifiedLine = new StringBuilder();
+                }
+            }
+            String words_text = justifiedText.toString();
+            
+            System.out.print(words_text);
+            try(  PrintWriter out = new PrintWriter("/Users/adrix/Pictures/pictures_test/text.txt")){
+                out.println( words_text );
+            }
+
+            String[] words = null;
+            
+            List<String> items = new ArrayList<String>();
+            try 
+            { 
+                FileInputStream fstream_school = new FileInputStream("/Users/adrix/Pictures/pictures_test/text.txt"); 
+                DataInputStream data_input = new DataInputStream(fstream_school); 
+                BufferedReader buffer = new BufferedReader(new InputStreamReader(data_input)); 
+                String str_line; 
+
+                while ((str_line = buffer.readLine()) != null) 
+                { 
+                    str_line = str_line.trim(); 
+                    if ((str_line.length()!=0))  
+                    { 
+                        items.add(str_line);
+                    } 
+                }
+
+                words = (String[])items.toArray(new String[items.size()]);
+            } catch(SocketException e) { }
+
+            
             String currentLine = words[0];
             for(int i = 1; i < words.length; i++) {
                 if(m.stringWidth(currentLine+words[i]) < lineWidth) {
