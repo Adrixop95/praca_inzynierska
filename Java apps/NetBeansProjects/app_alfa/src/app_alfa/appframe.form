@@ -721,7 +721,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="title_jP4" max="32767" attributes="0"/>
                           <Component id="Title_jP4" alignment="1" max="32767" attributes="0"/>
-                          <Component id="Subtitle_jP4" alignment="1" max="32767" attributes="0"/>
+                          <Component id="Subtitle_jP4" alignment="1" pref="620" max="32767" attributes="0"/>
                           <Component id="text_jP4" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jTextField3" max="32767" attributes="0"/>
@@ -730,18 +730,14 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Title2_jp4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Title3_jp4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Title4_jp4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Title5_jp4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="file_path_jP4" min="-2" pref="493" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="select_file_jP4" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="templates_jP4" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -755,22 +751,19 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Subtitle_jP4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="Title2_jp4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="templates_jP4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="select_file_jP4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="file_path_jP4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="Title3_jp4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="title_jP4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Title4_jp4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="text_jP4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="Title5_jp4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -816,17 +809,72 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="file_path_jP4">
+            <Component class="javax.swing.JLabel" name="Title2_jp4">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9a" green="98" red="95" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Wybierz szablon pliku."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="templates_jP4">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="file_path_jP4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="templates_jP4ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="templates_jP4.removeAllItems();&#xa;&#xa;final File folder = new File(&quot;/Users/adrix/Pictures/pictures_test&quot;);&#xa;listFilesForFolder(folder);"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Title3_jp4">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9a" green="98" red="95" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Wprowad&#x17a; nag&#x142;&#xf3;wek."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="title_jP4">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="title_jP4ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="select_file_jP4">
+            <Component class="javax.swing.JLabel" name="Title4_jp4">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9a" green="98" red="95" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Wprowad&#x17a; tre&#x15b;&#x107;."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="text_jP4">
+            </Component>
+            <Component class="javax.swing.JLabel" name="Title5_jp4">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9a" green="98" red="95" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Wybierz obraz."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField3">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Wybierz plik"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="select_file_jP4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="Panel_jP4">
@@ -886,55 +934,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9a" green="98" red="95" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Wybierz szablon pliku."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9a" green="98" red="95" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Wprowad&#x17a; nag&#x142;&#xf3;wek."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="title_jP4">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="title_jP4ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9a" green="98" red="95" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Wprowad&#x17a; tre&#x15b;&#x107;."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="text_jP4">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9a" green="98" red="95" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Wybierz obraz."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Wybierz plik"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-              </Events>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jP5_send">

@@ -61,6 +61,7 @@ public class appframe extends javax.swing.JFrame {
     public static String url = "";
     public static String text = "";
     public static String filepath = "";
+    public static String actualpath = "";
     
     
     public static int port = 22;
@@ -123,19 +124,18 @@ public class appframe extends javax.swing.JFrame {
         jP4_create = new javax.swing.JPanel();
         Title_jP4 = new javax.swing.JLabel();
         Subtitle_jP4 = new javax.swing.JLabel();
-        file_path_jP4 = new javax.swing.JTextField();
-        select_file_jP4 = new javax.swing.JButton();
+        Title2_jp4 = new javax.swing.JLabel();
+        templates_jP4 = new javax.swing.JComboBox<>();
+        Title3_jp4 = new javax.swing.JLabel();
+        title_jP4 = new javax.swing.JTextField();
+        Title4_jp4 = new javax.swing.JLabel();
+        text_jP4 = new javax.swing.JTextField();
+        Title5_jp4 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         Panel_jP4 = new javax.swing.JPanel();
         Next_jP4 = new javax.swing.JButton();
         Back_jP4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        title_jP4 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        text_jP4 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jP5_send = new javax.swing.JPanel();
         Title_jP5 = new javax.swing.JLabel();
         Subtitle_jP5 = new javax.swing.JLabel();
@@ -604,16 +604,39 @@ public class appframe extends javax.swing.JFrame {
         Subtitle_jP4.setText("Wybierz schemat i wprowadź tekst.");
         Subtitle_jP4.setPreferredSize(new java.awt.Dimension(503, 24));
 
-        file_path_jP4.addActionListener(new java.awt.event.ActionListener() {
+        Title2_jp4.setForeground(new java.awt.Color(149, 152, 154));
+        Title2_jp4.setText("Wybierz szablon pliku.");
+
+        templates_jP4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        templates_jP4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                file_path_jP4ActionPerformed(evt);
+                templates_jP4ActionPerformed(evt);
+            }
+        });
+        templates_jP4.removeAllItems();
+
+        final File folder = new File("/Users/adrix/Pictures/pictures_test");
+        listFilesForFolder(folder);
+
+        Title3_jp4.setForeground(new java.awt.Color(149, 152, 154));
+        Title3_jp4.setText("Wprowadź nagłówek.");
+
+        title_jP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                title_jP4ActionPerformed(evt);
             }
         });
 
-        select_file_jP4.setText("Wybierz plik");
-        select_file_jP4.addActionListener(new java.awt.event.ActionListener() {
+        Title4_jp4.setForeground(new java.awt.Color(149, 152, 154));
+        Title4_jp4.setText("Wprowadź treść.");
+
+        Title5_jp4.setForeground(new java.awt.Color(149, 152, 154));
+        Title5_jp4.setText("Wybierz obraz.");
+
+        jButton1.setText("Wybierz plik");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                select_file_jP4ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -656,31 +679,6 @@ public class appframe extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setForeground(new java.awt.Color(149, 152, 154));
-        jLabel1.setText("Wybierz szablon pliku.");
-
-        jLabel2.setForeground(new java.awt.Color(149, 152, 154));
-        jLabel2.setText("Wprowadź nagłówek.");
-
-        title_jP4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                title_jP4ActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setForeground(new java.awt.Color(149, 152, 154));
-        jLabel3.setText("Wprowadź treść.");
-
-        jLabel4.setForeground(new java.awt.Color(149, 152, 154));
-        jLabel4.setText("Wybierz obraz.");
-
-        jButton1.setText("Wybierz plik");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jP4_createLayout = new javax.swing.GroupLayout(jP4_create);
         jP4_create.setLayout(jP4_createLayout);
         jP4_createLayout.setHorizontalGroup(
@@ -691,7 +689,7 @@ public class appframe extends javax.swing.JFrame {
                 .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(title_jP4)
                     .addComponent(Title_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Subtitle_jP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addComponent(text_jP4)
                     .addGroup(jP4_createLayout.createSequentialGroup()
                         .addComponent(jTextField3)
@@ -699,15 +697,12 @@ public class appframe extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jP4_createLayout.createSequentialGroup()
                         .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(Title2_jp4)
+                            .addComponent(Title3_jp4)
+                            .addComponent(Title4_jp4)
+                            .addComponent(Title5_jp4))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jP4_createLayout.createSequentialGroup()
-                        .addComponent(file_path_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(select_file_jP4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(templates_jP4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jP4_createLayout.setVerticalGroup(
@@ -718,21 +713,19 @@ public class appframe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Subtitle_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(Title2_jp4)
+                .addGap(8, 8, 8)
+                .addComponent(templates_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(select_file_jP4)
-                    .addComponent(file_path_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(Title3_jp4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(title_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(Title4_jp4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(text_jP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(Title5_jp4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1340,7 +1333,13 @@ public class appframe extends javax.swing.JFrame {
             countedimage += 1;
         }
         
-        String get_sample = file_path_jP4.getText();
+
+        String[] test_pth = actualpath.split("-");
+        String pth1 = test_pth[0];
+        int index = pth1.lastIndexOf('/');
+        String correct_pth = pth1.substring(0, index);
+        
+        String get_sample = correct_pth + "/" + (String) templates_jP4.getSelectedItem();
         url = "file://"+get_sample;
         //String title = "Zażółć gęślą jaźń.";
         String title = title_jP4.getText();
@@ -1888,22 +1887,6 @@ public class appframe extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Settings_jP4ActionPerformed
 
-    private void file_path_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_file_path_jP4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_file_path_jP4ActionPerformed
-
-    private void select_file_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_select_file_jP4ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        int returnValue = fileChooser.showOpenDialog(null);
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-          File selectedFile = fileChooser.getSelectedFile();
-          System.out.println(selectedFile.getName());
-          file_path_glob = fileChooser.getSelectedFile().getAbsolutePath();
-          file_path_jP4.setText(fileChooser.getSelectedFile().getAbsolutePath());  
-        }        
-    }//GEN-LAST:event_select_file_jP4ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
@@ -1918,8 +1901,7 @@ public class appframe extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void title_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_title_jP4ActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:        
     }//GEN-LAST:event_title_jP4ActionPerformed
 
     private void Settings_jP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Settings_jP3ActionPerformed
@@ -1933,6 +1915,10 @@ public class appframe extends javax.swing.JFrame {
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelFour");
     }//GEN-LAST:event_generate_pic_jP3ActionPerformed
+
+    private void templates_jP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_templates_jP4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_templates_jP4ActionPerformed
 
         public static byte[] mergeImageAndText(String imageFilePath,
             String text, String text2, 
@@ -2072,7 +2058,19 @@ public class appframe extends javax.swing.JFrame {
         int lastSeparator = firststring.lastIndexOf(".");
         return firststring.substring(firstSeparator+1, lastSeparator+1);
     }
+    
+    public void listFilesForFolder(final File folder) {
+        for (final File fileEntry : folder.listFiles()) {
+            if (fileEntry.isDirectory()) {
+                listFilesForFolder(fileEntry);
+            } else {
+                templates_jP4.addItem(fileEntry.getName());
+                actualpath = fileEntry.getAbsolutePath() + "-";
+            }
+        }
+    }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back_jP2;
     private javax.swing.JButton Back_jP3;
@@ -2107,6 +2105,10 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Subtitle_jP6;
     private javax.swing.JLabel Subtitle_jP7;
     private javax.swing.JLabel Subtitle_jP9;
+    private javax.swing.JLabel Title2_jp4;
+    private javax.swing.JLabel Title3_jp4;
+    private javax.swing.JLabel Title4_jp4;
+    private javax.swing.JLabel Title5_jp4;
     private javax.swing.JLabel Title_combobox_jP1;
     private javax.swing.JLabel Title_jP1;
     private javax.swing.JLabel Title_jP2;
@@ -2121,7 +2123,6 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton add_user_jP6;
     private javax.swing.JButton auth_button_jP9;
     private javax.swing.JButton create_jP4;
-    private javax.swing.JTextField file_path_jP4;
     private javax.swing.JTextField file_path_jP5;
     private javax.swing.JButton gdrive_sync_jP3;
     private javax.swing.JButton generate_pic_jP3;
@@ -2131,10 +2132,6 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel info_text2_jP10;
     private javax.swing.JLabel info_text2_jP9;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
     private javax.swing.JPanel jP3;
@@ -2153,11 +2150,11 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel password_title_jP2;
     private javax.swing.JButton restart_device_jP6;
     private javax.swing.JComboBox<String> rpilist_jP1;
-    private javax.swing.JButton select_file_jP4;
     private javax.swing.JButton select_file_jP5;
     private javax.swing.JButton send_button_jP5;
     private javax.swing.JButton send_jP4;
     private javax.swing.JButton start_system_jP6;
+    private javax.swing.JComboBox<String> templates_jP4;
     private javax.swing.JTextField text_jP4;
     private javax.swing.JTextField title_jP4;
     private javax.swing.JTextField user_jP7;
