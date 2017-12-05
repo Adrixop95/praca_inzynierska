@@ -87,7 +87,7 @@ public class Pokaz extends JFrame{
     File [] files = path.listFiles();
     
         for (int i = 0; i < files.length; i++){
-            if (files[i].isFile()){
+            if (files[i].isFile() | !files[i].isHidden()){
                 y = y+1-1;
                 ByteArrayOutputStream test = new ByteArrayOutputStream();
                 PrintStream PS = new PrintStream(test);
