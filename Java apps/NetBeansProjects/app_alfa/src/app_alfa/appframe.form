@@ -1054,8 +1054,6 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="send_button_jP5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Next_jP5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1064,7 +1062,6 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Next_jP5" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Back_jP5" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="send_button_jP5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1074,14 +1071,6 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="Next_jP5">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Dalej"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Next_jP5ActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JButton" name="Back_jP5">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Wstecz"/>
@@ -1121,19 +1110,13 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Title_jP6" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="add_user_jP6" max="32767" attributes="0"/>
-                                  <Component id="start_system_jP6" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="off_system_jP6" max="32767" attributes="0"/>
-                                  <Component id="google_auth_jP6" max="32767" attributes="0"/>
-                              </Group>
+                          <Component id="Title_jP6" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="off_system_jP6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="restart_device_jP6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="google_auth_jP6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1146,20 +1129,13 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Title_jP6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="restart_device_jP6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="start_system_jP6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="off_system_jP6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="add_user_jP6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="restart_device_jP6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="off_system_jP6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="google_auth_jP6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
                       <Component id="Panel_jP6" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1184,17 +1160,9 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="start_system_jP6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Uruchom system"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="start_system_jP6ActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="off_system_jP6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Wy&#x142;&#x105;cz system"/>
+                <Property name="text" type="java.lang.String" value="Wy&#x142;&#x105;cz urz&#x105;dzenie"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="off_system_jP6ActionPerformed"/>
@@ -1206,14 +1174,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restart_device_jP6ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="add_user_jP6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Dodaj u&#x17c;ytkownika"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_user_jP6ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="google_auth_jP6">

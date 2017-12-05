@@ -142,15 +142,12 @@ public class appframe extends javax.swing.JFrame {
         select_file_jP5 = new javax.swing.JButton();
         file_path_jP5 = new javax.swing.JTextField();
         Panel_jP5 = new javax.swing.JPanel();
-        Next_jP5 = new javax.swing.JButton();
         Back_jP5 = new javax.swing.JButton();
         send_button_jP5 = new javax.swing.JButton();
         jP6_settings = new javax.swing.JPanel();
         Title_jP6 = new javax.swing.JLabel();
-        start_system_jP6 = new javax.swing.JButton();
         off_system_jP6 = new javax.swing.JButton();
         restart_device_jP6 = new javax.swing.JButton();
-        add_user_jP6 = new javax.swing.JButton();
         google_auth_jP6 = new javax.swing.JButton();
         Panel_jP6 = new javax.swing.JPanel();
         Back_jP6 = new javax.swing.JButton();
@@ -768,13 +765,6 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP5.setForeground(new java.awt.Color(28, 28, 28));
         Panel_jP5.setPreferredSize(new java.awt.Dimension(88, 59));
 
-        Next_jP5.setText("Dalej");
-        Next_jP5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Next_jP5ActionPerformed(evt);
-            }
-        });
-
         Back_jP5.setText("Wstecz");
         Back_jP5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -798,8 +788,6 @@ public class appframe extends javax.swing.JFrame {
                 .addComponent(Back_jP5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(send_button_jP5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Next_jP5)
                 .addContainerGap())
         );
         Panel_jP5Layout.setVerticalGroup(
@@ -807,7 +795,6 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP5Layout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(Panel_jP5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Next_jP5)
                     .addComponent(Back_jP5)
                     .addComponent(send_button_jP5))
                 .addContainerGap())
@@ -855,14 +842,7 @@ public class appframe extends javax.swing.JFrame {
         Title_jP6.setText("Ustawienia systemu.");
         Title_jP6.setPreferredSize(new java.awt.Dimension(54, 39));
 
-        start_system_jP6.setText("Uruchom system");
-        start_system_jP6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                start_system_jP6ActionPerformed(evt);
-            }
-        });
-
-        off_system_jP6.setText("Wyłącz system");
+        off_system_jP6.setText("Wyłącz urządzenie");
         off_system_jP6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 off_system_jP6ActionPerformed(evt);
@@ -873,13 +853,6 @@ public class appframe extends javax.swing.JFrame {
         restart_device_jP6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 restart_device_jP6ActionPerformed(evt);
-            }
-        });
-
-        add_user_jP6.setText("Dodaj użytkownika");
-        add_user_jP6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_user_jP6ActionPerformed(evt);
             }
         });
 
@@ -928,15 +901,11 @@ public class appframe extends javax.swing.JFrame {
                 .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Title_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jP6_settingsLayout.createSequentialGroup()
-                        .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(add_user_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(start_system_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(off_system_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(google_auth_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(off_system_jP6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(restart_device_jP6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(google_auth_jP6)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -945,17 +914,12 @@ public class appframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP6_settingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Title_jP6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(restart_device_jP6)
-                    .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(start_system_jP6)
-                        .addComponent(off_system_jP6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_user_jP6)
+                    .addComponent(restart_device_jP6)
+                    .addComponent(off_system_jP6)
                     .addComponent(google_auth_jP6))
-                .addGap(177, 177, 177)
+                .addGap(206, 206, 206)
                 .addComponent(Panel_jP6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1429,10 +1393,6 @@ public class appframe extends javax.swing.JFrame {
         card.show(P1,"panelThree");
     }//GEN-LAST:event_Back_jP4ActionPerformed
 
-    private void Next_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Next_jP5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Next_jP5ActionPerformed
-
     private void Back_jP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP5ActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)P1.getLayout();
@@ -1498,81 +1458,15 @@ public class appframe extends javax.swing.JFrame {
         card.show(P1,"panelThree");
     }//GEN-LAST:event_Back_jP6ActionPerformed
 
-    private void start_system_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_system_jP6ActionPerformed
-        // TODO add your handling code here:
-        komenda = "cd ~/ && screen -dm bash -c '/home/pi/Server_wyswietlania/DisplayMode.sh'";        
-        
-        try
-        {
-            JSch jsch = new JSch();
-
-            Session session = jsch.getSession(USER, host, port);
-            session.setConfig("StrictHostKeyChecking", "no");
-            session.setPassword(PASS);
-            session.connect();
-
-            String command = komenda;
-            Channel channel = session.openChannel("exec");
-            ((ChannelExec) channel).setCommand(command);
-
-            channel.setInputStream(null);
-
-            ((ChannelExec) channel).setErrStream(System.err);
-
-            InputStream in = channel.getInputStream();
-
-            channel.connect();
-            StringBuilder sb = new StringBuilder();
-            byte[] tmp = new byte[1024];
-            while (true)
-            {
-                while (in.available() > 0)
-                {
-                    int i = in.read(tmp, 0, 1024);
-                    if (i < 0)
-                        break;
-                    sb.append(new String(tmp, 0, i));
-                }
-                if (channel.isClosed())
-                {
-                    if (in.available() > 0)
-                        continue;
-                    //System.out.println("exit-status: "
-                    //        + channel.getExitStatus());
-                    break;
-                }
-                try
-                {
-                    Thread.sleep(500);
-                }
-                catch (Exception ee)
-                {
-                }
-            }
-            //disconnecting and closing
-            channel.disconnect();
-
-            session.disconnect();
-            System.out.println("System został uruchomiony bez błędu.");
-            System.out.println(sb.toString());
-        }
-        catch (Exception e)
-        {
-             //something should be done here
-            e.printStackTrace();
-
-        }        
-    }//GEN-LAST:event_start_system_jP6ActionPerformed
-
     private void restart_device_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restart_device_jP6ActionPerformed
         // TODO add your handling code here:
-        komenda = "sudo reboot now";
-        
+        komenda = "sudo reboot now";     
+        System.out.println(komenda);
+
         try
         {
             JSch jsch = new JSch();
-
-            Session session = jsch.getSession(USER, host, port);
+            Session session = jsch.getSession(USER, ip_addr_glob, port);
             session.setConfig("StrictHostKeyChecking", "no");
             session.setPassword(PASS);
             session.connect();
@@ -1619,27 +1513,23 @@ public class appframe extends javax.swing.JFrame {
             channel.disconnect();
 
             session.disconnect();
-            System.out.println("Restart serwera powiódł się.");
             System.out.println(sb.toString());
         }
-        catch (Exception e)
-        {
-             //something should be done here
-            e.printStackTrace();
-        }       
+        catch (JSchException | IOException e){ }              
+        
         
     }//GEN-LAST:event_restart_device_jP6ActionPerformed
 
     private void off_system_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_off_system_jP6ActionPerformed
         // TODO add your handling code here:
         
-        komenda = "pkill -f 'SCREEN -dm bash -c' && pkill -f 'java -jar'";
-        
+        komenda = "sudo shutdown now";     
+        System.out.println(komenda);
+
         try
         {
             JSch jsch = new JSch();
-
-            Session session = jsch.getSession(USER, host, port);
+            Session session = jsch.getSession(USER, ip_addr_glob, port);
             session.setConfig("StrictHostKeyChecking", "no");
             session.setPassword(PASS);
             session.connect();
@@ -1686,15 +1576,9 @@ public class appframe extends javax.swing.JFrame {
             channel.disconnect();
 
             session.disconnect();
-            System.out.println("System został wyłączony poprawnie.");
             System.out.println(sb.toString());
         }
-        catch (Exception e)
-        {
-             //something should be done here
-            e.printStackTrace();
-
-        }       
+        catch (JSchException | IOException e){ }              
         
     }//GEN-LAST:event_off_system_jP6ActionPerformed
 
@@ -1703,12 +1587,6 @@ public class appframe extends javax.swing.JFrame {
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelSix");        
     }//GEN-LAST:event_Back_jP7ActionPerformed
-
-    private void add_user_jP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_user_jP6ActionPerformed
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1,"panelSeven");
-    }//GEN-LAST:event_add_user_jP6ActionPerformed
 
     private void add_user_button_jP7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_user_button_jP7ActionPerformed
         // TODO add your handling code here:
@@ -2083,7 +1961,6 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton Next_jP1;
     private javax.swing.JButton Next_jP2;
     private javax.swing.JButton Next_jP4;
-    private javax.swing.JButton Next_jP5;
     private javax.swing.JPanel P1;
     private javax.swing.JPanel Panel_jP1;
     private javax.swing.JPanel Panel_jP2;
@@ -2120,7 +1997,6 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JLabel Title_jP8;
     private javax.swing.JLabel Title_jP9;
     private javax.swing.JButton add_user_button_jP7;
-    private javax.swing.JButton add_user_jP6;
     private javax.swing.JButton auth_button_jP9;
     private javax.swing.JButton create_jP4;
     private javax.swing.JTextField file_path_jP5;
@@ -2153,7 +2029,6 @@ public class appframe extends javax.swing.JFrame {
     private javax.swing.JButton select_file_jP5;
     private javax.swing.JButton send_button_jP5;
     private javax.swing.JButton send_jP4;
-    private javax.swing.JButton start_system_jP6;
     private javax.swing.JComboBox<String> templates_jP4;
     private javax.swing.JTextField text_jP4;
     private javax.swing.JTextField title_jP4;

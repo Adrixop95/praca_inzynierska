@@ -44,7 +44,7 @@ public class Pokaz extends JFrame{
 
         SetImageSize(y);
         
-        tm = new Timer(1500,new ActionListener() {
+        tm = new Timer(50000,new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
