@@ -832,7 +832,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="templates_jP4ActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="templates_jP4.removeAllItems();&#xa;&#xa;final File folder = new File(&quot;/Users/adrix/Pictures/pictures_test&quot;);&#xa;listFilesForFolder(folder);"/>
+                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="templates_jP4.removeAllItems();&#xa;&#xa;final File folder = new File(&quot;system/templates&quot;);&#xa;listFilesForFolder(folder);"/>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>

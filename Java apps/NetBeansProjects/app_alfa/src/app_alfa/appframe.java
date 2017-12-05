@@ -615,7 +615,7 @@ public class appframe extends javax.swing.JFrame {
         });
         templates_jP4.removeAllItems();
 
-        final File folder = new File("/Users/adrix/Pictures/pictures_test");
+        final File folder = new File("system/templates");
         listFilesForFolder(folder);
 
         Title3_jp4.setForeground(new java.awt.Color(149, 152, 154));
@@ -1326,7 +1326,7 @@ public class appframe extends javax.swing.JFrame {
         String filename;
         int countedimage = 0;
         
-        File folder = new File("/Users/adrix/Pictures/pictures_test/output");
+        File folder = new File("wygenerowane/");
         File[] filelist = folder.listFiles();
         
         for (int i = 0; i < filelist.length; i++){
@@ -1346,7 +1346,7 @@ public class appframe extends javax.swing.JFrame {
         //String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum, libero sed dignissim ultrices, ante ligula ultricies dui, blandit vestibulum mi diam sed lorem. Maecenas pellentesque tellus vel feugiat posuere. Vestibulum efficitur id mauris in mattis. Sed et ipsum pharetra, semper urna in, condimentum magna. Sed tellus mi, gravida ut viverra vel, mollis id enim. Cras egestas dolor sapien, a sollicitudin libero iaculis vitae. Praesent volutpat non felis ac iaculis. Vestibulum luctus, quam quis viverra euismod, purus elit fermentum leo, eu vehicula lacus felis in nibh.";
         String text = text_jP4.getText();
         String filepath = jTextField3.getText();
-        String resized_location = "/Users/adrix/Pictures/pictures_test/";
+        String resized_location = "system/tmp/";
         BufferedImage img_res = null;
         try {
             img_res = ImageIO.read(new File(filepath));
@@ -1368,7 +1368,7 @@ public class appframe extends javax.swing.JFrame {
             Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        filename = "/Users/adrix/Pictures/pictures_test/obraz"+countedimage+".png";
+        filename = "system/tmp/obraz"+countedimage+".png";
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(filename);
@@ -1388,7 +1388,7 @@ public class appframe extends javax.swing.JFrame {
         
         BufferedImage img_text = null; 
         try {
-            img_text = ImageIO.read(new File("/Users/adrix/Pictures/pictures_test/resized.png"));
+            img_text = ImageIO.read(new File("system/tmp/resized.png"));
         } catch (IOException ex) {
             Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1409,14 +1409,14 @@ public class appframe extends javax.swing.JFrame {
         
         String picname = "polaczone"+countedimage+".png";
         try {
-            ImageIO.write(combined, "PNG", new File(resized_location+"/output", picname));
+            ImageIO.write(combined, "PNG", new File("wygenerowane/"+ picname));
         } catch (IOException ex) {
             Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        File del1 = new File("/Users/adrix/Pictures/pictures_test/resized.png");
+        File del1 = new File("system/tmp/resized.png");
         File del2 = new File(filename);
-        File del_text = new File("/Users/adrix/Pictures/pictures_test/text.txt");
+        File del_text = new File("system/tmp/text.txt");
 
         del1.delete();
         del2.delete();    
@@ -1965,7 +1965,7 @@ public class appframe extends javax.swing.JFrame {
             String[] words_spl = text.split(" ");
             for (int i = 0; i < words_spl.length; i++) {
                 justifiedLine.append(words_spl[i]).append(" ");
-                if (i+1 == words_spl.length || justifiedLine.length() + words_spl[i+1].length() > 55) {
+                if (i+1 == words_spl.length || justifiedLine.length() + words_spl[i+1].length() > 53) {
                     justifiedLine.deleteCharAt(justifiedLine.length() - 1);
                     justifiedText.append(justifiedLine.toString()).append(System.lineSeparator());
                     justifiedLine = new StringBuilder();
@@ -1974,7 +1974,7 @@ public class appframe extends javax.swing.JFrame {
             String words_text = justifiedText.toString();
             
             System.out.print(words_text);
-            try(  PrintWriter out = new PrintWriter("/Users/adrix/Pictures/pictures_test/text.txt")){
+            try(  PrintWriter out = new PrintWriter("system/tmp/text.txt")){
                 out.println( words_text );
             }
 
@@ -1983,7 +1983,7 @@ public class appframe extends javax.swing.JFrame {
             List<String> items = new ArrayList<String>();
             try 
             { 
-                FileInputStream fstream_school = new FileInputStream("/Users/adrix/Pictures/pictures_test/text.txt"); 
+                FileInputStream fstream_school = new FileInputStream("system/tmp/text.txt"); 
                 DataInputStream data_input = new DataInputStream(fstream_school); 
                 BufferedReader buffer = new BufferedReader(new InputStreamReader(data_input)); 
                 String str_line; 
