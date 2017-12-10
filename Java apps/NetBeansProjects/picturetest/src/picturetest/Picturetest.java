@@ -40,30 +40,30 @@ public class Picturetest {
         String filename;
         int countedimage = 0;
         
-        File folder = new File("/Users/adrix/Pictures/pictures_test/output");
+        File folder = new File("C:/Users/adria/Pictures/pictures_test/output/");
         File[] filelist = folder.listFiles();
         
         for (int i = 0; i < filelist.length; i++){
             countedimage += 1;
         }
         
-        String url = "file:///Users/adrix/Pictures/pictures_test/smcebi.png";
+        String url = "file:///C:/Users/adria/Pictures/pictures_test/smcebi.png";
         String title = "Zażółć gęślą jaźń.";
         String text = "Lorem ipsum dolor sit amet, conse????ctetur? adipiscing elielitelittelitelitelit . In elementum, libero? sed dignissim ultrices, ante ligula ultricies dui, blandit vestibulum mi diam sed lorem. Maecenas pellentesque tellus vel feugiat posuere. Vestibulum efficitur id mauris in mattis. Sed et ipsum pharetra, semper urna in, condimentum magna. Sed tellus mi, gravida ut viverra vel, mollis id enim. Cras egestas dolor sapien, a sollicitudin libero iaculis vitae. Praesent volutpat non felis ac iaculis. Vestibulum luctus, quam quis viverra euismod, purus elit fermentum leo, eu vehicula lacus felis in nibh.";
-        String resized_location = "/Users/adrix/Pictures/pictures_test/";
-        BufferedImage img_res = ImageIO.read(new File("/Users/adrix/Pictures/pictures_test/IMG_4873.jpg"));
+        String resized_location = "C:/Users/adria/Pictures/pictures_test/resized/";
+        BufferedImage img_res = ImageIO.read(new File("C:/Users/adria/Pictures/rory-hennessey-345299.jpg"));
                      
         BufferedImage a = createResizedCopy(img_res, 610, 480, false);
         ImageIO.write(a, "PNG", new File(resized_location, "resized.png"));     
         
         byte[] b = mergeImageAndText(url, title, text, new Point(37, 170), new Point(37,240));
         
-        filename = "/Users/adrix/Pictures/pictures_test/obraz"+countedimage+".png";
+        filename = "C:/Users/adria/Pictures/pictures_test/resized/"+countedimage+".png";
         FileOutputStream fos = new FileOutputStream(filename);
         fos.write(b);
         fos.close();
         
-        BufferedImage img_text = ImageIO.read(new File("/Users/adrix/Pictures/pictures_test/resized.png")); 
+        BufferedImage img_text = ImageIO.read(new File("C:/Users/adria/Pictures/pictures_test/resized/resized.png")); 
         BufferedImage img_back = ImageIO.read(new File (filename));
         
         int w = Math.max(img_text.getWidth(), img_back.getWidth());
@@ -75,14 +75,14 @@ public class Picturetest {
         g.drawImage(img_text, 630, 120, null);
         
         String picname = "polaczone"+countedimage+".png";
-        ImageIO.write(combined, "PNG", new File(resized_location+"/output", picname));
+        ImageIO.write(combined, "PNG", new File(resized_location, picname));
         
-        File del1 = new File("/Users/adrix/Pictures/pictures_test/resized.png");
-        File del2 = new File(filename);
-        File del_text = new File("/Users/adrix/Pictures/pictures_test/text.txt");
-        del1.delete();
-        del2.delete();
-        del_text.delete();
+        //File del1 = new File("/Users/adrix/Pictures/pictures_test/resized.png");
+        //File del2 = new File(filename);
+        //File del_text = new File("/Users/adrix/Pictures/pictures_test/text.txt");
+        //del1.delete();
+        //del2.delete();
+        //del_text.delete();
         
     }
     
@@ -140,7 +140,7 @@ public class Picturetest {
             String words_text = justifiedText.toString();
             
             System.out.print(words_text);
-            try(  PrintWriter out = new PrintWriter("/Users/adrix/Pictures/pictures_test/text.txt")){
+            try(  PrintWriter out = new PrintWriter("C:/Users/adria/Pictures/pictures_test/resized/text.txt")){
                 out.println( words_text );
             }
 
@@ -149,7 +149,7 @@ public class Picturetest {
             List<String> items = new ArrayList<String>();
             try 
             { 
-                FileInputStream fstream_school = new FileInputStream("/Users/adrix/Pictures/pictures_test/text.txt"); 
+                FileInputStream fstream_school = new FileInputStream("C:/Users/adria/Pictures/pictures_test/resized/text.txt"); 
                 DataInputStream data_input = new DataInputStream(fstream_school); 
                 BufferedReader buffer = new BufferedReader(new InputStreamReader(data_input)); 
                 String str_line; 

@@ -59,12 +59,16 @@ public class appframe extends javax.swing.JFrame {
     public static String user_password_global = "";
     public static String gdrive_auth = "";
     public static String url = "";
+    public static String get_sample = "";
     public static String text = "";
     public static String filepath = "";
     public static String actualpath = "";
+    public static String choose_cmd= "";
     
+    public static String[] cmd_arp  = new String[3];
     
     public static int port = 22;
+    public static int index = 0;
 
     /**
      * Creates new form appframe
@@ -234,7 +238,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP1Layout.setVerticalGroup(
             Panel_jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(Panel_jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Next_jP1)
                     .addComponent(Refresh_jP1))
@@ -245,7 +249,7 @@ public class appframe extends javax.swing.JFrame {
         jP1.setLayout(jP1Layout);
         jP1Layout.setHorizontalGroup(
             jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP1, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
             .addGroup(jP1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +331,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP2Layout.setVerticalGroup(
             Panel_jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP2Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(Panel_jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Next_jP2)
                     .addComponent(Back_jP2))
@@ -338,7 +342,7 @@ public class appframe extends javax.swing.JFrame {
         jP2.setLayout(jP2Layout);
         jP2Layout.setHorizontalGroup(
             jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP2, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP2, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
             .addGroup(jP2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,7 +439,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP8Layout.setVerticalGroup(
             Panel_jP8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP8Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(Panel_jP8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Back_jP8)
                     .addComponent(Settings_jP4))
@@ -446,7 +450,7 @@ public class appframe extends javax.swing.JFrame {
         jP3_choose.setLayout(jP3_chooseLayout);
         jP3_chooseLayout.setHorizontalGroup(
             jP3_chooseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP8, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP8, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
             .addGroup(jP3_chooseLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP3_chooseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -545,7 +549,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP3Layout.setVerticalGroup(
             Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP3Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(Panel_jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Back_jP3)
                     .addComponent(Settings_jP3)
@@ -567,7 +571,7 @@ public class appframe extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addComponent(local_storage_jP3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addComponent(Panel_jP3, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP3, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
         jP3Layout.setVerticalGroup(
             jP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -604,7 +608,7 @@ public class appframe extends javax.swing.JFrame {
         Title2_jp4.setForeground(new java.awt.Color(149, 152, 154));
         Title2_jp4.setText("Wybierz szablon pliku.");
 
-        templates_jP4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        templates_jP4.setToolTipText("");
         templates_jP4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 templates_jP4ActionPerformed(evt);
@@ -669,7 +673,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP4Layout.setVerticalGroup(
             Panel_jP4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP4Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(Panel_jP4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Next_jP4)
                     .addComponent(Back_jP4))
@@ -680,7 +684,7 @@ public class appframe extends javax.swing.JFrame {
         jP4_create.setLayout(jP4_createLayout);
         jP4_createLayout.setHorizontalGroup(
             jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP4, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP4, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
             .addGroup(jP4_createLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP4_createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -793,7 +797,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP5Layout.setVerticalGroup(
             Panel_jP5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP5Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(Panel_jP5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Back_jP5)
                     .addComponent(send_button_jP5))
@@ -804,7 +808,7 @@ public class appframe extends javax.swing.JFrame {
         jP5_send.setLayout(jP5_sendLayout);
         jP5_sendLayout.setHorizontalGroup(
             jP5_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP5, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP5, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
             .addGroup(jP5_sendLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP5_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -886,7 +890,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP6Layout.setVerticalGroup(
             Panel_jP6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP6Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(Back_jP6)
                 .addContainerGap())
         );
@@ -895,7 +899,7 @@ public class appframe extends javax.swing.JFrame {
         jP6_settings.setLayout(jP6_settingsLayout);
         jP6_settingsLayout.setHorizontalGroup(
             jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP6, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
             .addGroup(jP6_settingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP6_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -979,7 +983,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP7Layout.setVerticalGroup(
             Panel_jP7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP7Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(Panel_jP7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Back_jP7)
                     .addComponent(add_user_button_jP7))
@@ -990,7 +994,7 @@ public class appframe extends javax.swing.JFrame {
         jP7_add_user.setLayout(jP7_add_userLayout);
         jP7_add_userLayout.setHorizontalGroup(
             jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
             .addGroup(jP7_add_userLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1097,7 +1101,7 @@ public class appframe extends javax.swing.JFrame {
         Panel_jP9Layout.setVerticalGroup(
             Panel_jP9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP9Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(Panel_jP9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Back_jP9)
                     .addComponent(auth_button_jP9))
@@ -1115,7 +1119,7 @@ public class appframe extends javax.swing.JFrame {
         jP8_gdrive.setLayout(jP8_gdriveLayout);
         jP8_gdriveLayout.setHorizontalGroup(
             jP8_gdriveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(Panel_jP9, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
             .addGroup(jP8_gdriveLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP8_gdriveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1246,22 +1250,44 @@ public class appframe extends javax.swing.JFrame {
         catch(IOException e){ }
     }
 
+        
+            
+            
         Runtime rt_arp = Runtime.getRuntime();
-        String[] cmd_arp = { "/bin/bash", "-c", "arp -an | grep 'b8:27:eb'" };
-
+        //String[] cmd_arp = { "/bin/bash", "-c", "arp -an | grep 'b8:27:eb'" };
+        
+        if(System.getProperty("os.name").startsWith("Windows")){
+            cmd_arp[0] = "cmd";
+            cmd_arp[1] = "/c";
+            cmd_arp[2] = "arp -a | findstr \"b8-27-eb\"";
+        } else {
+            cmd_arp[0] = "/bin/bash";
+            cmd_arp[1] = "-c";
+            cmd_arp[2] = "arp -an | grep 'b8:27:eb'";
+        }   
+                
         Process proc_arp = null;
         try {
             proc_arp = rt_arp.exec(cmd_arp);
         } catch (IOException ex) {
             Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         BufferedReader is_arp = new BufferedReader(new InputStreamReader(proc_arp.getInputStream()));
+        
         String line_arp;
         try {
             while ((line_arp = is_arp.readLine()) != null) {
-                String[] parts = line_arp.split(" ");
-                System.out.println("Nazwa urządzenia: " + parts[0] + ", adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
-                rpilist_jP1.addItem("Nazwa urządzenia: " + parts[0] + ", adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
+                if(System.getProperty("os.name").startsWith("Windows")){
+                    String[] parts = line_arp.split(" ");
+                    System.out.println("Adress ip: " + parts[2] + ", adress mac: "+ parts[12]);
+                    rpilist_jP1.addItem("Adress ip: " + parts[2] + ", adress mac: "+ parts[12]);
+                } else {
+                    String[] parts = line_arp.split(" ");
+                    System.out.println("Nazwa urządzenia: " + parts[0] + ", adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
+                    rpilist_jP1.addItem("Nazwa urządzenia: " + parts[0] + ", adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
+                }   
+
             }
               } catch (IOException ex) {
             Logger.getLogger(appframe.class.getName()).log(Level.SEVERE, null, ex);
@@ -1300,14 +1326,25 @@ public class appframe extends javax.swing.JFrame {
 
         String[] test_pth = actualpath.split("-");
         String pth1 = test_pth[0];
-        int index = pth1.lastIndexOf('/');
-        String correct_pth = pth1.substring(0, index);
+        if(System.getProperty("os.name").startsWith("Windows")){
+            index = pth1.lastIndexOf('\\');
+        } else {
+            index = pth1.lastIndexOf('/');
+        }   
         
-        String get_sample = correct_pth + "/" + (String) templates_jP4.getSelectedItem();
-        url = "file://"+get_sample;
-        //String title = "Zażółć gęślą jaźń.";
+        
+        String correct_pth = pth1.substring(0, index);
+        System.out.print("\n"+ correct_pth + "\n");
+        
+        if(System.getProperty("os.name").startsWith("Windows")){
+            get_sample = correct_pth + "\\" +(String) templates_jP4.getSelectedItem();
+            url = "file:///"+get_sample;
+        } else {
+            get_sample = correct_pth + "/" +(String) templates_jP4.getSelectedItem();
+            url = "file://"+get_sample;
+        }   
+        
         String title = title_jP4.getText();
-        //String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum, libero sed dignissim ultrices, ante ligula ultricies dui, blandit vestibulum mi diam sed lorem. Maecenas pellentesque tellus vel feugiat posuere. Vestibulum efficitur id mauris in mattis. Sed et ipsum pharetra, semper urna in, condimentum magna. Sed tellus mi, gravida ut viverra vel, mollis id enim. Cras egestas dolor sapien, a sollicitudin libero iaculis vitae. Praesent volutpat non felis ac iaculis. Vestibulum luctus, quam quis viverra euismod, purus elit fermentum leo, eu vehicula lacus felis in nibh.";
         String text = text_jP4.getText();
         String filepath = jTextField3.getText();
         String resized_location = "system/tmp/";
