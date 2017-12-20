@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class testframe extends javax.swing.JFrame {
-
+    // Zdefiniowanie zmiennych odpowiadających za nazwę użytkownika oraz sieć
     public static String user_name_global = "";
     public static String user_password_global = "";
     
@@ -21,6 +21,8 @@ public class testframe extends javax.swing.JFrame {
     public static String network_password_global = "";
 
     public testframe() {
+        
+        //Stworzenie okna bez nazwy, wyłączenie możliwości zmiany rozmiaru okna, ustawienie go bez przycisków, wywołanie funkcji
         setTitle("");
         setResizable(false);
         setUndecorated(true);
@@ -521,47 +523,57 @@ public class testframe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB1ActionPerformed
+        
+        // Odpowiada za przycisk zmieniający kartę layoutu na panelTwo
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1, "panelTwo");
     }//GEN-LAST:event_jPB1ActionPerformed
 
     private void jPB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB2ActionPerformed
+        
+        // Odpowiada za przycisk zmieniający kartę layoutu na panelThree
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1, "panelThree");
     }//GEN-LAST:event_jPB2ActionPerformed
 
     private void jPB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB4ActionPerformed
+        
+        // Odpowiada za przycisk zmieniający kartę layoutu na panelFour        
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1, "panelFour");
     }//GEN-LAST:event_jPB4ActionPerformed
 
     private void user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_nameActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_user_nameActionPerformed
 
     private void iPB2_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPB2_backActionPerformed
-        // TODO add your handling code here:
+        
+        // Odpowiada za przycisk zmieniający kartę layoutu na panelOne        
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelOne");
     }//GEN-LAST:event_iPB2_backActionPerformed
 
     private void iPB4_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPB4_backActionPerformed
-        // TODO add your handling code here:
+        
+        // Odpowiada za przycisk zmieniający kartę layoutu na panelTwo        
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelTwo");
     }//GEN-LAST:event_iPB4_backActionPerformed
 
     private void iPB3_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPB3_backActionPerformed
-        // TODO add your handling code here:
+        
+        // Odpowiada za przycisk zmieniający kartę layoutu na panelThree        
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelThree");
     }//GEN-LAST:event_iPB3_backActionPerformed
 
     private void jPB2_add_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB2_add_userActionPerformed
-        // TODO add your handling code here:
+        
+        // Pobiera od użytkownika wprowadzone dane nazwy użytkownika oraz hasło
         user_name_global = user_name.getText();
         user_password_global = new String(user_password.getPassword());
-
+        
+        // Wykonanie skryptu służącego do dodania nowego użytkownika z podanej lokalizacji z parametrami user_name_global, user_password_global
         try {
             ProcessBuilder pb = new ProcessBuilder("/home/pi/Serwer_wyswietlania/Pierwsze/scripts/add_user.sh");
             Map<String, String> env = pb.environment();
@@ -576,15 +588,15 @@ public class testframe extends javax.swing.JFrame {
     }//GEN-LAST:event_jPB2_add_userActionPerformed
 
     private void network_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_network_nameActionPerformed
-        // TODO add your handlin    g code here:
     }//GEN-LAST:event_network_nameActionPerformed
 
     private void jPB4_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB4_connectActionPerformed
-        // TODO add your handling code here:
         
+        // Pobranie danych od użytkownika, wybranej sieci oraz wprowadzonego hasła
         network_name_global = (String)network_name.getSelectedItem();
         network_password_global = new String(network_password.getPassword());
         
+        // Wykonanie skryptu z podanej loklacji z parametrami network_name_global, network_password_global
         try {
             ProcessBuilder pb = new ProcessBuilder("/home/pi/Serwer_wyswietlania/Pierwsze/scripts/connect_network_rpi.sh");
             Map<String, String> env = pb.environment();
@@ -596,15 +608,20 @@ public class testframe extends javax.swing.JFrame {
             e.printStackTrace();
         }
         
+        // Odpowiada za przycisk zmieniający kartę layoutu na panelFour        
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1, "panelFour");
     }//GEN-LAST:event_jPB4_connectActionPerformed
 
     private void jPB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPB3ActionPerformed
+            // Tworzy proces runtime służący do wykonania komendy
+        
             Runtime rt_reboot = Runtime.getRuntime();
-
+            
+            // Podanie komendy oraz zdefiniowanie środowiska + parametrów w której ma zostać wykonany
             String[] cmd_reboot = { "/bin/bash", "-c", "reboot now" };
-
+            
+            // Wykonanie procesu
             Process proc_reboot = null;
             try {
                 proc_reboot = rt_reboot.exec(cmd_reboot);
