@@ -1480,7 +1480,7 @@ public class Display_app extends javax.swing.JFrame {
             channel = session.openChannel("sftp");
             channel.connect();
             channelSftp = (ChannelSftp) channel;
-            channelSftp.cd("/home/pi/Pictures");
+            channelSftp.cd("/home/pi/Serwer_wyswietlania/example_pictures");
             File f = new File(file_path_glob);
             channelSftp.put(new FileInputStream(f), f.getName());
         } catch (Exception ex) {
