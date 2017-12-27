@@ -107,7 +107,7 @@ xset s noblank
 xset s off
 xset -dpms
 if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
-  bash /home/pi/Serwer_wyswietlania/DisplayMode.sh &
+  bash /home/pi/Serwer_wyswietlania/check_cloud.sh &
 else
   sudo java -jar /home/pi/Serwer_wyswietlania/Pierwsze/gui_alfa.jar &
 fi` w celu autostartu skryptów zgodnie ze statusem sieci

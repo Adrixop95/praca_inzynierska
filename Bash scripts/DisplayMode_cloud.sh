@@ -2,45 +2,46 @@
 
 #Created by Adrian Rupala 2017
 
-printf "Przygotowania do uruchomienia aplikacji...\n"
-printf "Trwa aktualizowanie oraz instalowanie potrzebnych aplikacji...\n\n"
-#sudo apt-get update
-#sudo apt-get install openjdk-8-jre openjdk-8-jdk wget unzip -y
+#Zabij wszystkie procesy java -jar
 pkill -f 'java -jar'
+#Ustaw główny wyświetlacz na domyślny, wyłącz usypianie
 export DISPLAY=:0
 xset s noblank
 xset s off
 xset -dpms
+#Ustalenie pliku tymczasowego oraz folderu do monitorowania zmiany plików
 FILELIST=/tmp/filelist
 MONITOR_DIR=/mnt/gdrivefs/display_pictures
 
+#przejdź do folderu gdrivefs i jak nie ma folderu to stwórz display_pictures
 cd /mnt/gdrivefs
 mkdir -p display_pictures
 
+#przejdź do folderu display_pictures
 cd /mnt/gdrivefs/display_pictures
-printf "Wykryte pliki w chmurze: \n"
 ls
 
-printf "\nTrwa uruchamianie systemu...\n"
+#przejdź do folderu ~/
 cd ~/
 
+#do pliku tymczasowego służącego do monitorowania przekaż zawartość (nazwy plików) z folderu monitorowanego
 [[ -f ${FILELIST} ]] || ls ${MONITOR_DIR} > ${FILELIST}
 
 while : ; do
+    #Sprawdzaj czy zawartość pliku monitorowanego jest taka sama jak folderu który jest monitorowany
     cur_files=$(ls ${MONITOR_DIR})
     diff <(cat ${FILELIST}) <(echo $cur_files) || \
+         #Jeśli zawartość pliku i folderu jest inna wypisz zamianę plików oraz zabij procesy java -jar
          {
-           echo "\nZnalazlem zmiany!\n\n" ;
            echo $cur_files > ${FILELIST} ;
            pkill -f 'java -jar'
          }
-
+    #Jeśli nie ma aktywnego procesu java przejdź do folderu Serwer_wyswietlania i uruchom proces pokaz_cloud.jar
     if [ ! $(pgrep java) ] ;
     then
-      printf "\nTrwa ladowanie danych aplikacji w celu w celu wyswietlania zdjec...\n"
-      printf "Aby zamknac system nacisnij ctrl+c\n\n"
       cd ~/Serwer_wyswietlania/
       java -jar pokaz_cloud.jar &
+    #Uśpij sprawdzanie na 10 sekund
     fi
     sleep 10
 done
