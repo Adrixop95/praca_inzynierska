@@ -71,14 +71,14 @@ public class first_run extends javax.swing.JFrame {
         iPB3_back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 450));
+        setPreferredSize(new java.awt.Dimension(720, 500));
 
         P1.setBackground(new java.awt.Color(38, 38, 38));
         P1.setPreferredSize(new java.awt.Dimension(610, 294));
         P1.setLayout(new java.awt.CardLayout());
 
         jP1.setBackground(new java.awt.Color(38, 38, 38));
-        jP1.setPreferredSize(new java.awt.Dimension(610, 294));
+        jP1.setPreferredSize(new java.awt.Dimension(600, 294));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 198));
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N

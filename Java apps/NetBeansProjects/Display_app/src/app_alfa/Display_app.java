@@ -155,16 +155,6 @@ public class Display_app extends javax.swing.JFrame {
         google_auth_jP6 = new javax.swing.JButton();
         Panel_jP6 = new javax.swing.JPanel();
         Back_jP6 = new javax.swing.JButton();
-        jP7_add_user = new javax.swing.JPanel();
-        Title_jP7 = new javax.swing.JLabel();
-        Subtitle_jP7 = new javax.swing.JLabel();
-        user_label_jP7 = new javax.swing.JLabel();
-        user_jP7 = new javax.swing.JTextField();
-        password_label_jP7 = new javax.swing.JLabel();
-        password_jP7 = new javax.swing.JPasswordField();
-        Panel_jP7 = new javax.swing.JPanel();
-        Back_jP7 = new javax.swing.JButton();
-        add_user_button_jP7 = new javax.swing.JButton();
         jP8_gdrive = new javax.swing.JPanel();
         Title_jP9 = new javax.swing.JLabel();
         Subtitle_jP9 = new javax.swing.JLabel();
@@ -182,6 +172,7 @@ public class Display_app extends javax.swing.JFrame {
         P1.setLayout(new java.awt.CardLayout());
 
         jP1.setBackground(new java.awt.Color(38, 38, 38));
+        jP1.setPreferredSize(new java.awt.Dimension(640, 357));
 
         Title_jP1.setBackground(new java.awt.Color(204, 204, 198));
         Title_jP1.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
@@ -929,104 +920,6 @@ public class Display_app extends javax.swing.JFrame {
 
         P1.add(jP6_settings, "panelSix");
 
-        jP7_add_user.setBackground(new java.awt.Color(38, 38, 38));
-
-        Title_jP7.setBackground(new java.awt.Color(204, 204, 198));
-        Title_jP7.setFont(new java.awt.Font("SF Pro Display", 0, 32)); // NOI18N
-        Title_jP7.setForeground(new java.awt.Color(204, 204, 198));
-        Title_jP7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title_jP7.setText("Dodaj użytkownika.");
-        Title_jP7.setPreferredSize(new java.awt.Dimension(54, 39));
-
-        Subtitle_jP7.setFont(new java.awt.Font("SF Pro Text", 0, 20)); // NOI18N
-        Subtitle_jP7.setForeground(new java.awt.Color(149, 152, 154));
-        Subtitle_jP7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Subtitle_jP7.setText("Podaj nazwę oraz hasło dla nowego użytkownika.");
-        Subtitle_jP7.setPreferredSize(new java.awt.Dimension(503, 24));
-
-        user_label_jP7.setFont(new java.awt.Font("SF Pro Text", 0, 10)); // NOI18N
-        user_label_jP7.setForeground(new java.awt.Color(149, 152, 154));
-        user_label_jP7.setText("Podaj nazwę użytkownika.");
-
-        password_label_jP7.setFont(new java.awt.Font("SF Pro Text", 0, 10)); // NOI18N
-        password_label_jP7.setForeground(new java.awt.Color(149, 152, 154));
-        password_label_jP7.setText("Podaj hasło.");
-
-        Panel_jP7.setBackground(new java.awt.Color(28, 28, 28));
-        Panel_jP7.setForeground(new java.awt.Color(28, 28, 28));
-        Panel_jP7.setPreferredSize(new java.awt.Dimension(88, 59));
-
-        Back_jP7.setText("Wstecz");
-        Back_jP7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Back_jP7ActionPerformed(evt);
-            }
-        });
-
-        add_user_button_jP7.setText("Dodaj użytkownika");
-        add_user_button_jP7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_user_button_jP7ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Panel_jP7Layout = new javax.swing.GroupLayout(Panel_jP7);
-        Panel_jP7.setLayout(Panel_jP7Layout);
-        Panel_jP7Layout.setHorizontalGroup(
-            Panel_jP7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Back_jP7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(add_user_button_jP7))
-        );
-        Panel_jP7Layout.setVerticalGroup(
-            Panel_jP7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_jP7Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(Panel_jP7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Back_jP7)
-                    .addComponent(add_user_button_jP7))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jP7_add_userLayout = new javax.swing.GroupLayout(jP7_add_user);
-        jP7_add_user.setLayout(jP7_add_userLayout);
-        jP7_add_userLayout.setHorizontalGroup(
-            jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
-            .addGroup(jP7_add_userLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Title_jP7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subtitle_jP7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
-                    .addComponent(user_label_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(user_jP7)
-                    .addComponent(password_label_jP7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(password_jP7))
-                .addContainerGap())
-        );
-        jP7_add_userLayout.setVerticalGroup(
-            jP7_add_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP7_add_userLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Title_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Subtitle_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(user_label_jP7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(user_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(password_label_jP7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(password_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
-                .addComponent(Panel_jP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        P1.add(jP7_add_user, "panelSeven");
-
         jP8_gdrive.setBackground(new java.awt.Color(38, 38, 38));
 
         Title_jP9.setBackground(new java.awt.Color(204, 204, 198));
@@ -1191,7 +1084,7 @@ public class Display_app extends javax.swing.JFrame {
         
         full_get_selected = (String)rpilist_jP1.getSelectedItem();
         String[] parts = full_get_selected.split(" ");
-        ip_addr_glob = parts[5].substring(0,parts[5].length()-1);
+        ip_addr_glob = parts[2].substring(0,parts[2].length()-1);
         System.out.println(ip_addr_glob);
         
         
@@ -1284,8 +1177,8 @@ public class Display_app extends javax.swing.JFrame {
                     rpilist_jP1.addItem("Adress ip: " + parts[2] + ", adress mac: "+ parts[12]);
                 } else {
                     String[] parts = line_arp.split(" ");
-                    System.out.println("Nazwa urządzenia: " + parts[0] + ", adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
-                    rpilist_jP1.addItem("Nazwa urządzenia: " + parts[0] + ", adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
+                    System.out.println("Adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
+                    rpilist_jP1.addItem("Adress ip: " + parts[1].substring(1, parts[1].length()-1) + ", adress mac: "+ parts[3]);
                 }   
 
             }
@@ -1299,7 +1192,6 @@ public class Display_app extends javax.swing.JFrame {
         USER = username_jP2.getText();
         PASS = new String(password_jP2.getPassword());
         
-        System.out.println(USER + " " + PASS);
         CardLayout card = (CardLayout)P1.getLayout();
         card.show(P1,"panelThree");
         
@@ -1619,82 +1511,6 @@ public class Display_app extends javax.swing.JFrame {
         
     }//GEN-LAST:event_off_system_jP6ActionPerformed
 
-    private void Back_jP7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP7ActionPerformed
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)P1.getLayout();
-        card.show(P1,"panelSix");        
-    }//GEN-LAST:event_Back_jP7ActionPerformed
-
-    private void add_user_button_jP7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_user_button_jP7ActionPerformed
-        // TODO add your handling code here:
-        user_name_global = user_jP7.getText();
-        user_password_global = new String(password_jP7.getPassword());
-
-        komenda = "pkill -f 'SCREEN -dm bash -c' && /home/pi/add_user.sh'" + user_name_global + user_password_global;
-        
-        try
-        {
-            JSch jsch = new JSch();
-
-            Session session = jsch.getSession(USER, host, port);
-            session.setConfig("StrictHostKeyChecking", "no");
-            session.setPassword(PASS);
-            session.connect();
-
-            String command = komenda;
-            Channel channel = session.openChannel("exec");
-            ((ChannelExec) channel).setCommand(command);
-
-            channel.setInputStream(null);
-
-            ((ChannelExec) channel).setErrStream(System.err);
-
-            InputStream in = channel.getInputStream();
-
-            channel.connect();
-            StringBuilder sb = new StringBuilder();
-            byte[] tmp = new byte[1024];
-            while (true)
-            {
-                while (in.available() > 0)
-                {
-                    int i = in.read(tmp, 0, 1024);
-                    if (i < 0)
-                        break;
-                    sb.append(new String(tmp, 0, i));
-                }
-                if (channel.isClosed())
-                {
-                    if (in.available() > 0)
-                        continue;
-                    //System.out.println("exit-status: "
-                    //        + channel.getExitStatus());
-                    break;
-                }
-                try
-                {
-                    Thread.sleep(500);
-                }
-                catch (Exception ee)
-                {
-                }
-            }
-            //disconnecting and closing
-            channel.disconnect();
-
-            session.disconnect();
-            System.out.println("System został wyłączony poprawnie.");
-            System.out.println(sb.toString());
-        }
-        catch (Exception e)
-        {
-             //something should be done here
-            e.printStackTrace();
-
-        }       
-
-    }//GEN-LAST:event_add_user_button_jP7ActionPerformed
-
     private void Back_jP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_jP9ActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)P1.getLayout();
@@ -1993,7 +1809,6 @@ public class Display_app extends javax.swing.JFrame {
     private javax.swing.JButton Back_jP4;
     private javax.swing.JButton Back_jP5;
     private javax.swing.JButton Back_jP6;
-    private javax.swing.JButton Back_jP7;
     private javax.swing.JButton Back_jP8;
     private javax.swing.JButton Back_jP9;
     private javax.swing.JButton Next_jP1;
@@ -2006,7 +1821,6 @@ public class Display_app extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_jP4;
     private javax.swing.JPanel Panel_jP5;
     private javax.swing.JPanel Panel_jP6;
-    private javax.swing.JPanel Panel_jP7;
     private javax.swing.JPanel Panel_jP8;
     private javax.swing.JPanel Panel_jP9;
     private javax.swing.JButton Refresh_jP1;
@@ -2018,7 +1832,6 @@ public class Display_app extends javax.swing.JFrame {
     private javax.swing.JLabel Subtitle_jP4;
     private javax.swing.JLabel Subtitle_jP5;
     private javax.swing.JLabel Subtitle_jP6;
-    private javax.swing.JLabel Subtitle_jP7;
     private javax.swing.JLabel Subtitle_jP9;
     private javax.swing.JLabel Title2_jp4;
     private javax.swing.JLabel Title3_jp4;
@@ -2031,10 +1844,8 @@ public class Display_app extends javax.swing.JFrame {
     private javax.swing.JLabel Title_jP4;
     private javax.swing.JLabel Title_jP5;
     private javax.swing.JLabel Title_jP6;
-    private javax.swing.JLabel Title_jP7;
     private javax.swing.JLabel Title_jP8;
     private javax.swing.JLabel Title_jP9;
-    private javax.swing.JButton add_user_button_jP7;
     private javax.swing.JButton auth_button_jP9;
     private javax.swing.JButton create_jP4;
     private javax.swing.JTextField file_path_jP5;
@@ -2053,14 +1864,11 @@ public class Display_app extends javax.swing.JFrame {
     private javax.swing.JPanel jP4_create;
     private javax.swing.JPanel jP5_send;
     private javax.swing.JPanel jP6_settings;
-    private javax.swing.JPanel jP7_add_user;
     private javax.swing.JPanel jP8_gdrive;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JButton local_storage_jP3;
     private javax.swing.JButton off_system_jP6;
     private javax.swing.JPasswordField password_jP2;
-    private javax.swing.JPasswordField password_jP7;
-    private javax.swing.JLabel password_label_jP7;
     private javax.swing.JLabel password_title_jP2;
     private javax.swing.JButton restart_device_jP6;
     private javax.swing.JComboBox<String> rpilist_jP1;
@@ -2070,8 +1878,6 @@ public class Display_app extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> templates_jP4;
     private javax.swing.JTextField text_jP4;
     private javax.swing.JTextField title_jP4;
-    private javax.swing.JTextField user_jP7;
-    private javax.swing.JLabel user_label_jP7;
     private javax.swing.JTextField username_jP2;
     private javax.swing.JLabel username_title_jP2;
     private javax.swing.JButton website_button_jP9;

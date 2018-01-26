@@ -4,7 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[700, 450]"/>
+      <Dimension value="[720, 500]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -60,7 +60,7 @@
               <Color blue="26" green="26" red="26" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[610, 294]"/>
+              <Dimension value="[600, 294]"/>
             </Property>
           </Properties>
           <Constraints>

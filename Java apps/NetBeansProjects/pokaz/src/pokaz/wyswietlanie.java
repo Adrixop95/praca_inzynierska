@@ -88,7 +88,7 @@ public class wyswietlanie extends JFrame{
     // Wykrywanie na jakim systemie pracuje uruchomiona aplikacja, definiowanie lokalizacji plików do wyświetlania 
     if(System.getProperty("os.name").startsWith("Linux")){
         System.out.println("Wykryty system operacyjny to GNU/Linux.");
-        path_to_files = "/mnt/gdrivefs/display_pictures";
+        path_to_files = "/home/pi/Serwer_wyswietlania/example_pictures";
     } else {
         System.out.println("Nie wykryto systemu operacyjnego, podaj sciezke recznie: ");
         Scanner diff_path = new Scanner(System.in);
