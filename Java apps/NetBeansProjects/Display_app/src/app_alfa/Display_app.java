@@ -1152,11 +1152,11 @@ public class Display_app extends javax.swing.JFrame {
         if(System.getProperty("os.name").startsWith("Windows")){
             cmd_arp[0] = "cmd";
             cmd_arp[1] = "/c";
-            cmd_arp[2] = "arp -a | findstr \"b8-27-eb\"";
+            cmd_arp[2] = "arp -a | findstr \"b8-27-eb f4-f2-6d\"";
         } else {
             cmd_arp[0] = "/bin/bash";
             cmd_arp[1] = "-c";
-            cmd_arp[2] = "arp -an | grep 'b8:27:eb'";
+            cmd_arp[2] = "arp -an | grep 'f4:f2:6d\\|b8:27:eb'";
         }   
                 
         Process proc_arp = null;
