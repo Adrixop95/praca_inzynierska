@@ -24,8 +24,8 @@ Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym fold
 + Z zakładki "[Release](https://github.com/Adrixop95/praca_inzynierska/releases)" należy pobrać najnowszą wersję obrazu. Następnie należy podpiąć kartę pamięci o rozmiarze 8GB+ do komputera i za pomocą aplikacji [Etcher](https://etcher.io) odtworzyć obraz na karcie pamięci. Obraz ten zawiera wszystkie potrzebne biblioteki oraz aplikacje wraz ze skompilowaną wersją najnowszych dostepnych aplikacji służących do wyświetlania obrazu oraz kreatora uruchomienia. System po odtworzeniu oraz pierwszym podłączeniu automatycznie rozszerzy swój rozmiar na całą dostępną powierzchnię karty pamięci a następnie zrestartuje się. Po tej procedurze będzie gotowy do pracy.
 
 Domyślne konto użytkownika:
-nazwa użytkownika: pi
-hasło: qaz123wsx
+>nazwa użytkownika: pi </br>
+>hasło: qaz123wsx
 
 + Następnie z tej samej zakładki [Release](https://github.com/Adrixop95/praca_inzynierska/releases) należy pobrać najnowszą dostępną paczkę "Release" zawierającą aplikację desktopową służącą do sterowania całością systemu. Wymagana ona do działania zainstalowanych na kompuerze bibliotek [Java SE Runtime Environment 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html). Po rozpakowaniu paczki należy uruchomić aplikację "Display_app.jar" a następnie postępować za intrukcjami pojawiającymi się na ekranie.
 
