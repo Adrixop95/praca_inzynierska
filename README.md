@@ -10,6 +10,8 @@ Promotor:
 System wyświetlania obrazu w oparciu o mikrokomputer Raspberry Pi.
 Oprogramowanie łączy się z kontem Google, synchronizuje pliki z wybranym folderem i z niego wyświetla obrazy.
 
+[Nagranie](https://youtu.be/ydiRBeQj2tc) prezentujące pracę systemu.
+
 ### Wymagania sprzętowe
 + Raspberry Pi B+/2/3/Zero/Zero W
 + Karta pamięci min.  8GB (zalecane 16GB)
